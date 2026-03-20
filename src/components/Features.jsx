@@ -1,0 +1,101 @@
+import { useState, useEffect } from 'react';
+import Reveal from './Reveal';
+import SectionHeader from './common/SectionHeader';
+import { client, urlFor } from '../lib/sanity';
+import { features as staticFeatures } from '../data/content';
+import { useSiteSettings } from '../hooks/useSiteSettings';
+
+const Features = () => {
+  const [data, setData] = useState([]);
+  const copy = useSiteSettings();
+  const featuresCopy = copy.features;
+
+  useEffect(() => {
+    const fetchFeatures = async () => {
+      try {
+        const query = '*[_type == "feature"] | order(order asc)';
+        const result = await client.fetch(query);
+        if (result && result.length > 0) {
+          setData(result);
+        } else {
+          setData(staticFeatures);
+        }
+      } catch (error) {
+        console.error('Sanity fetch error:', error);
+        setData(staticFeatures);
+      }
+    };
+
+    fetchFeatures();
+  }, []);
+
+  return (
+    <section id="features">
+      <div className="container">
+        <SectionHeader 
+          title={featuresCopy.title.split('\n').map((line, i) => (
+            <span key={i}>
+              {line}
+              {i < featuresCopy.title.split('\n').length - 1 && <br />}
+            </span>
+          ))}
+          subtitle={featuresCopy.subtitle}
+          centered={false}
+          className="bento-header"
+        />
+
+        <div className="bento-grid">
+          {data.map((feature, i) => {
+            const isCustom = feature.customLayout === "stack" || feature.customLayout === "location-stack";
+            
+            // Get Image URLs
+            const mainImg = feature.mainImage ? urlFor(feature.mainImage).url() : feature.img;
+            const midImg = feature.imgMid ? (typeof feature.imgMid === 'string' ? feature.imgMid : urlFor(feature.imgMid).url()) : null;
+            const backImg = feature.imgBack ? (typeof feature.imgBack === 'string' ? feature.imgBack : urlFor(feature.imgBack).url()) : null;
+
+            const imageCount = [mainImg, midImg, backImg].filter(Boolean).length;
+
+            return (
+              <Reveal 
+                key={feature._id || i} 
+                className={`bento-card ${isCustom ? "custom-bento" : ""} ${feature.customLayout || ""} has-${imageCount}-images ${feature.gridSpan || ''}`}
+              >
+                {isCustom ? (
+                  <div className="bento-stack">
+                    {backImg && (
+                      <div
+                        className="bento-card-bg back"
+                        style={{ backgroundImage: `url(${backImg})` }}
+                      ></div>
+                    )}
+                    {midImg && (
+                      <div
+                        className="bento-card-bg mid"
+                        style={{ backgroundImage: `url(${midImg})` }}
+                      ></div>
+                    )}
+                    <div
+                      className="bento-card-bg front"
+                      style={{ backgroundImage: `url(${mainImg})` }}
+                    ></div>
+                  </div>
+                ) : (
+                  <div
+                    className="bento-card-bg"
+                    style={{ backgroundImage: `url(${mainImg})` }}
+                  ></div>
+                )}
+                <div className="bento-info">
+                  <h3>{copy.localize(feature.title)}</h3>
+                  <p>{copy.localize(feature.desc)}</p>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Features;

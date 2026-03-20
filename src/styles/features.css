@@ -1,0 +1,373 @@
+/* Bento Grid / Features */
+.bento-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.bento-header p {
+  max-width: 420px;
+  text-align: left;
+  margin: 0;
+  font-size: 16px;
+  color: var(--grey-text);
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+  .bento-header {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+
+  .bento-header p {
+    text-align: left;
+  }
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 16px;
+}
+
+.bento-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid rgba(61, 0, 0, 0.04);
+  position: relative;
+  min-height: 460px;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.custom-bento {
+  background: #fffafa !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-height: 460px !important;
+}
+
+.bento-stack {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  z-index: 2;
+  transform: translateY(15px);
+}
+
+.custom-bento .bento-card-bg {
+  position: absolute !important;
+  width: 365px !important;
+  height: 250px !important;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  z-index: 2;
+}
+
+.custom-bento .back {
+  transform: rotate(-8deg) translateX(-75px) translateY(-5px) !important;
+  z-index: 2;
+  transform-origin: top left !important;
+}
+
+.custom-bento .mid {
+  transform: rotate(-1deg) translateX(0px) translateY(0px) !important;
+  z-index: 3;
+  transform-origin: top right !important;
+}
+
+.custom-bento .front {
+  transform: rotate(6deg) translateX(75px) translateY(10px) !important;
+  z-index: 4;
+  transform-origin: top right !important;
+}
+
+.custom-bento:hover .back {
+  transform: rotate(-9deg) translateX(-80px) translateY(-6px) !important;
+}
+
+.custom-bento:hover .mid {
+  transform: rotate(-2deg) translateX(-1px) translateY(-1px) !important;
+}
+
+.custom-bento:hover .front {
+  transform: rotate(7deg) translateX(80px) translateY(10.5px) !important;
+}
+
+/* 2 Resim Varsa Özel Hover */
+.has-2-images.custom-bento .back {
+  transform: rotate(-5deg) translateX(-40px) translateY(0px) !important;
+}
+.has-2-images.custom-bento .front {
+  transform: rotate(5deg) translateX(40px) translateY(5px) !important;
+}
+.has-2-images.custom-bento:hover .back {
+  transform: rotate(-7deg) translateX(-45px) translateY(-2px) !important;
+}
+.has-2-images.custom-bento:hover .front {
+  transform: rotate(7deg) translateX(45px) translateY(7px) !important;
+}
+
+.location-stack .bento-stack {
+  height: 225px;
+}
+
+.location-stack .bento-card-bg {
+  width: 200px !important;
+  height: 225px !important;
+}
+
+.location-stack .back {
+  transform: rotate(-6deg) translateX(-145px) translateY(-8px) !important;
+  z-index: 2;
+  transform-origin: top left !important;
+}
+
+.location-stack .mid {
+  transform: rotate(2deg) translateX(0px) translateY(0px) !important;
+  z-index: 3;
+  transform-origin: top right !important;
+}
+
+.location-stack .front {
+  transform: rotate(6deg) translateX(145px) translateY(8px) !important;
+  z-index: 4;
+  transform-origin: top right !important;
+}
+
+.custom-bento .bento-info {
+  padding: 0 32px 32px !important;
+  position: relative;
+  z-index: 5;
+}
+
+.bento-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 2;
+}
+
+.bento-card:not(.custom-bento):hover .bento-card-bg {
+  transform: scale(1.05) rotate(-0.5deg);
+}
+
+.contained .bento-card-bg {
+  inset: 24px !important;
+  width: calc(100% - 48px) !important;
+  height: auto !important;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  top: 24px !important;
+  bottom: 150px !important;
+  left: 24px !important;
+  right: 24px !important;
+}
+
+.contained:hover .bento-card-bg {
+  transform: scale(1.01) translateY(-2px) !important;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 110%,
+      rgba(255, 224, 224, 1) 0%,
+      rgba(255, 224, 224, 0) 70%);
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.bento-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(255, 224, 224, 0.6) 0%,
+      rgba(255, 224, 224, 0.3) 15%,
+      rgba(255, 224, 224, 0) 25%);
+  z-index: 1;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+.bento-card:hover::after {
+  opacity: 0.8;
+}
+
+.bento-info {
+  padding: 32px;
+  position: relative;
+  z-index: 5;
+  text-align: left;
+}
+
+.bento-info h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.bento-info p {
+  font-size: 16px;
+  color: var(--grey-text);
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.bento-grid .bento-card:nth-child(1) {
+  grid-column: span 5;
+}
+
+.bento-grid .bento-card:nth-child(2) {
+  grid-column: span 5;
+}
+
+.bento-grid .bento-card:nth-child(3) {
+  grid-column: span 4;
+}
+
+.bento-grid .bento-card:nth-child(4) {
+  grid-column: span 6;
+}
+
+.bento-grid .bento-card:nth-child(5) {
+  grid-column: span 5;
+}
+
+.bento-grid .bento-card:nth-child(6) {
+  grid-column: span 5;
+}
+
+/* Dynamic Sanity Spans */
+.bento-card.span-4 { grid-column: span 4 !important; }
+.bento-card.span-5 { grid-column: span 5 !important; }
+.bento-card.span-6 { grid-column: span 6 !important; }
+.bento-card.span-10 { grid-column: span 10 !important; }
+
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-grid .bento-card,
+  .bento-grid .bento-card.span-4,
+  .bento-grid .bento-card.span-5,
+  .bento-grid .bento-card.span-6,
+  .bento-grid .bento-card.span-10 {
+    grid-column: span 2 !important;
+    min-height: 400px;
+  }
+
+  .contained .bento-card-bg {
+    height: 220px !important;
+    bottom: auto !important;
+  }
+
+  .bento-info {
+    padding: 24px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-grid .bento-card,
+  .bento-grid .bento-card.span-4,
+  .bento-grid .bento-card.span-5,
+  .bento-grid .bento-card.span-6,
+  .bento-grid .bento-card.span-10 {
+    grid-column: span 1 !important;
+  }
+
+  /* Normal 3'lü yatay (landscape) görseller için (- desktop 365x250) */
+  .custom-bento:not(.location-stack) .bento-card-bg {
+    width: 240px !important;
+    height: 165px !important;
+  }
+
+  /* Konum/Dikey 3'lü görseller için (- desktop 200x225) - Mobilde orantılı küçülme */
+  .location-stack .bento-card-bg {
+    width: 140px !important;
+    height: 160px !important;
+  }
+
+  /* Yatay (Normal) Stack Yayılma Mesafeleri */
+  .custom-bento:not(.location-stack) .back {
+    transform: rotate(-8deg) translateX(-50px) translateY(-3px) !important;
+  }
+  .custom-bento:not(.location-stack) .front {
+    transform: rotate(6deg) translateX(50px) translateY(6px) !important;
+  }
+
+  .custom-bento:not(.location-stack):hover .back {
+    transform: rotate(-9deg) translateX(-55px) translateY(-4px) !important;
+  }
+  .custom-bento:not(.location-stack):hover .front {
+    transform: rotate(7deg) translateX(55px) translateY(8px) !important;
+  }
+
+  /* Dikey (Location) Stack Yayılma Mesafeleri */
+  .location-stack .back {
+    transform: rotate(-6deg) translateX(-90px) translateY(-5px) !important;
+  }
+  .location-stack .front {
+    transform: rotate(6deg) translateX(90px) translateY(5px) !important;
+  }
+  .location-stack:hover .back {
+    transform: rotate(-6deg) translateX(-95px) translateY(-5px) !important;
+  }
+  .location-stack:hover .front {
+    transform: rotate(6deg) translateX(95px) translateY(5px) !important;
+  }
+
+  /* 2 Resim Varsa Özel Hover - Mobilde */
+  .has-2-images.custom-bento .back {
+    transform: rotate(-5deg) translateX(-25px) translateY(0px) !important;
+  }
+  .has-2-images.custom-bento .front {
+    transform: rotate(5deg) translateX(25px) translateY(3px) !important;
+  }
+  .has-2-images.custom-bento:hover .back {
+    transform: rotate(-7deg) translateX(-30px) translateY(-1px) !important;
+  }
+  .has-2-images.custom-bento:hover .front {
+    transform: rotate(7deg) translateX(30px) translateY(4px) !important;
+  }
+}

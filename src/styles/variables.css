@@ -1,0 +1,25 @@
+:root {
+  /* Color Palette - Exactly from Bloom Template */
+  --bg-primary: #FFE1E1;
+  /* Soft Bloom Pink */
+  --text-primary: rgb(61, 0, 0);
+  --accent-soft: #FDECEC;
+  --card-bg: rgb(253, 253, 253);
+  --card-pink: #FEE7E7;
+  --btn-bg: rgb(61, 0, 0);
+  --btn-text: #FFFFFF;
+  --grey-text: rgb(125, 97, 97);
+  --border-light: rgba(61, 0, 0, 0.05);
+
+  /* Typography */
+  --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Borders */
+  --radius-xxl: 60px;
+  --radius-xl: 40px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}

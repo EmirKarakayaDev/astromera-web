@@ -1,0 +1,204 @@
+/* Journal Section */
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.journal-featured {
+  grid-column: span 3;
+  padding: 0;
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+  transition: all 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.journal-featured-link {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.journal-featured::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(255, 224, 224, 0.3) 0%,
+      rgba(255, 224, 224, 0.1) 30%,
+      rgba(255, 224, 224, 0) 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.journal-featured-img-wrapper {
+  height: 500px;
+  border-radius: 24px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.journal-img-placeholder {
+  background: #FDF4F4;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.journal-featured:hover .journal-img-placeholder {
+  transform: scale(1.04);
+}
+
+.journal-featured-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 60px;
+  height: 500px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.badge-pink {
+  background: rgba(255, 225, 225, 0.4);
+  color: var(--text-primary);
+  margin-bottom: 0px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  letter-spacing: 0.52px;
+  width: fit-content;
+}
+
+.journal-card {
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 1s cubic-bezier(0.25, 1, 0.25, 1);
+  cursor: pointer;
+}
+
+.journal-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(255, 224, 224, 0.3) 0%,
+      rgba(255, 224, 224, 0.1) 30%,
+      rgba(255, 224, 224, 0) 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.journal-card-img-wrapper {
+  height: 300px;
+  border-radius: 24px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.journal-card .img {
+  width: 100%;
+  height: 100%;
+  background: #FDF4F4;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.journal-card:hover .img {
+  transform: scale(1.04);
+}
+
+.journal-card .content {
+  padding: 24px 24px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.journal-card-title {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.journal-featured-title {
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.journal-btn-wrapper {
+  margin-top: 60px;
+}
+
+.journal-featured-btn {
+  display: inline-block;
+  padding: 10px 26px;
+  background: var(--btn-bg);
+  color: white;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  border: 2px solid var(--btn-bg);
+  cursor: pointer;
+}
+
+.journal-featured-btn:hover {
+  background: transparent;
+  color: var(--btn-bg);
+}
+
+@media (max-width: 900px) {
+  .journal-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .journal-featured-link {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .journal-featured-img-wrapper {
+    width: 100% !important;
+    height: 300px !important;
+    border-radius: 24px !important;
+  }
+
+  .journal-featured-content {
+    padding: 32px 24px !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .journal-btn-wrapper {
+    margin-top: 24px !important;
+  }
+
+  .journal-featured-title {
+    font-size: 2.6rem !important;
+  }
+}

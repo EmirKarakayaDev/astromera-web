@@ -1,0 +1,139 @@
+/* Hero Section */
+.hero {
+  background: transparent;
+  /* Remove direct bg */
+  padding-top: 140px;
+  padding-bottom: 0px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+  /* Allow content to hang out of the bg */
+}
+
+/* New shorter pink background */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 98%;
+  /* Almost full length (was 96%) */
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFE1E1 100%);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  z-index: -1;
+  /* Behind content */
+}
+
+.hero .container {
+  max-width: none;
+  padding: 0 40px;
+}
+
+.hero-phone-container {
+  margin-top: 50px;
+  height: auto;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-phone-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: 190px;
+  /* Tiny final shift RIGHT */
+  transform: translateY(6px) scale(0.96);
+  /* Tiny final shift DOWN */
+  transform-origin: top center;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    overflow: visible !important;
+    padding-bottom: 25px !important;
+    /* Compact sweet spot */
+  }
+
+  .hero-phone-container {
+    height: auto;
+    min-height: 320px;
+    margin-top: 40px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-phone-image-wrapper {
+    margin-left: 153px;
+    max-width: 550px;
+    transform: translateY(0px) scale(1.08);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 100px !important;
+    padding-bottom: 25px !important;
+    /* Match tablet length */
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    overflow: hidden !important;
+    padding-bottom: 0px !important;
+    /* Görselin tam tabana yapışması için */
+    border-bottom-left-radius: 40px;
+    /* Taşan kısımları köşeye göre kesmek için */
+    border-bottom-right-radius: 40px;
+  }
+
+  .hero::before {
+    height: 100% !important;
+  }
+
+  .hero .container {
+    padding: 0 20px !important;
+  }
+
+  .hero-phone-container {
+    height: auto;
+    min-height: 320px;
+    margin-top: 20px;
+    margin-bottom: -180px;
+    /* Croplanmayı artırmak için kaplayıcıyı daha da daralttık (-120px) */
+    display: flex;
+    justify-content: flex-end;
+    /* Sağ tarafa hizalama */
+    align-items: flex-end;
+    /* Alt tarafa hizalama */
+    overflow: visible;
+  }
+
+  .hero-phone-image-wrapper {
+    margin-left: 0;
+    margin-right: -240px;
+    width: 175% !important;
+    max-width: none !important;
+    flex-shrink: 0;
+    transform: translateY(40px);
+    /* Görseli biraz aşağı (-40px) kaydırdık */
+    transform-origin: bottom right;
+  }
+}
+
+.hero-phone-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
