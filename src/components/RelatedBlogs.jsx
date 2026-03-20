@@ -36,7 +36,7 @@ const RelatedBlogs = ({ currentId }) => {
 
   return (
     <section className="related-blogs">
-      <div className="container" style={{ marginTop: '80px' }}>
+      <div className="container">
         <Reveal>
           <h3 className="h2-section" style={{ marginBottom: '40px' }}>Related Articles</h3>
         </Reveal>

@@ -95,8 +95,8 @@
 @media (max-width: 600px) {
   .hero {
     overflow: hidden !important;
-    padding-bottom: 60px !important;
-    /* Pembe alanı daha da uzatmak için */
+    padding-bottom: 0px !important;
+    /* Uzatmayı iptal ettik */
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
   }
@@ -113,8 +113,8 @@
     height: auto;
     min-height: 320px;
     margin-top: 20px;
-    margin-bottom: 0px;
-    /* Negatif margin tamamen kaldırıldı → pembe alan maksimum uzunluğa çıktı */
+    margin-bottom: -10px;
+    /* Alttan çekme miktarını azalttık → pembe alan tekrar uzadı */
     display: flex;
     justify-content: center;
     align-items: flex-end;

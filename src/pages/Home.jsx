@@ -7,7 +7,7 @@ import HowItWorks from '../components/HowItWorks';
 import Journal from '../components/Journal';
 import Faq from '../components/Faq';
 import GetStarted from '../components/GetStarted';
-import fallbackHeroImage from '../assets/Asset 1.svg';
+import fallbackHeroImage from '../assets/Asset-1.svg';
 import usePageMeta from '../hooks/usePageMeta';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 

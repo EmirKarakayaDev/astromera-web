@@ -55,10 +55,12 @@ const Testimonials = () => {
 
           <Reveal className="testimonials-slider">
             <Swiper
+              key={data.length} // Veri geldiğinde slider'ı sıfırdan başlat
               modules={[Navigation, Pagination]}
               onSwiper={setSwiper}
               onSlideChange={(s) => setRealIndex(s.realIndex)}
               loop={data.length > 2}
+              initialSlide={0} // İlk slayttan başla
               centeredSlides={true}
               spaceBetween={16}
               slidesPerView={'auto'}
