@@ -26,7 +26,7 @@ const Footer = ({ delay = 0.5 }) => {
           <span className="scrolling-logo">{siteName}</span>
         </Reveal>
 
-        <Reveal className="footer-main" delay={delay + 0.1}>
+        <Reveal className="footer-main" delay={delay + 0.05}>
           <div className="footer-left">
             <p className="footer-intro-text">
               {intro.split(',').map((line, i) => (
@@ -98,7 +98,7 @@ const Footer = ({ delay = 0.5 }) => {
           </div>
         </Reveal>
 
-        <Reveal className="footer-bottom" delay={delay + 0.2}>
+        <Reveal className="footer-bottom" delay={delay + 0.1}>
           <p>{copyright}</p>
           <div className="footer-legal">
             {legalItems.map(item => (
