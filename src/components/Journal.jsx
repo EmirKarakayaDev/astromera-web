@@ -84,8 +84,8 @@ const Journal = () => {
           ))}
         </div>
 
-        <div className="text-center journal-btn-wrapper">
-          <Button to={`/${copy.language}/blog`}>{journalCopy.viewAll}</Button>
+        <div className="text-center journal-btn-wrapper" style={{ marginTop: '40px' }}>
+          <Button to="/blog">{journalCopy.viewAll}</Button>
         </div>
       </div>
     </section>

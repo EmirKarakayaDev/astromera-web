@@ -173,10 +173,9 @@
   padding: 0 16px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .slider-nav {
-    padding: 0 10px;
-    transform: translateY(-50%);
+    display: none !important;
   }
 }
 

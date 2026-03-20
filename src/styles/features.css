@@ -105,15 +105,15 @@
 }
 
 .custom-bento:hover .back {
-  transform: rotate(-8.5deg) translateX(-77px) translateY(-5.5px) !important;
+  transform: rotate(-10deg) translateX(-100px) translateY(-10px) !important;
 }
 
 .custom-bento:hover .mid {
-  transform: rotate(-1.5deg) translateX(-1px) translateY(-1px) !important;
+  transform: rotate(-2deg) translateX(0px) translateY(-6px) !important;
 }
 
 .custom-bento:hover .front {
-  transform: rotate(6.5deg) translateX(77px) translateY(10.5px) !important;
+  transform: rotate(8deg) translateX(100px) translateY(15px) !important;
 }
 
 /* 2 Resim Varsa Özel Hover */
@@ -124,10 +124,10 @@
   transform: rotate(5deg) translateX(40px) translateY(5px) !important;
 }
 .has-2-images.custom-bento:hover .back {
-  transform: rotate(-5.5deg) translateX(-42px) translateY(-1px) !important;
+  transform: rotate(-7deg) translateX(-60px) translateY(-3px) !important;
 }
 .has-2-images.custom-bento:hover .front {
-  transform: rotate(5.5deg) translateX(42px) translateY(6px) !important;
+  transform: rotate(7deg) translateX(60px) translateY(8px) !important;
 }
 
 .location-stack .bento-stack {
@@ -142,19 +142,19 @@
 .location-stack .back {
   transform: rotate(-6deg) translateX(-145px) translateY(-8px) !important;
   z-index: 2;
-  transform-origin: top left !important;
+  transform-origin: center !important;
 }
 
 .location-stack .mid {
   transform: rotate(2deg) translateX(0px) translateY(0px) !important;
   z-index: 3;
-  transform-origin: top right !important;
+  transform-origin: center !important;
 }
 
 .location-stack .front {
   transform: rotate(6deg) translateX(145px) translateY(8px) !important;
   z-index: 4;
-  transform-origin: top right !important;
+  transform-origin: center !important;
 }
 
 .custom-bento .bento-info {
@@ -168,7 +168,7 @@
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 2;
 }
 
