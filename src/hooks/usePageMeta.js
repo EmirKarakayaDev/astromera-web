@@ -9,8 +9,9 @@ import { useEffect } from 'react';
  */
 const usePageMeta = (title, description) => {
   useEffect(() => {
-    const BASE = 'Bloom';
-    document.title = title ? `${title} — ${BASE}` : `${BASE} — Silence the noise, Find Your Peace`;
+    const BASE = 'AstroMera';
+    const SLOGAN = 'Kişisel Gökyüzü Rehberiniz';
+    document.title = title ? `${title} — ${BASE}` : `${BASE} — ${SLOGAN}`;
 
     // Meta description
     if (description) {
@@ -30,7 +31,7 @@ const usePageMeta = (title, description) => {
       ogTitle.setAttribute('property', 'og:title');
       document.head.appendChild(ogTitle);
     }
-    ogTitle.setAttribute('content', title ? `${title} — Bloom` : 'Bloom — Silence the noise, Find Your Peace');
+    ogTitle.setAttribute('content', title ? `${title} — ${BASE}` : `${BASE} — ${SLOGAN}`);
 
     // OG description
     if (description) {
@@ -45,7 +46,7 @@ const usePageMeta = (title, description) => {
 
     // Cleanup: sayfadan ayrılınca varsayılana dön
     return () => {
-      document.title = 'Bloom — Silence the noise, Find Your Peace';
+      document.title = `${BASE} — ${SLOGAN}`;
     };
   }, [title, description]);
 };
