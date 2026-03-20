@@ -7,7 +7,7 @@ import { useSiteSettings } from '../hooks/useSiteSettings';
 
 const RelatedBlogs = ({ currentId }) => {
   const [blogs, setBlogs] = useState([]);
-  const { language, localize } = useSiteSettings();
+  const { language, localize, journal } = useSiteSettings();
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -37,8 +37,11 @@ const RelatedBlogs = ({ currentId }) => {
   return (
     <section className="related-blogs">
       <div className="container">
-        <Reveal>
-          <h3 className="h2-section" style={{ marginBottom: '40px' }}>Related Articles</h3>
+        <Reveal className="text-center" style={{ marginBottom: '60px' }}>
+          <div className="blog-section-header">
+            <h2 className="journal-related-title">{journal.relatedArticles}</h2>
+            <p className="journal-related-desc">{journal.relatedSubtitle}</p>
+          </div>
         </Reveal>
         <div className="blog-grid">
           {otherBlogs.map((article, i) => {

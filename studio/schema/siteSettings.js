@@ -122,6 +122,20 @@ export default defineType({
       type: 'localeString',
       group: 'journal',
     }),
+    defineField({
+      name: 'blogRelatedArticles',
+      title: 'İlgili Yazılar Başlığı',
+      type: 'localeString',
+      group: 'journal',
+      initialValue: { tr: 'İlgili Yazılar', en: 'Related Articles' }
+    }),
+    defineField({
+      name: 'blogRelatedSubtitle',
+      title: 'İlgili Yazılar Alt Metni',
+      type: 'localeText',
+      group: 'journal',
+      initialValue: { tr: 'En güncel yazılarımızı keşfedin.', en: 'Discover more from our latest posts.' }
+    }),
 
     // Pricing Section
     defineField({

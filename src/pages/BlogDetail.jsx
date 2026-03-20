@@ -12,7 +12,7 @@ const BlogDetail = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { localize, language } = useSiteSettings();
+  const { localize, language, journal } = useSiteSettings();
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -54,22 +54,33 @@ const BlogDetail = () => {
       <div className="blog-detail-page">
         <div className="container">
           <h2>Article not found</h2>
-          <Link to={`/${language}/blog`} className="blog-detail-back">← Back to Blog</Link>
         </div>
       </div>
     );
   }
+
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    try {
+      const date = new Date(dateString);
+      return new Intl.DateTimeFormat(language === 'tr' ? 'tr-TR' : 'en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).format(date);
+    } catch (e) {
+      return dateString;
+    }
+  };
 
   const imageUrl = article.mainImage ? urlFor(article.mainImage).url() : article.img;
   const currentId = article._id || article.id;
 
   return (
     <>
-    <div className="blog-detail-page">
+    <div className="blog-detail-page" key={id}>
       <div className="container" style={{ maxWidth: '1000px' }}>
         <Reveal>
-          <Link to={`/${language}/blog`} className="blog-detail-back">← All Articles</Link>
-          
           <div className="blog-detail-img-wrapper">
             <div 
               className="blog-detail-img" 
@@ -80,10 +91,8 @@ const BlogDetail = () => {
           <div className="blog-detail-container">
             <div className="blog-detail-header">
               <div className="blog-detail-meta">
-                <span className="blog-detail-date">{article.date}</span>
-                {article.readTime && (
-                  <span className="blog-detail-read-time">{localize(article.readTime)}</span>
-                )}
+                <span className="blog-detail-date">{formatDate(article.date)}</span>
+                  <span className="blog-detail-read-time">{article.readingTime || '5'} {language === 'tr' ? 'dakikalık okuma' : 'min read'}</span>
               </div>
               <h1 className="blog-detail-title">{localize(article.title)}</h1>
             </div>

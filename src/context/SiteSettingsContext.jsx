@@ -90,7 +90,9 @@ export const SiteSettingsProvider = ({ children }) => {
       subtitle: t(settings?.journalSubtitle, COPY.journal.subtitle),
       viewAll: t(settings?.journalViewAll, COPY.journal.viewAll),
       cta: t(settings?.journalCta, COPY.journal.cta),
-      featuredTag: t(settings?.journalFeaturedTag, COPY.journal.featuredTag)
+      featuredTag: t(settings?.journalFeaturedTag, COPY.journal.featuredTag),
+      relatedArticles: t(settings?.blogRelatedArticles, 'Related Articles'),
+      relatedSubtitle: t(settings?.blogRelatedSubtitle, 'Discover more from our latest posts.')
     },
     pricing: {
       title: t(settings?.pricingTitle, 'Simple, transparent pricing'),

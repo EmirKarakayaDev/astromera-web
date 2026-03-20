@@ -17,14 +17,18 @@ export default defineType({
     }),
     defineField({
       name: 'date',
-      title: 'Tarih',
-      type: 'string',
-      initialValue: 'Mar 1, 2025',
+      title: 'Yayınlanma Tarihi',
+      type: 'date',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        calendarTodayLabel: 'Bugün'
+      }
     }),
     defineField({
-      name: 'readTime',
-      title: 'Okuma Süresi',
-      type: 'localeString',
+      name: 'readingTime',
+      title: 'Okuma Süresi (Dakika)',
+      type: 'number',
+      initialValue: 5
     }),
     defineField({
       name: 'mainImage',
