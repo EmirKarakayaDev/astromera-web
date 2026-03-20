@@ -44,7 +44,7 @@
   border: 1px solid rgba(61, 0, 0, 0.04);
   position: relative;
   min-height: 460px;
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
   will-change: transform;
 }
@@ -81,7 +81,7 @@
   inset: auto !important;
   top: auto !important;
   left: auto !important;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
   z-index: 2;
 }
@@ -105,15 +105,15 @@
 }
 
 .custom-bento:hover .back {
-  transform: rotate(-9deg) translateX(-80px) translateY(-6px) !important;
+  transform: rotate(-8.5deg) translateX(-77px) translateY(-5.5px) !important;
 }
 
 .custom-bento:hover .mid {
-  transform: rotate(-2deg) translateX(-1px) translateY(-1px) !important;
+  transform: rotate(-1.5deg) translateX(-1px) translateY(-1px) !important;
 }
 
 .custom-bento:hover .front {
-  transform: rotate(7deg) translateX(80px) translateY(10.5px) !important;
+  transform: rotate(6.5deg) translateX(77px) translateY(10.5px) !important;
 }
 
 /* 2 Resim Varsa Özel Hover */
@@ -124,10 +124,10 @@
   transform: rotate(5deg) translateX(40px) translateY(5px) !important;
 }
 .has-2-images.custom-bento:hover .back {
-  transform: rotate(-7deg) translateX(-45px) translateY(-2px) !important;
+  transform: rotate(-5.5deg) translateX(-42px) translateY(-1px) !important;
 }
 .has-2-images.custom-bento:hover .front {
-  transform: rotate(7deg) translateX(45px) translateY(7px) !important;
+  transform: rotate(5.5deg) translateX(42px) translateY(6px) !important;
 }
 
 .location-stack .bento-stack {
@@ -316,16 +316,20 @@
     grid-column: span 1 !important;
   }
 
-  /* Normal 3'lü yatay (landscape) görseller için (- desktop 365x250) */
+  /* Normal 3'lü yatay (landscape) görseller için - Mobilde orantılı (vw) */
   .custom-bento:not(.location-stack) .bento-card-bg {
-    width: 240px !important;
-    height: 165px !important;
+    width: 65vw !important;
+    max-width: 320px !important; /* Çok büyük ekranlarda aşırı büyümemesi için */
+    aspect-ratio: 365 / 250;
+    height: auto !important;
   }
 
-  /* Konum/Dikey 3'lü görseller için (- desktop 200x225) - Mobilde orantılı küçülme */
+  /* Konum/Dikey 3'lü görseller için - Mobilde orantılı (vw) */
   .location-stack .bento-card-bg {
-    width: 140px !important;
-    height: 160px !important;
+    width: 45vw !important;
+    max-width: 180px !important;
+    aspect-ratio: 200 / 225;
+    height: auto !important;
   }
 
   /* Yatay (Normal) Stack Yayılma Mesafeleri */

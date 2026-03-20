@@ -12,11 +12,8 @@ const Pricing = () => {
   const pricingCopy = copy.pricing;
   usePageMeta(pricingCopy.title, pricingCopy.subtitle);
   
-  const [plans, setPlans] = useState([
-    { title: "Free", price: "$0", features: ["Limited library", "Basic tracking", "Community access"], cta: "Get Started" },
-    { title: "Premium", price: "$9.99/mo", features: ["Full library", "Offline access", "Advanced programs", "Personalized coaching"], cta: "Try for free", highlighted: true },
-    { title: "Lifetime", price: "$199", features: ["All premium features", "One-time payment", "Priority support", "Exclusive content"], cta: "One payment" }
-  ]);
+  const [plans, setPlans] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPlans = async () => {
@@ -25,9 +22,18 @@ const Pricing = () => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setPlans(result);
+        } else {
+          // Varsayılan statik paketler (eğer Sanity boşsa)
+          setPlans([
+            { title: "Free", price: "$0", features: ["Limited library", "Basic tracking", "Community access"], cta: "Get Started" },
+            { title: "Premium", price: "$9.99/mo", features: ["Full library", "Offline access", "Advanced programs", "Personalized coaching"], cta: "Try for free", highlighted: true },
+            { title: "Lifetime", price: "$199", features: ["All premium features", "One-time payment", "Priority support", "Exclusive content"], cta: "One payment" }
+          ]);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchPlans();
@@ -46,8 +52,8 @@ const Pricing = () => {
           />
         </Reveal>
         
-        <div className="pricing-grid">
-          {plans.map((plan, i) => (
+        <div className="pricing-grid" style={{ minHeight: '400px' }}>
+          {!loading && plans.map((plan, i) => (
             <Reveal key={plan._id || i} delay={i * 0.1} className={`pricing-card ${plan.highlighted ? 'highlighted' : ''}`}>
               <h3 className="pricing-tag">{copy.localize(plan.title)}</h3>
               <div className="pricing-price">{copy.localize(plan.price)}</div>

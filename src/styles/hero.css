@@ -31,7 +31,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  transform: none !important; 
+  transform: none !important;
   opacity: 0;
   transition: opacity 2s ease !important;
 }
@@ -75,8 +75,12 @@
 @media (max-width: 1024px) {
   .hero {
     overflow: visible !important;
-    padding-bottom: 25px !important;
+    padding-bottom: 20px !important;
     /* Compact sweet spot */
+  }
+
+  .hero-bg-accent {
+    height: 97% !important; /* Arka planı alttan kısalttık */
   }
 
   .hero-phone-container {
@@ -108,10 +112,13 @@
 @media (max-width: 600px) {
   .hero {
     overflow: hidden !important;
-    padding-bottom: 0px !important;
-    /* Uzatmayı iptal ettik */
+    padding-bottom: 30px !important;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
+  }
+
+  .hero-bg-accent {
+    height: 96% !important; /* Arka planı alttan kısalttık */
   }
 
   .hero::before {
@@ -124,10 +131,9 @@
 
   .hero-phone-container {
     height: auto;
-    min-height: 320px;
+    min-height: 0px !important;
     margin-top: 20px;
-    margin-bottom: -10px;
-    /* Alttan çekme miktarını azalttık → pembe alan tekrar uzadı */
+    margin-bottom: 0px !important;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -140,7 +146,7 @@
     width: 60vw !important;
     max-width: 240px !important;
     flex-shrink: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
     transform-origin: bottom center;
   }
 }
