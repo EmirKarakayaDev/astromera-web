@@ -21,5 +21,5 @@
   --radius-pill: 9999px;
 
   /* Transitions */
-  --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-smooth: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }

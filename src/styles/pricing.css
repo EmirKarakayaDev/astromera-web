@@ -1,8 +1,29 @@
-/* Pricing Page Styles */
 .pricing-page {
   padding-top: 160px;
   padding-bottom: 100px;
+  background: transparent;
+  position: relative;
+  text-align: center;
+}
+
+.pricing-bg-accent {
+  position: absolute;
+  inset: 0;
   background: linear-gradient(180deg, #FFF5F5 0%, #FFFFFF 100%);
+  z-index: -1;
+}
+
+.pricing-bg-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: none !important;
+  opacity: 0;
+  transition: opacity 2s ease !important;
+}
+
+.pricing-bg-reveal.active {
+  opacity: 1;
 }
 
 .pricing-header {

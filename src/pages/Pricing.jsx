@@ -35,7 +35,10 @@ const Pricing = () => {
 
   return (
     <div className="pricing-page">
-      <div className="container" style={{ textAlign: 'center' }}>
+      <Reveal className="pricing-bg-reveal" threshold={0} delay={0}>
+        <div className="pricing-bg-accent"></div>
+      </Reveal>
+      <div className="container">
         <Reveal className="pricing-header">
           <SectionHeader 
             title={pricingCopy.title}

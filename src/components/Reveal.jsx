@@ -12,8 +12,11 @@ const getSharedObserver = (threshold) => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          // Animasyon bir kez tetiklendi, artık izlemeye gerek yok
+          // Tarayıcının önce başlangıç halini (gizli) çizmesini bekleyip 
+          // sonra animasyonu başlatıyoruz → süzülme garantili!
+          requestAnimationFrame(() => {
+            entry.target.classList.add('active');
+          });
           observer.unobserve(entry.target);
         }
       });

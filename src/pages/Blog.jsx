@@ -37,6 +37,9 @@ const Blog = () => {
   return (
     <>
     <div className="blog-page">
+      <Reveal className="blog-bg-reveal" threshold={0} delay={0}>
+        <div className="blog-bg-accent"></div>
+      </Reveal>
       <div className="container" style={{ maxWidth: '1100px' }}>
         <SectionHeader 
           title={journalCopy.title}

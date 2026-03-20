@@ -1,10 +1,31 @@
 .blog-page {
   padding-top: 140px;
   padding-bottom: 80px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FFE1E1 100%);
+  background: transparent;
+  position: relative;
   min-height: 800px;
+}
+
+.blog-bg-accent {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFE1E1 100%);
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
+  z-index: -1;
+}
+
+.blog-bg-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: none !important;
+  opacity: 0;
+  transition: opacity 2s ease !important;
+}
+
+.blog-bg-reveal.active {
+  opacity: 1;
 }
 
 .blog-page .h2-section {

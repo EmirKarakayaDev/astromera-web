@@ -48,9 +48,9 @@ export const SiteSettingsProvider = ({ children }) => {
   }, []);
 
   const t = (field, fallback = '') => {
-    if (!field) return isLoading ? '' : fallback;
-    if (typeof field === 'string') return field; // Fallback for any forgotten strings
-    return field[language] || field['tr'] || (isLoading ? '' : fallback);
+    if (!field) return fallback;
+    if (typeof field === 'string') return field;
+    return field[language] || field['tr'] || fallback;
   };
 
   const copy = {

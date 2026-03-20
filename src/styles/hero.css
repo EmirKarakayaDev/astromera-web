@@ -12,8 +12,7 @@
 }
 
 /* New shorter pink background */
-.hero::before {
-  content: '';
+.hero-bg-accent {
   position: absolute;
   top: 0;
   left: 0;
@@ -25,6 +24,20 @@
   border-bottom-right-radius: 40px;
   z-index: -1;
   /* Behind content */
+}
+
+/* Arka plan sadece yerinde yavaşça belirsin (fade), süzülmesin */
+.hero-bg-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: none !important; 
+  opacity: 0;
+  transition: opacity 2s ease !important;
+}
+
+.hero-bg-reveal.active {
+  opacity: 1;
 }
 
 .hero .container {
