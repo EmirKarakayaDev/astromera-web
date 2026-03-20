@@ -34,7 +34,8 @@
 
 .hero-phone-container {
   margin-top: 50px;
-  padding-bottom: 60px; /* Pembe gradyanı uzatmak için */
+  padding-bottom: 60px;
+  /* Pembe gradyanı uzatmak için */
   height: auto;
   min-height: 500px;
   display: flex;
@@ -46,12 +47,15 @@
 .hero-phone-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 420px; /* 750px'ten 420px'e küçülttük */
+  max-width: 420px;
+  /* 750px'ten 420px'e küçülttük */
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-left: 0; /* Sağa kaymayı kaldırdık, tam ortada */
-  transform: none; /* Scale ve translateY kaldırıldı */
+  margin-left: 0;
+  /* Sağa kaymayı kaldırdık, tam ortada */
+  transform: none;
+  /* Scale ve translateY kaldırıldı */
   transform-origin: bottom center;
 }
 
@@ -73,7 +77,8 @@
 
   .hero-phone-image-wrapper {
     margin-left: 0;
-    max-width: 320px; /* Telefondan biraz büyük, tablet için uygun */
+    max-width: 320px;
+    /* Telefondan biraz büyük, tablet için uygun */
     transform: translateY(0px) scale(1);
     transform-origin: bottom center;
   }
@@ -90,7 +95,8 @@
 @media (max-width: 600px) {
   .hero {
     overflow: hidden !important;
-    padding-bottom: 60px !important; /* Pembe alanı daha da uzatmak için */
+    padding-bottom: 60px !important;
+    /* Pembe alanı daha da uzatmak için */
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
   }
@@ -107,7 +113,8 @@
     height: auto;
     min-height: 320px;
     margin-top: 20px;
-    margin-bottom: 0px; /* Negatif margin tamamen kaldırıldı → pembe alan maksimum uzunluğa çıktı */
+    margin-bottom: 0px;
+    /* Negatif margin tamamen kaldırıldı → pembe alan maksimum uzunluğa çıktı */
     display: flex;
     justify-content: center;
     align-items: flex-end;
