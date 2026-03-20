@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { client } from '../lib/sanity';
+import { client, urlFor } from '../lib/sanity';
 import { COPY } from '../data/content';
 
 const SiteSettingsContext = createContext();
@@ -71,7 +71,8 @@ export const SiteSettingsProvider = ({ children }) => {
       badge: t(settings?.heroBadge, COPY.hero.badge),
       title: t(settings?.heroTitle, COPY.hero.title),
       subtitle: t(settings?.heroSubtitle, COPY.hero.subtitle),
-      cta: t(settings?.heroCta, COPY.hero.cta)
+      cta: t(settings?.heroCta, COPY.hero.cta),
+      image: settings?.heroImage ? urlFor(settings.heroImage).url() : null
     },
     features: {
       title: t(settings?.featuresTitle, COPY.features.title),

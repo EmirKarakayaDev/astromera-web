@@ -7,12 +7,17 @@ import HowItWorks from '../components/HowItWorks';
 import Journal from '../components/Journal';
 import Faq from '../components/Faq';
 import GetStarted from '../components/GetStarted';
-import heroHandPhone from '../assets/hero_hand_phone.avif';
+import fallbackHeroImage from '../assets/Asset 1.svg';
 import usePageMeta from '../hooks/usePageMeta';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Home = () => {
   usePageMeta(null, 'Short, simple meditations to help you reset, unwind, and feel present — whenever you need a break.');
   const { hash } = useLocation();
+  const { hero } = useSiteSettings();
+
+  // Sanity'den görsel geldiyse onu kullan, yoksa local SVG fallback
+  const heroImage = hero?.image || fallbackHeroImage;
 
   useEffect(() => {
     if (hash) {
@@ -24,9 +29,10 @@ const Home = () => {
       }
     }
   }, [hash]);
+
   return (
     <>
-      <Hero heroHandPhone={heroHandPhone} />
+      <Hero heroHandPhone={heroImage} />
       <Features />
       <Testimonials />
       <HowItWorks />

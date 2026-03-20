@@ -46,6 +46,14 @@ export default defineType({
       type: 'localeString',
       group: 'hero',
     }),
+    defineField({
+      name: 'heroImage',
+      title: 'Hero Görseli (Telefon / Uygulama Görseli)',
+      type: 'image',
+      group: 'hero',
+      options: { hotspot: true },
+      description: 'Boş bırakılırsa varsayılan görsel kullanılır.'
+    }),
 
     // Features Section
     defineField({
