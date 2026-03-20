@@ -32,17 +32,8 @@ const ScrollToTop = () => {
 const MainLayout = ({ children, isMenuOpen, setIsMenuOpen, isNavVisible }) => {
   const { pathname } = useLocation();
   const isAdmin = pathname.startsWith('/admin');
-  const { isLoading } = useSiteSettings();
 
   if (isAdmin) return <>{children}</>;
-
-  if (isLoading) {
-    return (
-      <div style={{ height: '100vh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ fontFamily: 'Inter, sans-serif' }}>Loading...</p>
-      </div>
-    );
-  }
 
   return (
     <div className="app">
