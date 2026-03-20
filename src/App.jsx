@@ -24,6 +24,9 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
   }, [pathname]);
   return null;
 };
@@ -43,7 +46,7 @@ const MainLayout = ({ children, isMenuOpen, setIsMenuOpen, isNavVisible }) => {
         isNavVisible={isNavVisible} 
       />
       <main>{children}</main>
-      <Footer />
+      <Footer key={pathname} />
     </div>
   );
 };
@@ -63,6 +66,9 @@ function App() {
       smoothTouch: false,
       touchMultiplier: 2,
     });
+
+    // Make lenis globally accessible for route changes
+    window.lenis = lenis;
 
     lenis.on('scroll', (e) => {
       const pathname = window.location.pathname;
