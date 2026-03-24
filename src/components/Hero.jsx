@@ -8,11 +8,11 @@ const Hero = ({ heroHandPhone }) => {
 
   return (
     <section className="hero">
-      <Reveal className="hero-bg-reveal" threshold={0} delay={0}>
+      <Reveal className="hero-bg-reveal" threshold={0} delay={0} initialActive={true}>
         <div className="hero-bg-accent"></div>
       </Reveal>
       <div className="container">
-        <Reveal delay={0.1}>
+        <Reveal threshold={0} delay={0} initialActive={true}>
           <h1 className="h1-hero">
             {heroContent.title.split('\n').map((line, i) => (
               <span key={i}>
@@ -23,15 +23,15 @@ const Hero = ({ heroHandPhone }) => {
           </h1>
         </Reveal>
 
-        <Reveal delay={0.2}>
+        <Reveal threshold={0} delay={0.1}>
           <p className="p-large">{heroContent.subtitle}</p>
         </Reveal>
 
-        <Reveal delay={0.3}>
+        <Reveal threshold={0} delay={0.2}>
           <Button to="/pricing" className="hero-btn">{heroContent.cta}</Button>
         </Reveal>
 
-        <Reveal className="hero-phone-container" delay={0.4}>
+        <Reveal className="hero-phone-container" threshold={0} delay={0} initialActive={true}>
           <div className="hero-phone-image-wrapper">
             <img 
               src={heroHandPhone} 
