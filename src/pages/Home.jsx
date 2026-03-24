@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { useLocation } from 'react-router-dom';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
-import Testimonials from '../components/Testimonials';
-import HowItWorks from '../components/HowItWorks';
-import Journal from '../components/Journal';
-import Faq from '../components/Faq';
-import GetStarted from '../components/GetStarted';
+
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const HowItWorks = lazy(() => import('../components/HowItWorks'));
+const Journal = lazy(() => import('../components/Journal'));
+const Faq = lazy(() => import('../components/Faq'));
+const GetStarted = lazy(() => import('../components/GetStarted'));
+
 import fallbackHeroImage from '../assets/Asset-1.svg';
 import usePageMeta from '../hooks/usePageMeta';
 import { useSiteSettings } from '../context/SiteSettingsContext';
@@ -34,11 +36,13 @@ const Home = () => {
     <>
       <Hero heroHandPhone={heroImage} />
       <Features />
-      <Testimonials />
-      <HowItWorks />
-      <Journal />
-      <Faq />
-      <GetStarted />
+      <Suspense fallback={<div style={{ height: '30vh' }} />}>
+        <Testimonials />
+        <HowItWorks />
+        <Journal />
+        <Faq />
+        <GetStarted />
+      </Suspense>
     </>
   );
 };
