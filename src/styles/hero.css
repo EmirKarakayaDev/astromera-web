@@ -138,8 +138,7 @@
 
   .hero-phone-container {
     height: auto;
-    /* Hero phone için mobilde yer ayırıyoruz - CLS için kritik */
-    min-height: 400px !important; 
+    min-height: 0px !important;
     margin-top: 20px;
     margin-bottom: 0px !important;
     display: flex;

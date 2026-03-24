@@ -38,15 +38,13 @@ body {
 /* Animations */
 .reveal {
   opacity: 0;
-  /* translateY kaldırıldı - CLS'yi 0'a indirmek için */
-  transform: scale(0.98); 
-  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+  transform: translateY(60px) scale(0.96);
+  transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.active {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0) scale(1);
 }
 
 /* Loader for Suspense */
