@@ -28,12 +28,10 @@ const getSharedObserver = (threshold) => {
   return observer;
 };
 
-const Reveal = ({ children, threshold = 0.1, delay = 0, className = '', initialActive = false }) => {
+const Reveal = ({ children, threshold = 0.1, delay = 0, className = '' }) => {
   const elementRef = useRef(null);
 
   useEffect(() => {
-    if (initialActive) return; // Zaten aktifse observer'a gerek yok
-    
     const el = elementRef.current;
     if (!el) return;
 
@@ -41,12 +39,12 @@ const Reveal = ({ children, threshold = 0.1, delay = 0, className = '', initialA
     observer.observe(el);
 
     return () => observer.unobserve(el);
-  }, [threshold, initialActive]);
+  }, [threshold]);
 
   return (
     <div
       ref={elementRef}
-      className={`reveal ${className} ${initialActive ? 'active' : ''}`}
+      className={`reveal ${className}`}
       style={{ transitionDelay: `${delay}s` }}
     >
       {children}
