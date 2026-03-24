@@ -45,53 +45,60 @@ const Features = () => {
         />
 
         <div className="bento-grid">
-          {data.map((feature, i) => {
-            const isCustom = feature.customLayout === "stack" || feature.customLayout === "location-stack";
-            
-            // Get Image URLs
-            const mainImg = feature.mainImage ? urlFor(feature.mainImage).url() : feature.img;
-            const midImg = feature.imgMid ? (typeof feature.imgMid === 'string' ? feature.imgMid : urlFor(feature.imgMid).url()) : null;
-            const backImg = feature.imgBack ? (typeof feature.imgBack === 'string' ? feature.imgBack : urlFor(feature.imgBack).url()) : null;
+          {data.length === 0 ? (
+            // Skeleton State - Boş kutular görünür (zıplamayı engeller)
+            Array(6).fill(0).map((_, i) => (
+              <div key={i} className="bento-card skeleton" style={{ minHeight: '300px' }}></div>
+            ))
+          ) : (
+            data.map((feature, i) => {
+              const isCustom = feature.customLayout === "stack" || feature.customLayout === "location-stack";
+              
+              // Get Image URLs
+              const mainImg = feature.mainImage ? urlFor(feature.mainImage).url() : feature.img;
+              const midImg = feature.imgMid ? (typeof feature.imgMid === 'string' ? feature.imgMid : urlFor(feature.imgMid).url()) : null;
+              const backImg = feature.imgBack ? (typeof feature.imgBack === 'string' ? feature.imgBack : urlFor(feature.imgBack).url()) : null;
 
-            const imageCount = [mainImg, midImg, backImg].filter(Boolean).length;
+              const imageCount = [mainImg, midImg, backImg].filter(Boolean).length;
 
-            return (
-              <Reveal 
-                key={feature._id || i} 
-                className={`bento-card ${isCustom ? "custom-bento" : ""} ${feature.customLayout || ""} has-${imageCount}-images ${feature.gridSpan || ''}`}
-              >
-                {isCustom ? (
-                  <div className="bento-stack">
-                    {backImg && (
+              return (
+                <Reveal 
+                  key={feature._id || i} 
+                  className={`bento-card ${isCustom ? "custom-bento" : ""} ${feature.customLayout || ""} has-${imageCount}-images ${feature.gridSpan || ''}`}
+                >
+                  {isCustom ? (
+                    <div className="bento-stack">
+                      {backImg && (
+                        <div
+                          className="bento-card-bg back"
+                          style={{ backgroundImage: `url(${backImg})` }}
+                        ></div>
+                      )}
+                      {midImg && (
+                        <div
+                          className="bento-card-bg mid"
+                          style={{ backgroundImage: `url(${midImg})` }}
+                        ></div>
+                      )}
                       <div
-                        className="bento-card-bg back"
-                        style={{ backgroundImage: `url(${backImg})` }}
+                        className="bento-card-bg front"
+                        style={{ backgroundImage: `url(${mainImg})` }}
                       ></div>
-                    )}
-                    {midImg && (
-                      <div
-                        className="bento-card-bg mid"
-                        style={{ backgroundImage: `url(${midImg})` }}
-                      ></div>
-                    )}
+                    </div>
+                  ) : (
                     <div
-                      className="bento-card-bg front"
+                      className="bento-card-bg"
                       style={{ backgroundImage: `url(${mainImg})` }}
                     ></div>
+                  )}
+                  <div className="bento-info">
+                    <h3>{copy.localize(feature.title)}</h3>
+                    <p>{copy.localize(feature.desc)}</p>
                   </div>
-                ) : (
-                  <div
-                    className="bento-card-bg"
-                    style={{ backgroundImage: `url(${mainImg})` }}
-                  ></div>
-                )}
-                <div className="bento-info">
-                  <h3>{copy.localize(feature.title)}</h3>
-                  <p>{copy.localize(feature.desc)}</p>
-                </div>
-              </Reveal>
-            );
-          })}
+                </Reveal>
+              );
+            })
+          )}
         </div>
       </div>
     </section>

@@ -45,43 +45,56 @@ const Journal = () => {
         />
 
         <div className="journal-grid">
-          <Reveal className="journal-featured" delay={0}>
-            <Link to={`/${copy.language}/blog/${featuredArticle?._id || featuredArticle?.id}`} className="journal-featured-link">
-              <div className="journal-featured-img-wrapper">
-                <div 
-                  className="journal-img-placeholder" 
-                  style={{ 
-                    backgroundImage: `url(${featuredArticle?.mainImage ? urlFor(featuredArticle.mainImage).url() : featuredArticle?.img})`, 
-                    backgroundSize: 'cover' 
-                  }}
-                ></div>
+          {articles.length === 0 ? (
+            <>
+              <div className="journal-featured skeleton" style={{ minHeight: '400px' }}></div>
+              <div className="skeleton-column">
+                <div className="journal-card skeleton" style={{ minHeight: '120px', marginBottom: '10px' }}></div>
+                <div className="journal-card skeleton" style={{ minHeight: '120px', marginBottom: '10px' }}></div>
+                <div className="journal-card skeleton" style={{ minHeight: '120px' }}></div>
               </div>
-              <div className="journal-featured-content">
-                <span className="badge-trusted badge-pink">{journalCopy.featuredTag}</span>
-                <h3 className="journal-featured-title">{copy.localize(featuredArticle?.title)}</h3>
-                <span className="journal-featured-btn">{journalCopy.cta}</span>
-              </div>
-            </Link>
-          </Reveal>
+            </>
+          ) : (
+            <>
+              <Reveal className="journal-featured" delay={0}>
+                <Link to={`/${copy.language}/blog/${featuredArticle?._id || featuredArticle?.id}`} className="journal-featured-link">
+                  <div className="journal-featured-img-wrapper">
+                    <div 
+                      className="journal-img-placeholder" 
+                      style={{ 
+                        backgroundImage: `url(${featuredArticle?.mainImage ? urlFor(featuredArticle.mainImage).url() : featuredArticle?.img})`, 
+                        backgroundSize: 'cover' 
+                      }}
+                    ></div>
+                  </div>
+                  <div className="journal-featured-content">
+                    <span className="badge-trusted badge-pink">{journalCopy.featuredTag}</span>
+                    <h3 className="journal-featured-title">{copy.localize(featuredArticle?.title)}</h3>
+                    <span className="journal-featured-btn">{journalCopy.cta}</span>
+                  </div>
+                </Link>
+              </Reveal>
 
-          {sideArticles.map((article, i) => (
-            <Reveal key={article._id || article.id} delay={(i + 1) * 0.1}>
-              <Link to={`/${copy.language}/blog/${article._id || article.id}`} className="journal-card" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div className="journal-card-img-wrapper">
-                  <div 
-                    className="img" 
-                    style={{ 
-                      backgroundImage: `url(${article.mainImage ? urlFor(article.mainImage).url() : article.img})`, 
-                      backgroundSize: 'cover' 
-                    }}
-                  ></div>
-                </div>
-                <div className="content">
-                  <h4 className="journal-card-title">{copy.localize(article.title)}</h4>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+              {sideArticles.map((article, i) => (
+                <Reveal key={article._id || article.id} delay={(i + 1) * 0.1}>
+                  <Link to={`/${copy.language}/blog/${article._id || article.id}`} className="journal-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <div className="journal-card-img-wrapper">
+                      <div 
+                        className="img" 
+                        style={{ 
+                          backgroundImage: `url(${article.mainImage ? urlFor(article.mainImage).url() : article.img})`, 
+                          backgroundSize: 'cover' 
+                        }}
+                      ></div>
+                    </div>
+                    <div className="content">
+                      <h4 className="journal-card-title">{copy.localize(article.title)}</h4>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </>
+          )}
         </div>
 
         <div className="text-center journal-btn-wrapper" style={{ marginTop: '40px' }}>

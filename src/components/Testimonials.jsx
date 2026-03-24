@@ -54,59 +54,67 @@ const Testimonials = () => {
           </div>
 
           <Reveal className="testimonials-slider">
-            <Swiper
-              key={data.length} // Veri geldiğinde slider'ı sıfırdan başlat
-              modules={[Navigation, Pagination]}
-              onSwiper={setSwiper}
-              onSlideChange={(s) => setRealIndex(s.realIndex)}
-              loop={data.length > 2}
-              initialSlide={0} // İlk slayttan başla
-              centeredSlides={true}
-              spaceBetween={16}
-              slidesPerView={'auto'}
-              breakpoints={{
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 24,
-                  centeredSlides: false
-                },
-                1100: {
-                  slidesPerView: 3,
-                  spaceBetween: 32,
-                  centeredSlides: true
-                }
-              }}
-              className="testimonials-swiper"
-            >
-              {data.map((item, i) => {
-                const imageUrl = item.mainImage ? urlFor(item.mainImage).url() : `https://i.pravatar.cc/150?u=${item.name}`;
-                
-                return (
-                  <SwiperSlide key={item._id || i}>
-                    <div className={`testimonial-card ${item.isImage ? 'image-card' : ''}`}>
-                      {item.isImage ? (
-                        <>
-                          <div className="testimonial-image-inner">
-                            <p className="testimonial-image-quote">"{copy.localize(item.text)}"</p>
+            {data.length === 0 ? (
+              <div className="skeleton-testimonials">
+                <div className="testimonial-card skeleton" style={{ minHeight: '300px', width: '350px' }}></div>
+                <div className="testimonial-card skeleton" style={{ minHeight: '300px', width: '350px' }}></div>
+                <div className="testimonial-card skeleton" style={{ minHeight: '300px', width: '350px' }}></div>
+              </div>
+            ) : (
+              <Swiper
+                key={data.length} // Veri geldiğinde slider'ı sıfırdan başlat
+                modules={[Navigation, Pagination]}
+                onSwiper={setSwiper}
+                onSlideChange={(s) => setRealIndex(s.realIndex)}
+                loop={data.length > 2}
+                initialSlide={0} // İlk slayttan başla
+                centeredSlides={true}
+                spaceBetween={16}
+                slidesPerView={'auto'}
+                breakpoints={{
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    centeredSlides: false
+                  },
+                  1100: {
+                    slidesPerView: 3,
+                    spaceBetween: 32,
+                    centeredSlides: true
+                  }
+                }}
+                className="testimonials-swiper"
+              >
+                {data.map((item, i) => {
+                  const imageUrl = item.mainImage ? urlFor(item.mainImage).url() : `https://i.pravatar.cc/150?u=${item.name}`;
+                  
+                  return (
+                    <SwiperSlide key={item._id || i}>
+                      <div className={`testimonial-card ${item.isImage ? 'image-card' : ''}`}>
+                        {item.isImage ? (
+                          <>
+                            <div className="testimonial-image-inner">
+                              <p className="testimonial-image-quote">"{copy.localize(item.text)}"</p>
+                              <div className="user-info">{item.name}</div>
+                            </div>
+                            <div
+                              className="testimonial-image-overlay"
+                              style={{ backgroundImage: `url(${imageUrl})` }}
+                            ></div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="user-img" style={{ backgroundImage: `url(${imageUrl})` }}></div>
+                            <p>"{copy.localize(item.text)}"</p>
                             <div className="user-info">{item.name}</div>
-                          </div>
-                          <div
-                            className="testimonial-image-overlay"
-                            style={{ backgroundImage: `url(${imageUrl})` }}
-                          ></div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="user-img" style={{ backgroundImage: `url(${imageUrl})` }}></div>
-                          <p>"{copy.localize(item.text)}"</p>
-                          <div className="user-info">{item.name}</div>
-                        </>
-                      )}
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
+                          </>
+                        )}
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            )}
           </Reveal>
         </div>
 
