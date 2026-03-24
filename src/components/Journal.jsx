@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import SectionHeader from './common/SectionHeader';
 import Button from './common/Button';
-import { client, getImgUrl } from '../lib/sanity';
+import { client, urlFor } from '../lib/sanity';
 import { journalArticles as staticArticles } from '../data/content';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
@@ -62,7 +62,7 @@ const Journal = () => {
                     <div 
                       className="journal-img-placeholder" 
                       style={{ 
-                        backgroundImage: `url(${getImgUrl(featuredArticle?.mainImage, featuredArticle?.img)})`, 
+                        backgroundImage: `url(${featuredArticle?.mainImage ? urlFor(featuredArticle.mainImage).url() : featuredArticle?.img})`, 
                         backgroundSize: 'cover' 
                       }}
                     ></div>
@@ -82,7 +82,7 @@ const Journal = () => {
                       <div 
                         className="img" 
                         style={{ 
-                          backgroundImage: `url(${getImgUrl(article.mainImage, article.img)})`, 
+                          backgroundImage: `url(${article.mainImage ? urlFor(article.mainImage).url() : article.img})`, 
                           backgroundSize: 'cover' 
                         }}
                       ></div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Reveal from './Reveal';
-import { client, getImgUrl } from '../lib/sanity';
+import { client, urlFor } from '../lib/sanity';
 import { testimonials as staticTestimonials } from '../data/content';
 
 import { useSiteSettings } from '../context/SiteSettingsContext';
@@ -86,7 +86,7 @@ const Testimonials = () => {
                 className="testimonials-swiper"
               >
                 {data.map((item, i) => {
-                  const imageUrl = getImgUrl(item.mainImage, item.img || `https://i.pravatar.cc/150?u=${item.name}`);
+                  const imageUrl = item.mainImage ? urlFor(item.mainImage).url() : `https://i.pravatar.cc/150?u=${item.name}`;
                   
                   return (
                     <SwiperSlide key={item._id || i}>

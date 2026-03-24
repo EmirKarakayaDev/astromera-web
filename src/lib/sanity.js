@@ -13,18 +13,3 @@ const builder = imageUrlBuilder(client);
 export function urlFor(source) {
   return builder.image(source);
 }
-
-/**
- * Sanity imajını güvenli bir şekilde çeker, yoksa fallback döndürür.
- * @param {object} source - Sanity imaj objesi
- * @param {string} fallback - Varsayılan imaj URL'si
- */
-export function getImgUrl(source, fallback = "") {
-  if (!source) return fallback;
-  try {
-    return urlFor(source).url();
-  } catch (error) {
-    console.warn("Sanity imaj oluşturma hatası:", error);
-    return fallback;
-  }
-}
