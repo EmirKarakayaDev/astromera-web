@@ -76,6 +76,23 @@ export const pricingPlans = [
   { title: "Lifetime", price: "$199", features: ["All premium features", "One-time payment", "Priority support", "Exclusive content"], cta: "One payment" }
 ];
 
+export const journalArticles = [
+  { 
+    id: "1", 
+    title: { tr: "Zihin ve Gökyüzü: Meditasyonun Gücü", en: "Mind and Sky: The Power of Meditation" }, 
+    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop", 
+    date: "2024-03-24",
+    text: { tr: "Meditasyonun hayatınızdaki yeri...", en: "The role of meditation in your life..." }
+  },
+  { 
+    id: "2", 
+    title: { tr: "Astroloji ile İçsel Rehberlik", en: "Inner Guidance with Astrology" }, 
+    img: "https://images.unsplash.com/photo-1447452030403-dc122b123282?q=80&w=800&auto=format&fit=crop", 
+    date: "2024-03-23",
+    text: { tr: "Yıldızların rehberliği...", en: "Guidance from the stars..." }
+  }
+];
+
 // Minimal fallback content for when Sanity is not available
 export const COPY = {
   hero: {
