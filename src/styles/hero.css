@@ -42,6 +42,11 @@
   visibility: visible;
 }
 
+/* Prevent CLS in Hero by disabling translateY on reveal */
+.hero .reveal {
+  transform: none !important;
+}
+
 .hero .container {
   max-width: none;
   padding: 0 40px;
