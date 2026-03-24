@@ -1,14 +1,13 @@
 /* Hero Section */
 .hero {
   background: transparent;
-  /* Remove direct bg */
   padding-top: 140px;
   padding-bottom: 0px;
   text-align: center;
   position: relative;
   z-index: 10;
   overflow: visible;
-  /* Allow content to hang out of the bg */
+  min-height: 80vh; /* Reserve space for LCP element */
 }
 
 /* New shorter pink background */
