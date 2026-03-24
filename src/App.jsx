@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Lenis from 'lenis';
 
@@ -7,13 +7,14 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 // Pages
-import Home from './pages/Home';
-import Blog from './pages/Blog';
-import Pricing from './pages/Pricing';
-import Contact from './pages/Contact';
-import BlogDetail from './pages/BlogDetail';
-import StudioPage from './pages/StudioPage';
-import { SiteSettingsProvider, useSiteSettings } from './context/SiteSettingsContext';
+const Home = lazy(() => import('./pages/Home'));
+const Blog = lazy(() => import('./pages/Blog'));
+const Pricing = lazy(() => import('./pages/Pricing'));
+const Contact = lazy(() => import('./pages/Contact'));
+const BlogDetail = lazy(() => import('./pages/BlogDetail'));
+const StudioPage = lazy(() => import('./pages/StudioPage'));
+
+import { SiteSettingsProvider } from './context/SiteSettingsContext';
 
 // Swiper styles
 import 'swiper/css';
@@ -102,26 +103,28 @@ function App() {
           setIsMenuOpen={setIsMenuOpen} 
           isNavVisible={isNavVisible}
         >
-          <Routes>
-            {/* Root redirect to default language */}
-            <Route path="/" element={<Navigate to="/tr" replace />} />
-            
-            {/* Admin route - keep separate */}
-            <Route path="/admin/*" element={<StudioPage />} />
-
-            {/* Language-prefixed routes */}
-            <Route path="/:lang">
-              <Route index element={<Home />} />
-              <Route path="blog" element={<Blog />} />
-              <Route path="blog/:id" element={<BlogDetail />} />
-              <Route path="pricing" element={<Pricing />} />
-              <Route path="contact" element={<Contact />} />
+          <Suspense fallback={<div className="loader-overlay" />}>
+            <Routes>
+              {/* Root redirect to default language */}
+              <Route path="/" element={<Navigate to="/tr" replace />} />
+              
+              {/* Admin route - keep separate */}
+              <Route path="/admin/*" element={<StudioPage />} />
+  
+              {/* Language-prefixed routes */}
+              <Route path="/:lang">
+                <Route index element={<Home />} />
+                <Route path="blog" element={<Blog />} />
+                <Route path="blog/:id" element={<BlogDetail />} />
+                <Route path="pricing" element={<Pricing />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="*" element={<Navigate to="/tr" replace />} />
+              </Route>
+  
+              {/* Global fallback */}
               <Route path="*" element={<Navigate to="/tr" replace />} />
-            </Route>
-
-            {/* Global fallback */}
-            <Route path="*" element={<Navigate to="/tr" replace />} />
-          </Routes>
+            </Routes>
+          </Suspense>
         </MainLayout>
       </SiteSettingsProvider>
     </BrowserRouter>
