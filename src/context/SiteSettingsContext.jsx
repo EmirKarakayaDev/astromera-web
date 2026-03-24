@@ -48,9 +48,6 @@ export const SiteSettingsProvider = ({ children }) => {
   }, []);
 
   const t = (field, fallback = '') => {
-    // Prevent showing fallback data while loading to avoid flicker
-    if (isLoading) return '';
-    
     if (!field) return fallback;
     if (typeof field === 'string') return field;
     return field[language] || field['tr'] || fallback;

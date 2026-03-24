@@ -116,6 +116,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
           <button 
             className={`lang-btn ${language === 'tr' ? 'active' : ''}`}
             onClick={() => setLanguage('tr')}
+            aria-label="Switch to Turkish"
           >
             TR
           </button>
@@ -123,6 +124,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
           <button 
             className={`lang-btn ${language === 'en' ? 'active' : ''}`}
             onClick={() => setLanguage('en')}
+            aria-label="Switch to English"
           >
             EN
           </button>
