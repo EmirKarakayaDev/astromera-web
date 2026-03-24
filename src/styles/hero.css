@@ -55,9 +55,7 @@
 .hero-phone-container {
   margin-top: 50px;
   padding-bottom: 60px;
-  /* Pembe gradyanı uzatmak için */
   height: auto;
-  min-height: 500px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -68,13 +66,12 @@
   position: relative;
   width: 100%;
   max-width: 420px;
-  aspect-ratio: 400 / 800; /* Daha dik (1:2) bir oran, telefonlar için daha gerçekçi */
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start; /* Üstten başlasın ki asla metnin üzerine çıkmasın */
   margin-left: 0;
   transform: none;
-  transform-origin: bottom center;
+  transform-origin: top center;
 }
 
 @media (max-width: 1024px) {
@@ -90,19 +87,15 @@
 
   .hero-phone-container {
     height: auto;
-    min-height: 320px;
     margin-top: 40px;
     display: flex;
-    align-items: flex-end;
-    overflow: hidden;
+    justify-content: center;
   }
 
   .hero-phone-image-wrapper {
     margin-left: 0;
     max-width: 320px;
-    /* Telefondan biraz büyük, tablet için uygun */
-    transform: translateY(0px) scale(1);
-    transform-origin: bottom center;
+    transform: none;
   }
 }
 
@@ -136,24 +129,21 @@
 
   .hero-phone-container {
     height: auto;
-    min-height: 400px !important; /* Daha yüksek bir rezervasyon */
-    margin-top: 60px; /* Buton ve yazıya nefes aldıracak boşluk */
+    margin-top: 60px; /* Buton ile görsel arasındaki mesafe */
     margin-bottom: 0px !important;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
     overflow: visible;
   }
 
   .hero-phone-image-wrapper {
     margin-left: 0;
     margin-right: 0;
-    width: 60vw !important;
-    max-width: 240px !important;
-    aspect-ratio: 400 / 800; /* Dik oran */
+    width: 70vw !important; /* Bir tık büyüttük */
+    max-width: 280px !important;
     flex-shrink: 0;
-    transform: translateY(30px);
-    transform-origin: bottom center;
+    transform: none;
   }
 }
 
@@ -161,4 +151,6 @@
   width: 100%;
   height: auto;
   display: block;
+  aspect-ratio: 400 / 800; /* Rezervasyon doğrudan görselde olsun */
+  object-fit: contain;
 }
