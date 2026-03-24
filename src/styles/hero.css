@@ -57,7 +57,8 @@
   padding-bottom: 60px;
   /* Pembe gradyanı uzatmak için */
   height: auto;
-  min-height: 500px;
+  /* Rezervasyon: 420px genişlikte 3/4 oranında ~560px yükseklik gerek */
+  min-height: 560px; 
   display: flex;
   justify-content: center;
   position: relative;
@@ -77,6 +78,8 @@
   transform: none;
   /* Scale ve translateY kaldırıldı */
   transform-origin: bottom center;
+  /* Aspect ratio rezerve ediyoruz */
+  aspect-ratio: 600 / 800;
 }
 
 @media (max-width: 1024px) {
@@ -138,7 +141,8 @@
 
   .hero-phone-container {
     height: auto;
-    min-height: 0px !important;
+    /* Mobil rezervasyon: 240px genişlikte 3/4 oranında ~320px yükseklik */
+    min-height: 320px !important;
     margin-top: 20px;
     margin-bottom: 0px !important;
     display: flex;
@@ -160,6 +164,12 @@
 
 .hero-phone-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   display: block;
+}
+
+/* Hero animasyonunu hızlandırarak LCP'yi iyileştirelim */
+.hero .hero-phone-container.active {
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
