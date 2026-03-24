@@ -68,15 +68,12 @@
   position: relative;
   width: 100%;
   max-width: 420px;
-  aspect-ratio: 600 / 800; /* CLS Fix: Rezerve edilen alan */
-  /* 750px'ten 420px'e küçülttük */
+  aspect-ratio: 400 / 800; /* Daha dik (1:2) bir oran, telefonlar için daha gerçekçi */
   display: flex;
   justify-content: center;
   align-items: flex-end;
   margin-left: 0;
-  /* Sağa kaymayı kaldırdık, tam ortada */
   transform: none;
-  /* Scale ve translateY kaldırıldı */
   transform-origin: bottom center;
 }
 
@@ -111,7 +108,7 @@
 
 @media (max-width: 900px) {
   .hero {
-    padding-top: 100px !important;
+    padding-top: 120px !important;
     padding-bottom: 25px !important;
     /* Match tablet length */
   }
@@ -139,8 +136,8 @@
 
   .hero-phone-container {
     height: auto;
-    min-height: 300px !important; /* CLS Fix */
-    margin-top: 20px;
+    min-height: 400px !important; /* Daha yüksek bir rezervasyon */
+    margin-top: 60px; /* Buton ve yazıya nefes aldıracak boşluk */
     margin-bottom: 0px !important;
     display: flex;
     justify-content: center;
@@ -153,7 +150,7 @@
     margin-right: 0;
     width: 60vw !important;
     max-width: 240px !important;
-    aspect-ratio: 600 / 800; /* CLS Fix */
+    aspect-ratio: 400 / 800; /* Dik oran */
     flex-shrink: 0;
     transform: translateY(30px);
     transform-origin: bottom center;

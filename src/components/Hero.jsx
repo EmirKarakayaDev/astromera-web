@@ -38,7 +38,7 @@ const Hero = ({ heroHandPhone }) => {
               alt="Hand holding phone" 
               className="hero-phone-image" 
               fetchpriority="high"
-              width="600"
+              width="400"
               height="800"
             />
           </div>
