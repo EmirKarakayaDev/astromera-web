@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Color Palette - Exactly from Bloom Template */
   --bg-primary: #FFE1E1;
