@@ -41,12 +41,12 @@ const Testimonials = () => {
 
         <div className="slider-container">
           <div className="slider-nav">
-            <button className="nav-btn" onClick={() => swiper?.slidePrev()}>
+            <button className="nav-btn" onClick={() => swiper?.slidePrev()} aria-label="Önceki">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <button className="nav-btn" onClick={() => swiper?.slideNext()}>
+            <button className="nav-btn" onClick={() => swiper?.slideNext()} aria-label="Sonraki">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

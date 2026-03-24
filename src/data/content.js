@@ -47,7 +47,7 @@ export const features = [
   {
     title: "Daily meditations tailored for you",
     desc: "Choose from structured programs designed for better sleep, stress relief, or focus. Each program evolves with your progress.",
-    img: "https://images.unsplash.com/photo-1447452030403-dc122b123282?q=80&w=800&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
   },
   {
     title: "Perzonalised programs",
@@ -87,7 +87,7 @@ export const journalArticles = [
   { 
     id: "2", 
     title: { tr: "Astroloji ile İçsel Rehberlik", en: "Inner Guidance with Astrology" }, 
-    img: "https://images.unsplash.com/photo-1447452030403-dc122b123282?q=80&w=800&auto=format&fit=crop", 
+    img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop", 
     date: "2024-03-23",
     text: { tr: "Yıldızların rehberliği...", en: "Guidance from the stars..." }
   }

@@ -50,7 +50,7 @@ const Footer = ({ delay = 0.5 }) => {
 
           <div className="footer-right">
             <div>
-              <h5 className="footer-col-title">{navTitle}</h5>
+              <h3 className="footer-col-title">{navTitle}</h3>
               <ul className="footer-links">
                 {navItems.map(item => {
                   const cleanPath = item.href.replace(/^\//, '');
@@ -62,7 +62,7 @@ const Footer = ({ delay = 0.5 }) => {
 
             {showSupport && (
               <div>
-                <h5 className="footer-col-title">{supportTitle}</h5>
+                 <h3 className="footer-col-title">{supportTitle}</h3>
                 <ul className="footer-links">
                   {supportItems.map(item => {
                     const cleanPath = item.href.replace(/^\//, '');
@@ -83,7 +83,7 @@ const Footer = ({ delay = 0.5 }) => {
 
             {showBlog && (
               <div>
-                <h5 className="footer-col-title">{blogTitle}</h5>
+                 <h3 className="footer-col-title">{blogTitle}</h3>
                 <ul className="footer-links">
                   {blogItems.map(item => {
                     const cleanPath = item.href.replace(/^\//, '');
