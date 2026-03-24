@@ -1,6 +1,6 @@
 import Reveal from './Reveal';
 import SectionHeader from './common/SectionHeader';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 import { urlFor } from '../lib/sanity';
 import AppleIcon from '../assets/icons/apple.svg';
 import PlayStoreIcon from '../assets/icons/playstore.svg';

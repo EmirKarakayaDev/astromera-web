@@ -5,7 +5,7 @@ import Reveal from './Reveal';
 import { client, urlFor } from '../lib/sanity';
 import { testimonials as staticTestimonials } from '../data/content';
 
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Testimonials = () => {
   const [data, setData] = useState([]);

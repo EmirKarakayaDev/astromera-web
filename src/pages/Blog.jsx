@@ -6,7 +6,7 @@ import { journalArticles as staticArticles } from '../data/content';
 import Reveal from '../components/Reveal';
 import GetStarted from '../components/GetStarted';
 import usePageMeta from '../hooks/usePageMeta';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Blog = () => {
   const [articles, setArticles] = useState([]);

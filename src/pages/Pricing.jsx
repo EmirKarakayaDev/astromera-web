@@ -5,7 +5,9 @@ import Reveal from '../components/Reveal';
 import '../styles/pricing.css';
 import usePageMeta from '../hooks/usePageMeta';
 import { client } from '../lib/sanity';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
+
+import { pricingPlans as staticPlans } from '../data/content';
 
 const Pricing = () => {
   const copy = useSiteSettings();
@@ -23,15 +25,11 @@ const Pricing = () => {
         if (result && result.length > 0) {
           setPlans(result);
         } else {
-          // Varsayılan statik paketler (eğer Sanity boşsa)
-          setPlans([
-            { title: "Free", price: "$0", features: ["Limited library", "Basic tracking", "Community access"], cta: "Get Started" },
-            { title: "Premium", price: "$9.99/mo", features: ["Full library", "Offline access", "Advanced programs", "Personalized coaching"], cta: "Try for free", highlighted: true },
-            { title: "Lifetime", price: "$199", features: ["All premium features", "One-time payment", "Priority support", "Exclusive content"], cta: "One payment" }
-          ]);
+          setPlans(staticPlans);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
+        setPlans(staticPlans);
       } finally {
         setLoading(false);
       }

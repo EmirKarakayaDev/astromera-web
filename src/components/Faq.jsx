@@ -4,7 +4,7 @@ import SectionHeader from './common/SectionHeader';
 import Button from './common/Button';
 import { client } from '../lib/sanity';
 import { faqs as staticFaqs } from '../data/content';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Faq = () => {
   const [faqs, setFaqs] = useState([]);

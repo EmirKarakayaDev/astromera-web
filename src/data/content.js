@@ -70,6 +70,12 @@ export const hiwSteps = [
   { title: "Follow Your Progress", desc: "Build a mindfulness habit with personalized streaks, mood tracking, and insights to help you grow." }
 ];
 
+export const pricingPlans = [
+  { title: "Free", price: "$0", features: ["Limited library", "Basic tracking", "Community access"], cta: "Get Started" },
+  { title: "Premium", price: "$9.99/mo", features: ["Full library", "Offline access", "Advanced programs", "Personalized coaching"], cta: "Try for free", highlighted: true },
+  { title: "Lifetime", price: "$199", features: ["All premium features", "One-time payment", "Priority support", "Exclusive content"], cta: "One payment" }
+];
+
 // Minimal fallback content for when Sanity is not available
 export const COPY = {
   hero: {

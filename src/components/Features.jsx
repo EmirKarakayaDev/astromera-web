@@ -3,7 +3,7 @@ import Reveal from './Reveal';
 import SectionHeader from './common/SectionHeader';
 import { client, urlFor } from '../lib/sanity';
 import { features as staticFeatures } from '../data/content';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Features = () => {
   const [data, setData] = useState([]);

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Reveal from './Reveal';
 import { client, urlFor } from '../lib/sanity';
 import { hiwSteps as staticSteps } from '../data/content';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const HowItWorks = () => {
   const [data, setData] = useState([]);

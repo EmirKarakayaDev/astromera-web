@@ -5,7 +5,7 @@ import SectionHeader from './common/SectionHeader';
 import Button from './common/Button';
 import { client, urlFor } from '../lib/sanity';
 import { journalArticles as staticArticles } from '../data/content';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Journal = () => {
   const [articles, setArticles] = useState([]);

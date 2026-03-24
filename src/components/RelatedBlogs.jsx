@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import { client, urlFor } from '../lib/sanity';
 import { journalArticles as staticArticles } from '../data/content';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const RelatedBlogs = ({ currentId }) => {
   const [blogs, setBlogs] = useState([]);

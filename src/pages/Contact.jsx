@@ -4,7 +4,7 @@ import Button from '../components/common/Button';
 import Reveal from '../components/Reveal';
 import GetStarted from '../components/GetStarted';
 import usePageMeta from '../hooks/usePageMeta';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Contact = () => {
   const copy = useSiteSettings();

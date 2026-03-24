@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useSiteSettings } from '../../hooks/useSiteSettings';
+import { useSiteSettings } from '../../context/SiteSettingsContext';
 
 const Button = ({ 
   children, 

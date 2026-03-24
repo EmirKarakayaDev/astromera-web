@@ -6,7 +6,7 @@ import Reveal from '../components/Reveal';
 import RelatedBlogs from '../components/RelatedBlogs';
 import usePageMeta from '../hooks/usePageMeta';
 
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const BlogDetail = () => {
   const { id } = useParams();

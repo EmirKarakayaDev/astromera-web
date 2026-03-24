@@ -1,5 +1,5 @@
 import Reveal from './Reveal';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 import { Link } from 'react-router-dom';
 
 const Footer = ({ delay = 0.5 }) => {

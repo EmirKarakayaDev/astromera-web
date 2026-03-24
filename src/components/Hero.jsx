@@ -1,6 +1,6 @@
 import Reveal from './Reveal';
 import Button from './common/Button';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Hero = ({ heroHandPhone }) => {
   const copy = useSiteSettings();
