@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
-import { COPY } from '../data/copy';
+import { COPY } from '../data/content';
 
 const SiteSettingsContext = createContext();
 
