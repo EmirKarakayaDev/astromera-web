@@ -7,10 +7,18 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor': ['react', 'react-dom', 'react-router-dom', 'lenis'],
-          'sanity-vendor': ['sanity', '@sanity/client', '@sanity/image-url'],
-          'swiper-vendor': ['swiper'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('sanity') || id.includes('@sanity')) {
+              return 'sanity-vendor';
+            }
+            if (id.includes('swiper')) {
+              return 'swiper-vendor';
+            }
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom') || id.includes('lenis')) {
+              return 'vendor';
+            }
+          }
         }
       }
     }
