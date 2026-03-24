@@ -12,20 +12,16 @@ const Hero = ({ heroHandPhone }) => {
         <div className="hero-bg-accent"></div>
       </Reveal>
       <div className="container">
-        <Reveal delay={0.1}>
-          <h1 className="h1-hero">
-            {heroContent.title.split('\n').map((line, i) => (
-              <span key={i}>
-                {line}
-                {i < heroContent.title.split('\n').length - 1 && <br />}
-              </span>
-            ))}
-          </h1>
-        </Reveal>
+        <h1 className="h1-hero">
+          {heroContent.title.split('\n').map((line, i) => (
+            <span key={i}>
+              {line}
+              {i < heroContent.title.split('\n').length - 1 && <br />}
+            </span>
+          ))}
+        </h1>
 
-        <Reveal delay={0.2}>
-          <p className="p-large">{heroContent.subtitle}</p>
-        </Reveal>
+        <p className="p-large">{heroContent.subtitle}</p>
 
         <Reveal delay={0.3}>
           <Button to="/pricing" className="hero-btn">{heroContent.cta}</Button>
