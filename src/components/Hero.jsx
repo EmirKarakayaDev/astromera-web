@@ -5,7 +5,6 @@ import { useSiteSettings } from '../context/SiteSettingsContext';
 const Hero = ({ heroHandPhone }) => {
   const copy = useSiteSettings();
   const heroContent = copy.hero;
-  const isLoading = copy.isLoading;
 
   return (
     <section className="hero">
@@ -14,18 +13,7 @@ const Hero = ({ heroHandPhone }) => {
       </Reveal>
       <div className="container">
         <Reveal delay={0.1}>
-          <h1 
-            className="h1-hero"
-            style={{ 
-              opacity: isLoading ? 0 : 1, 
-              transition: 'opacity 0.5s ease',
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              minHeight: '2em'
-            }}
-          >
+          <h1 className="h1-hero">
             {heroContent.title.split('\n').map((line, i) => (
               <span key={i}>
                 {line}
@@ -36,15 +24,7 @@ const Hero = ({ heroHandPhone }) => {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p 
-            className="p-large"
-            style={{ 
-              opacity: isLoading ? 0 : 1, 
-              transition: 'opacity 0.5s ease'
-            }}
-          >
-            {heroContent.subtitle}
-          </p>
+          <p className="p-large">{heroContent.subtitle}</p>
         </Reveal>
 
         <Reveal delay={0.3}>
