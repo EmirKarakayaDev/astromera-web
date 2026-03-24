@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../components/common/SectionHeader';
-import { client, urlFor } from '../lib/sanity';
+import { client, getImgUrl } from '../lib/sanity';
 import { journalArticles as staticArticles } from '../data/content';
 import Reveal from '../components/Reveal';
 import GetStarted from '../components/GetStarted';
@@ -49,7 +49,7 @@ const Blog = () => {
         <div className="blog-grid">
           {articles.map((article, i) => {
             const articleId = article._id || article.id;
-            const imageUrl = article.mainImage ? urlFor(article.mainImage).url() : article.img;
+            const imageUrl = getImgUrl(article.mainImage, article.img);
             
             return (
               <Reveal key={articleId} delay={i * 0.1}>

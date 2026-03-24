@@ -50,7 +50,7 @@ export const features = [
     img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
   },
   {
-    title: "Perzonalised programs",
+    title: "Personalised programs",
     desc: "Save your favorite meditation spots, whether it's your cozy reading nook, a quiet park, or a peaceful beach.",
     img: bentoGraphic,
     imgBack: bentoRoom,

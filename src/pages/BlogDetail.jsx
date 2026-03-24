@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { client, urlFor } from '../lib/sanity';
+import { client, getImgUrl } from '../lib/sanity';
 import { journalArticles as staticArticles } from '../data/content';
 import Reveal from '../components/Reveal';
 import RelatedBlogs from '../components/RelatedBlogs';
@@ -73,7 +73,7 @@ const BlogDetail = () => {
     }
   };
 
-  const imageUrl = article.mainImage ? urlFor(article.mainImage).url() : article.img;
+  const imageUrl = getImgUrl(article.mainImage, article.img);
   const currentId = article._id || article.id;
 
   return (

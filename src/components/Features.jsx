@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Reveal from './Reveal';
 import SectionHeader from './common/SectionHeader';
-import { client, urlFor } from '../lib/sanity';
+import { client, getImgUrl } from '../lib/sanity';
 import { features as staticFeatures } from '../data/content';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
@@ -55,9 +55,9 @@ const Features = () => {
               const isCustom = feature.customLayout === "stack" || feature.customLayout === "location-stack";
               
               // Get Image URLs
-              const mainImg = feature.mainImage ? urlFor(feature.mainImage).url() : feature.img;
-              const midImg = feature.imgMid ? (typeof feature.imgMid === 'string' ? feature.imgMid : urlFor(feature.imgMid).url()) : null;
-              const backImg = feature.imgBack ? (typeof feature.imgBack === 'string' ? feature.imgBack : urlFor(feature.imgBack).url()) : null;
+              const mainImg = getImgUrl(feature.mainImage, feature.img);
+              const midImg = getImgUrl(feature.imgMid);
+              const backImg = getImgUrl(feature.imgBack);
 
               const imageCount = [mainImg, midImg, backImg].filter(Boolean).length;
 
