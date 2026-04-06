@@ -100,24 +100,24 @@ export default defineType({
       group: 'features',
       description: 'Örn: "KEŞFET" veya "EXPERIENCE"',
     }),
-    defineField({
-      name: 'featuresSubtitle',
-      title: 'Keşfet Ana Başlık (h2)',
-      type: 'localeString',
-      group: 'features',
-    }),
-    defineField({
-      name: 'featuresTopDesc',
-      title: 'Keşfet Üst Açıklama',
-      type: 'localeText',
-      group: 'features',
-    }),
-    defineField({
-      name: 'featuresBottomDesc',
-      title: 'Keşfet Alt Açıklama',
-      type: 'localeText',
-      group: 'features',
-    }),
+      defineField({
+        name: 'featuresSubtitle',
+        title: 'Başlık',
+        type: 'localeString',
+        group: 'features',
+      }),
+      defineField({
+        name: 'featuresTopDesc',
+        title: 'Üst Açıklama',
+        type: 'localeText',
+        group: 'features',
+      }),
+      defineField({
+        name: 'featuresBottomDesc',
+        title: 'Alt Açıklama',
+        type: 'localeText',
+        group: 'features',
+      }),
 
     // Insights / Reports Section
     defineField({
@@ -127,24 +127,24 @@ export default defineType({
       group: 'insights',
       description: 'Örn: "INSIGHTS" veya "RAPORLAR"',
     }),
-    defineField({
-      name: 'insightsTitle',
-      title: 'Raporlar Başlığı',
-      type: 'localeString',
-      group: 'insights',
-    }),
-    defineField({
-      name: 'insightsSubtitle',
-      title: 'Raporlar Üst Açıklama',
-      type: 'localeText',
-      group: 'insights',
-    }),
-    defineField({
-      name: 'insightsBottomDesc',
-      title: 'Raporlar Alt Açıklama',
-      type: 'localeText',
-      group: 'insights',
-    }),
+      defineField({
+        name: 'insightsTitle',
+        title: 'Başlık',
+        type: 'localeString',
+        group: 'insights',
+      }),
+      defineField({
+        name: 'insightsSubtitle',
+        title: 'Üst Açıklama',
+        type: 'localeText',
+        group: 'insights',
+      }),
+      defineField({
+        name: 'insightsBottomDesc',
+        title: 'Alt Açıklama',
+        type: 'localeText',
+        group: 'insights',
+      }),
     defineField({
       name: 'insightsImage',
       title: 'Raporlar Görseli (Sağ Taraf)',
