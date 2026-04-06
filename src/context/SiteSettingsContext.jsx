@@ -101,8 +101,8 @@ export const SiteSettingsProvider = ({ children }) => {
       image: settings?.heroImage ? urlFor(settings.heroImage).url() : null
     },
     features: {
-      subtitle: t(settings?.featuresSubtitle, COPY.features.subtitle),
-      topDesc: t(settings?.featuresTopDesc, ''),
+      title: t(settings?.featuresSubtitle, COPY.features.title),
+      topDesc: t(settings?.featuresTopDesc, COPY.features.subtitle),
       bottomDesc: t(settings?.featuresBottomDesc, ''),
     },
     insights: {

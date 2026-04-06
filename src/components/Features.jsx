@@ -28,7 +28,7 @@ const Features = () => {
     <section id="features">
       <div className="container">
         <Reveal className="features-header">
-          {featuresCopy.subtitle && <h2 className="h2-section">{featuresCopy.subtitle}</h2>}
+          {featuresCopy.title && <h2 className="h2-section">{featuresCopy.title}</h2>}
           {featuresCopy.topDesc && <p className="p-large">{featuresCopy.topDesc}</p>}
           {featuresCopy.bottomDesc && <p className="p-large">{featuresCopy.bottomDesc}</p>}
         </Reveal>
