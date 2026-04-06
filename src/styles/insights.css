@@ -17,29 +17,6 @@
   gap: 16px;
 }
 
-.insights-label {
-  font-size: var(--fs-body);
-  font-weight: var(--fw-body);
-  color: var(--grey-text);
-  opacity: 0.6;
-  margin: 0;
-}
-
-.insights-subtitle {
-  font-size: var(--fs-body);
-  color: var(--grey-text);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-body);
-  margin: 0;
-}
-
-.insights-bottom-desc {
-  font-size: var(--fs-body);
-  color: var(--grey-text);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-body);
-  margin: 0;
-}
 
 /* List items */
 .insights-list {
