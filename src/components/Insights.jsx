@@ -5,7 +5,7 @@ import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Insights = () => {
   const [items, setItems] = useState([]);
-  const { insights, localize } = useSiteSettings();
+  const { insights, localize, language } = useSiteSettings();
   const featuredItems = items.slice(0, 3);
 
   useEffect(() => {
@@ -71,32 +71,35 @@ const Insights = () => {
               {featuredItems.map((item, i) => {
                 const cardImage = item.cardImage ? urlFor(item.cardImage).url() : null;
                 const tags = item.tags || [];
-                const ctaLabel = item.ctaLabel ? localize(item.ctaLabel) : '';
+                const ctaLabel = item.ctaLabel ? localize(item.ctaLabel) : (language === 'en' ? 'Explore' : 'İncele');
+                const ctaHref = item.ctaHref || '#';
                 return (
                   <Reveal key={item._id || i} delay={i * 0.1} className="insights-featured-card">
-                    {cardImage && (
-                      <div
-                        className="insights-featured-image"
-                        style={{ backgroundImage: `url(${cardImage})` }}
-                      ></div>
-                    )}
+                    <div className="insights-featured-media">
+                      {cardImage && (
+                        <div
+                          className="insights-featured-image"
+                          style={{ backgroundImage: `url(${cardImage})` }}
+                        ></div>
+                      )}
+                    </div>
                     <div className="insights-featured-body">
-                      <h4 className="insights-featured-title">{localize(item.title)}</h4>
-                      <p className="insights-featured-desc">{localize(item.desc)}</p>
-                      {tags.length > 0 && (
-                        <div className="insights-featured-tags">
-                          {tags.map((tag, tagIdx) => (
-                            <span key={`${tag}-${tagIdx}`} className="insights-featured-tag">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      {item.ctaHref && ctaLabel && (
-                        <a className="insights-featured-cta" href={item.ctaHref} target="_blank" rel="noreferrer">
-                          {ctaLabel}
-                        </a>
-                      )}
+                      <div className="insights-featured-text">
+                        <h4 className="insights-featured-title">{localize(item.title)}</h4>
+                        <p className="insights-featured-desc">{localize(item.desc)}</p>
+                        {tags.length > 0 && (
+                          <div className="insights-featured-tags">
+                            {tags.map((tag, tagIdx) => (
+                              <span key={`${tag}-${tagIdx}`} className="insights-featured-tag">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <a className="insights-featured-cta" href={ctaHref}>
+                        {ctaLabel}
+                      </a>
                     </div>
                   </Reveal>
                 );
