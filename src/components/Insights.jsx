@@ -67,11 +67,13 @@ const Insights = () => {
         </div>
         {cards.length > 0 && (
           <div className="insights-featured">
-            <Reveal className="insights-featured-header">
-              {insights.featuredLabel && <p className="section-label">{insights.featuredLabel}</p>}
-              {insights.featuredTitle && <h3 className="h2-section">{insights.featuredTitle}</h3>}
-              {insights.featuredSubtitle && <p className="p-large">{insights.featuredSubtitle}</p>}
-            </Reveal>
+            <div className="insights-featured-intro">
+              <Reveal className="insights-featured-header">
+                {insights.featuredLabel && <p className="section-label">{insights.featuredLabel}</p>}
+                {insights.featuredTitle && <h3 className="h2-section">{insights.featuredTitle}</h3>}
+                {insights.featuredSubtitle && <p className="p-large">{insights.featuredSubtitle}</p>}
+              </Reveal>
+            </div>
             <div className="insights-featured-grid">
               {cards.map((item, i) => {
                 const cardImage = item.cardImage ? urlFor(item.cardImage).url() : null;
