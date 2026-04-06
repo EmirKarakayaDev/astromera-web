@@ -139,6 +139,18 @@ export default defineType({
         type: 'localeText',
         group: 'insights',
       }),
+      defineField({
+        name: 'insightsFeaturedTitle',
+        title: 'Kart Bölümü Başlığı',
+        type: 'localeString',
+        group: 'insights',
+      }),
+      defineField({
+        name: 'insightsFeaturedSubtitle',
+        title: 'Kart Bölümü Açıklaması',
+        type: 'localeText',
+        group: 'insights',
+      }),
     defineField({
       name: 'insightsImage',
       title: 'Raporlar Görseli (Sağ Taraf)',

@@ -32,6 +32,13 @@ export default defineType({
       description: 'SVG veya PNG ikon.',
     }),
     defineField({
+      name: 'cardImage',
+      title: 'Kart Görseli',
+      type: 'image',
+      options: { hotspot: true },
+      description: 'Öne çıkan kartlar için geniş görsel.',
+    }),
+    defineField({
       name: 'title',
       title: 'Başlık',
       type: 'localeString',
@@ -40,6 +47,23 @@ export default defineType({
       name: 'desc',
       title: 'Açıklama',
       type: 'localeText',
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Etiketler',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+    }),
+    defineField({
+      name: 'ctaLabel',
+      title: 'Kart CTA Metni',
+      type: 'localeString',
+    }),
+    defineField({
+      name: 'ctaHref',
+      title: 'Kart CTA Linki',
+      type: 'string',
     }),
   ],
   preview: {

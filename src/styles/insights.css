@@ -103,6 +103,104 @@
   border-radius: 24px;
 }
 
+.insights-featured {
+  margin-top: 80px;
+  padding: 60px;
+  background: linear-gradient(180deg, rgba(255, 226, 226, 0.55) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border-radius: 40px;
+  border: 1px solid rgba(61, 0, 0, 0.08);
+  box-shadow: 0 40px 70px rgba(61, 0, 0, 0.08);
+}
+
+.insights-featured-header {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insights-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.insights-featured-card {
+  background: #fff;
+  border-radius: 28px;
+  border: 1px solid rgba(61, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(61, 0, 0, 0.05);
+}
+
+.insights-featured-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.insights-featured-body {
+  padding: 24px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.insights-featured-title {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.insights-featured-desc {
+  font-size: var(--fs-body-sm);
+  color: var(--grey-text);
+  line-height: var(--lh-body-sm);
+  margin: 0;
+}
+
+.insights-featured-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.insights-featured-tag {
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 225, 225, 0.6);
+  color: var(--text-primary);
+}
+
+.insights-featured-cta {
+  align-self: flex-start;
+  margin-top: auto;
+  background: var(--btn-bg);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-btn);
+  line-height: var(--lh-btn);
+  font-weight: var(--fw-btn);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.insights-featured-cta:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .insights-layout {
@@ -118,5 +216,15 @@
   .insights-image {
     max-width: 360px;
     height: auto;
+  }
+
+  .insights-featured {
+    padding: 40px 24px;
+    border-radius: 28px;
+    margin-top: 60px;
+  }
+
+  .insights-featured-grid {
+    grid-template-columns: 1fr;
   }
 }
