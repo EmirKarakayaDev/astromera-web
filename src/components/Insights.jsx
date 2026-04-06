@@ -28,7 +28,6 @@ const Insights = () => {
             {insights.label && <p className="features-label">{insights.label}</p>}
             {insights.title && <h2 className="h2-section">{insights.title}</h2>}
             {insights.subtitle && <p className="p-large">{insights.subtitle}</p>}
-            {insights.bottomDesc && <p className="p-large">{insights.bottomDesc}</p>}
 
             {items.length > 0 && (
               <ul className="insights-list">
