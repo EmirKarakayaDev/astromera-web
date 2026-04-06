@@ -55,6 +55,20 @@ export default defineType({
       group: 'header',
     }),
     defineField({
+      name: 'showInsightsNavItem',
+      title: 'Raporlar Linki (Header Menü)',
+      type: 'boolean',
+      initialValue: true,
+      group: 'header',
+    }),
+    defineField({
+      name: 'showAboutNavItem',
+      title: 'Hakkında Linki (Header Menü)',
+      type: 'boolean',
+      initialValue: true,
+      group: 'header',
+    }),
+    defineField({
       name: 'showHowItWorksNavItem',
       title: 'How It Works Linki (Header Menü)',
       type: 'boolean',

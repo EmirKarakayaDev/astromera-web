@@ -59,6 +59,8 @@ export const SiteSettingsProvider = ({ children }) => {
   const showBlogNavItem = visibility?.showBlogNavItem ?? true;
   const showFeaturesNavItem = visibility?.showFeaturesNavItem ?? true;
   const showTestimonialsNavItem = visibility?.showTestimonialsNavItem ?? true;
+  const showInsightsNavItem = visibility?.showInsightsNavItem ?? true;
+  const showAboutNavItem = visibility?.showAboutNavItem ?? true;
   const showHowItWorksNavItem = visibility?.showHowItWorksNavItem ?? true;
   const showPricingNavItem = visibility?.showPricingNavItem ?? true;
   const showDownloadButton = visibility?.showDownloadButton ?? true;
@@ -88,9 +90,18 @@ export const SiteSettingsProvider = ({ children }) => {
       ])).filter(item => {
         if (!showBlogNavItem && (item.href === '/blog' || item.href?.startsWith('/blog'))) return false;
         if (!showPricingNavItem && item.href === '/pricing') return false;
-        if (!showFeaturesNavItem && item.href === '/#features') return false;
-        if (!showTestimonialsNavItem && item.href === '/#testimonials') return false;
-        if (!showHowItWorksNavItem && (item.href === '/#how-it-works' || item.href === '#how-it-works')) return false;
+
+        const featuresAnchors = ['/#features', '#features', '/#experience', '#experience'];
+        const insightsAnchors = ['/#insight', '#insight', '/#insights', '#insights'];
+        const aboutAnchors = ['/#about', '#about'];
+        const testimonialsAnchors = ['/#testimonials', '#testimonials'];
+        const howItWorksAnchors = ['/#how-it-works', '#how-it-works'];
+
+        if (!showFeaturesNavItem && featuresAnchors.includes(item.href)) return false;
+        if (!showInsightsNavItem && insightsAnchors.includes(item.href)) return false;
+        if (!showAboutNavItem && aboutAnchors.includes(item.href)) return false;
+        if (!showTestimonialsNavItem && testimonialsAnchors.includes(item.href)) return false;
+        if (!showHowItWorksNavItem && howItWorksAnchors.includes(item.href)) return false;
         return true;
       })
     },
@@ -198,6 +209,8 @@ export const SiteSettingsProvider = ({ children }) => {
       showBlogNavItem,
       showFeaturesNavItem,
       showTestimonialsNavItem,
+      showInsightsNavItem,
+      showAboutNavItem,
       showHowItWorksNavItem,
       showPricingNavItem,
       showDownloadButton,
