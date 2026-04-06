@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Reveal from './Reveal';
-import SectionHeader from './common/SectionHeader';
 import { client, urlFor } from '../lib/sanity';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
@@ -28,17 +27,11 @@ const Features = () => {
   return (
     <section id="features">
       <div className="container">
-        <SectionHeader 
-          title={featuresCopy.title.split('\n').map((line, i) => (
-            <span key={i}>
-              {line}
-              {i < featuresCopy.title.split('\n').length - 1 && <br />}
-            </span>
-          ))}
-          subtitle={featuresCopy.subtitle}
-          centered={false}
-          className="bento-header"
-        />
+        <Reveal className="features-header">
+          <h2 className="h2-section">{featuresCopy.title}</h2>
+          {featuresCopy.subtitle && <p className="p-large">{featuresCopy.subtitle}</p>}
+          {featuresCopy.bottomDesc && <p className="p-large">{featuresCopy.bottomDesc}</p>}
+        </Reveal>
 
         <div className="bento-grid">
           {data.length === 0 ? (

@@ -102,7 +102,8 @@ export const SiteSettingsProvider = ({ children }) => {
     },
     features: {
       title: t(settings?.featuresTitle, COPY.features.title),
-      subtitle: t(settings?.featuresSubtitle, COPY.features.subtitle)
+      subtitle: t(settings?.featuresSubtitle, COPY.features.subtitle),
+      bottomDesc: t(settings?.featuresBottomDesc, ''),
     },
     howItWorks: {
       title: t(settings?.hiwTitle, COPY.howItWorks.title),

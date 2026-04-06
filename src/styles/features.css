@@ -1,4 +1,25 @@
 /* Bento Grid / Features */
+.features-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+.features-header p {
+  margin: 0;
+  font-size: var(--fs-body);
+  color: var(--grey-text);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+}
+
+@media (max-width: 1024px) {
+  .features-header {
+    margin-bottom: 36px;
+  }
+}
+
 .bento-header {
   display: flex;
   justify-content: space-between;
