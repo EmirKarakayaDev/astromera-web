@@ -185,7 +185,7 @@
 .hiw-visuals::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -40px;
   left: 0;
   right: 0;
   height: 180px;
