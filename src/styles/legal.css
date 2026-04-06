@@ -16,6 +16,24 @@
   margin-bottom: 32px;
 }
 
+.legal-subtitle {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  opacity: 0.65;
+  margin-top: 12px;
+}
+
+.legal-last-updated {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-label);
+  letter-spacing: var(--ls-label);
+  color: var(--text-primary);
+  opacity: 0.4;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
 .legal-title {
   font-family: var(--font-heading);
   font-size: var(--fs-h1);

@@ -47,6 +47,20 @@ export default defineType({
       validation: Rule => Rule.required(),
       description: 'Sayfa URL yolu. Örn: "privacy-policy" → /legal/privacy-policy',
     }),
+    defineField({
+      name: 'subtitle',
+      title: 'Alt Başlık / Açıklama',
+      type: 'localeString',
+      group: 'meta',
+      description: 'Sayfa başlığının hemen altında görünür.',
+    }),
+    defineField({
+      name: 'lastUpdated',
+      title: 'Son Güncelleme Tarihi',
+      type: 'date',
+      group: 'meta',
+      options: { dateFormat: 'DD/MM/YYYY' },
+    }),
     localePT('intro', 'Giriş Metni (Başlıklar Öncesi)', 'content'),
     defineField({
       name: 'sections',

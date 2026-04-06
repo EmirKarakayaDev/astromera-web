@@ -66,6 +66,18 @@ const LegalPage = () => {
     ''
   );
 
+  const formatDate = (dateStr) => {
+    if (!dateStr) return null;
+    try {
+      const date = new Date(dateStr);
+      return new Intl.DateTimeFormat(language === 'tr' ? 'tr-TR' : 'en-US', {
+        day: 'numeric', month: 'long', year: 'numeric'
+      }).format(date);
+    } catch {
+      return dateStr;
+    }
+  };
+
   const getLocalizedPT = (field) => {
     if (!field) return null;
     return field[language] || field['tr'] || null;
@@ -95,6 +107,14 @@ const LegalPage = () => {
       <div className="container">
         <Reveal className="legal-header">
           <h1 className="legal-title">{localize(page.title)}</h1>
+          {page.subtitle && (
+            <p className="legal-subtitle">{localize(page.subtitle)}</p>
+          )}
+          {page.lastUpdated && (
+            <p className="legal-last-updated">
+              {language === 'tr' ? 'Son Güncelleme' : 'Last Updated'}: {formatDate(page.lastUpdated)}
+            </p>
+          )}
         </Reveal>
 
         {sections.length > 0 && (
