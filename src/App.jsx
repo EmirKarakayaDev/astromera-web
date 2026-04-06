@@ -29,6 +29,19 @@ const ScrollToTop = () => {
       window.lenis.scrollTo(0, { immediate: true });
     }
   }, [pathname]);
+
+  useEffect(() => {
+    const hasHash = Boolean(window.location.hash);
+    const navEntries = typeof performance?.getEntriesByType === 'function'
+      ? performance.getEntriesByType('navigation')
+      : [];
+    const isReload = navEntries.some((entry) => entry.type === 'reload');
+
+    if (hasHash && isReload) {
+      const cleanUrl = `${window.location.pathname}${window.location.search}`;
+      window.history.replaceState(null, '', cleanUrl);
+    }
+  }, []);
   return null;
 };
 
