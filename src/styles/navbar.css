@@ -51,8 +51,10 @@
   width: 32px;
   height: 32px;
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: contain;
   flex-shrink: 0;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .nav-logo-text {
