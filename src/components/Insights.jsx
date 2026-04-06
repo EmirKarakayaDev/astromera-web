@@ -5,15 +5,19 @@ import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Insights = () => {
   const [items, setItems] = useState([]);
+  const [cards, setCards] = useState([]);
   const { insights, localize, language } = useSiteSettings();
   const featuredItems = items.slice(0, 3);
 
   useEffect(() => {
     const fetchInsights = async () => {
       try {
-        const query = '*[_type == "insight" && isPublished != false] | order(order asc)';
-        const result = await client.fetch(query);
-        if (result && result.length > 0) setItems(result);
+        const [insightsResult, cardsResult] = await Promise.all([
+          client.fetch('*[_type == "insight" && isPublished != false] | order(order asc)'),
+          client.fetch('*[_type == "featuredReport" && isPublished != false] | order(order asc)')
+        ]);
+        if (insightsResult && insightsResult.length > 0) setItems(insightsResult);
+        if (cardsResult && cardsResult.length > 0) setCards(cardsResult);
       } catch (error) {
         console.error('Insights fetch error:', error);
       }
@@ -61,7 +65,7 @@ const Insights = () => {
             </Reveal>
           )}
         </div>
-        {featuredItems.length > 0 && (
+        {cards.length > 0 && (
           <div className="insights-featured">
             <Reveal className="insights-featured-header">
               {insights.featuredLabel && <p className="section-label">{insights.featuredLabel}</p>}
@@ -69,7 +73,7 @@ const Insights = () => {
               {insights.featuredSubtitle && <p className="p-large">{insights.featuredSubtitle}</p>}
             </Reveal>
             <div className="insights-featured-grid">
-              {featuredItems.map((item, i) => {
+              {cards.map((item, i) => {
                 const cardImage = item.cardImage ? urlFor(item.cardImage).url() : null;
                 const tags = item.tags || [];
                 const ctaLabel = item.ctaLabel ? localize(item.ctaLabel) : (language === 'en' ? 'Explore' : 'İncele');
