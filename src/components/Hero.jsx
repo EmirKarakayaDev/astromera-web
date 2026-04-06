@@ -1,10 +1,12 @@
 import Reveal from './Reveal';
-import Button from './common/Button';
 import { useSiteSettings } from '../context/SiteSettingsContext';
+import AppleIcon from '../assets/icons/apple.svg';
+import PlayStoreIcon from '../assets/icons/playstore.svg';
 
 const Hero = ({ heroHandPhone }) => {
   const copy = useSiteSettings();
   const heroContent = copy.hero;
+  const ctaButtons = copy.getStarted?.ctaButtons || [];
 
   return (
     <section className="hero">
@@ -28,7 +30,22 @@ const Hero = ({ heroHandPhone }) => {
         </Reveal>
 
         <Reveal delay={0.3}>
-          <Button to="/pricing" className="hero-btn">{heroContent.cta}</Button>
+          <div className="hero-store-buttons">
+            {ctaButtons.map((btn, i) => {
+              const isApple = btn.type === 'apple';
+              const isGoogle = btn.type === 'google';
+              const icon = isApple ? AppleIcon : isGoogle ? PlayStoreIcon : null;
+              return (
+                <a key={i} href={btn.href || '#'} className="store-btn">
+                  {icon && <img src={icon} alt={btn.type} width="24" height="24" style={{ filter: 'invert(1)' }} />}
+                  <span className="store-btn-content">
+                    {btn.tag && <span className="store-btn-tag">{btn.tag}</span>}
+                    <span className="store-btn-name">{btn.text}</span>
+                  </span>
+                </a>
+              );
+            })}
+          </div>
         </Reveal>
 
         <Reveal className="hero-phone-container" delay={0.4}>

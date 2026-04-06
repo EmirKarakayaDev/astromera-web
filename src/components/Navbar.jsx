@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSiteSettings } from '../context/SiteSettingsContext';
+import AppleIcon from '../assets/icons/apple.svg';
+import PlayStoreIcon from '../assets/icons/playstore.svg';
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
   const location = useLocation();
@@ -38,8 +40,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
 
   const { language } = copy;
   const { showDownloadButton } = copy.visibility;
-  const downloadHref = copy.getStarted?.ctaButtons?.[0]?.href || '#';
-  const downloadText = language === 'tr' ? 'İndir' : 'Download';
+  const ctaButtons = copy.getStarted?.ctaButtons || [];
 
   const handleLogoClick = (e) => {
     const isLangHome = location.pathname === `/${language}` || location.pathname === `/${language}/`;
@@ -98,9 +99,24 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
       </nav>
 
       <div className="nav-right">
-        {showDownloadButton && <a href={downloadHref} className="nav-btn-pill nav-download-btn">
-          {downloadText}
-        </a>}
+        {showDownloadButton && ctaButtons.length > 0 && (
+          <div className="nav-store-buttons">
+            {ctaButtons.map((btn, i) => {
+              const isApple = btn.type === 'apple';
+              const isGoogle = btn.type === 'google';
+              const icon = isApple ? AppleIcon : isGoogle ? PlayStoreIcon : null;
+              return (
+                <a key={i} href={btn.href || '#'} className="nav-store-btn">
+                  {icon && <img src={icon} alt={btn.type} width="16" height="16" style={{ filter: 'invert(1)' }} />}
+                  <span className="nav-store-btn-text">
+                    {btn.tag && <span className="nav-store-btn-tag">{btn.tag}</span>}
+                    <span className="nav-store-btn-name">{btn.text}</span>
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        )}
 
         <button
           ref={hamburgerRef}
