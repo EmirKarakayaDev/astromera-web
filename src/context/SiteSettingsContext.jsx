@@ -124,6 +124,7 @@ export const SiteSettingsProvider = ({ children }) => {
       image: settings?.insightsImage ? urlFor(settings.insightsImage).url() : null,
     },
     howItWorks: {
+      label: t(settings?.hiwLabel, ''),
       title: t(settings?.hiwTitle, COPY.howItWorks.title),
       subtitle: t(settings?.hiwSubtitle, COPY.howItWorks.subtitle)
     },

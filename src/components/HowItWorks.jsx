@@ -30,8 +30,9 @@ const HowItWorks = () => {
       <div className="container">
         <div className="hiw-content">
           <Reveal className="hiw-header-part">
-            <h2 className="h2-section">{hiwCopy.title}</h2>
-            <p className="p-intro">{hiwCopy.subtitle}</p>
+            {hiwCopy.label && <p className="section-label">{hiwCopy.label}</p>}
+            {hiwCopy.title && <h2 className="h2-section">{hiwCopy.title}</h2>}
+            {hiwCopy.subtitle && <p className="p-large">{hiwCopy.subtitle}</p>}
           </Reveal>
 
           <Reveal className="hiw-visuals">

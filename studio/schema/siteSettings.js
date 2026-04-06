@@ -148,10 +148,16 @@ export default defineType({
     }),
 
     // How It Works Section
-    defineField({
-      name: 'hiwTitle',
-      title: 'Nasıl Çalışır Başlığı',
-      type: 'localeString',
+      defineField({
+        name: 'hiwLabel',
+        title: 'Nasıl Çalışır Etiketi',
+        type: 'localeString',
+        group: 'hiw',
+      }),
+      defineField({
+        name: 'hiwTitle',
+        title: 'Nasıl Çalışır Başlığı',
+        type: 'localeString',
       group: 'hiw',
     }),
     defineField({
