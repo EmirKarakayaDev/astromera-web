@@ -25,8 +25,8 @@ const Insights = () => {
       <div className="container">
         <div className="insights-layout">
           <Reveal className="insights-content">
-            {insights.title && <h2 className="h2-section">{insights.title}</h2>}
-            {insights.subtitle && <p className="p-large">{insights.subtitle}</p>}
+            {insights.title && <p className="section-label">{insights.title}</p>}
+            {insights.subtitle && <h2 className="h2-section">{insights.subtitle}</h2>}
 
             {items.length > 0 && (
               <ul className="insights-list">

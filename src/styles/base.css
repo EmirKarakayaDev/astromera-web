@@ -128,6 +128,15 @@ body {
   max-width: 480px;
 }
 
+.section-label {
+  font-size: var(--fs-body);
+  color: var(--grey-text);
+  font-weight: var(--fw-body);
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* --grey-text token'ını kullanan yardımcı class */
 .grey-text {
   color: var(--grey-text);
