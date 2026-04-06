@@ -14,7 +14,7 @@ import { useSiteSettings } from '../context/SiteSettingsContext';
 const Home = () => {
   usePageMeta(null, 'Short, simple meditations to help you reset, unwind, and feel present — whenever you need a break.');
   const { hash } = useLocation();
-  const { hero } = useSiteSettings();
+  const { hero, visibility } = useSiteSettings();
 
   // Sanity'den görsel geldiyse onu kullan, yoksa local SVG fallback
   const heroImage = hero?.image || fallbackHeroImage;
@@ -36,7 +36,7 @@ const Home = () => {
       <Features />
       <Testimonials />
       <HowItWorks />
-      <Journal />
+      {visibility.showJournalSection && <Journal />}
       <Faq />
       <GetStarted />
     </>

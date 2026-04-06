@@ -15,7 +15,7 @@ const Journal = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const query = '*[_type == "blog"] | order(date desc)';
+        const query = '*[_type == "blog" && isPublished != false] | order(date desc)';
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setArticles(result);

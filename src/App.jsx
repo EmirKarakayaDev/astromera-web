@@ -1,5 +1,6 @@
 import { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { SiteSettingsProvider, useSiteSettings } from './context/SiteSettingsContext';
 import Lenis from 'lenis';
 
 // Components
@@ -13,8 +14,6 @@ const Pricing = lazy(() => import('./pages/Pricing'));
 const Contact = lazy(() => import('./pages/Contact'));
 const BlogDetail = lazy(() => import('./pages/BlogDetail'));
 const StudioPage = lazy(() => import('./pages/StudioPage'));
-
-import { SiteSettingsProvider } from './context/SiteSettingsContext';
 
 // Swiper styles
 import 'swiper/css';
@@ -49,6 +48,29 @@ const MainLayout = ({ children, isMenuOpen, setIsMenuOpen, isNavVisible }) => {
       <main>{children}</main>
       <Footer key={pathname} />
     </div>
+  );
+};
+
+const AppRoutes = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
+  const { visibility } = useSiteSettings();
+  return (
+    <MainLayout isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} isNavVisible={isNavVisible}>
+      <Suspense fallback={<div className="loader-overlay" />}>
+        <Routes>
+          <Route path="/" element={<Navigate to="/tr" replace />} />
+          <Route path="/admin/*" element={<StudioPage />} />
+          <Route path="/:lang">
+            <Route index element={<Home />} />
+            {visibility.showBlogPage && <Route path="blog" element={<Blog />} />}
+            {visibility.showBlogPage && <Route path="blog/:id" element={<BlogDetail />} />}
+            {visibility.showPricingPage && <Route path="pricing" element={<Pricing />} />}
+            <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<Navigate to="/tr" replace />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/tr" replace />} />
+        </Routes>
+      </Suspense>
+    </MainLayout>
   );
 };
 
@@ -98,34 +120,11 @@ function App() {
     <BrowserRouter>
       <SiteSettingsProvider>
         <ScrollToTop />
-        <MainLayout 
-          isMenuOpen={isMenuOpen} 
-          setIsMenuOpen={setIsMenuOpen} 
+        <AppRoutes
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
           isNavVisible={isNavVisible}
-        >
-          <Suspense fallback={<div className="loader-overlay" />}>
-            <Routes>
-              {/* Root redirect to default language */}
-              <Route path="/" element={<Navigate to="/tr" replace />} />
-              
-              {/* Admin route - keep separate */}
-              <Route path="/admin/*" element={<StudioPage />} />
-  
-              {/* Language-prefixed routes */}
-              <Route path="/:lang">
-                <Route index element={<Home />} />
-                <Route path="blog" element={<Blog />} />
-                <Route path="blog/:id" element={<BlogDetail />} />
-                <Route path="pricing" element={<Pricing />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="*" element={<Navigate to="/tr" replace />} />
-              </Route>
-  
-              {/* Global fallback */}
-              <Route path="*" element={<Navigate to="/tr" replace />} />
-            </Routes>
-          </Suspense>
-        </MainLayout>
+        />
       </SiteSettingsProvider>
     </BrowserRouter>
   );

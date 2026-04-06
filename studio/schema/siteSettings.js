@@ -313,6 +313,39 @@ export default defineType({
         { text: 'Terms & Conditions', href: '#' },
       ],
     }),
+    // Visibility Controls
+    defineField({
+      name: 'showBlogPage',
+      title: 'Blog Sayfasını Göster (/blog)',
+      type: 'boolean',
+      group: 'visibility',
+      initialValue: true,
+      description: 'Kapalıyken /blog ve /blog/:id sayfaları erişilemez olur.',
+    }),
+    defineField({
+      name: 'showBlogNavItem',
+      title: "Header Menüde Blog Linkini Göster",
+      type: 'boolean',
+      group: 'visibility',
+      initialValue: true,
+      description: "Kapalıyken navigasyon menüsünden /blog linki gizlenir.",
+    }),
+    defineField({
+      name: 'showJournalSection',
+      title: 'Ana Sayfada Blog/Journal Bölümünü Göster',
+      type: 'boolean',
+      group: 'visibility',
+      initialValue: true,
+      description: 'Kapalıyken ana sayfadaki blog makaleleri bölümü gizlenir.',
+    }),
+    defineField({
+      name: 'showPricingPage',
+      title: 'Fiyatlandırma Sayfasını Göster (/pricing)',
+      type: 'boolean',
+      group: 'visibility',
+      initialValue: true,
+      description: 'Kapalıyken /pricing sayfası erişilemez olur.',
+    }),
     defineField({
       name: 'ctaTitle',
       title: 'Hemen Başlayın Başlığı',
@@ -375,5 +408,6 @@ export default defineType({
     { name: 'contact', title: 'İletişim' },
     { name: 'footer', title: 'Alt Kısım' },
     { name: 'cta', title: 'CTA (Hemen Başlayın)' },
+    { name: 'visibility', title: '🔒 Görünürlük' },
   ],
 });

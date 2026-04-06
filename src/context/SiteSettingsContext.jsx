@@ -53,10 +53,12 @@ export const SiteSettingsProvider = ({ children }) => {
     return field[language] || field['tr'] || fallback;
   };
 
+  const showBlogNavItem = settings?.showBlogNavItem ?? true;
+
   const copy = {
     header: {
       siteName: t(settings?.siteName, 'AstroMera'),
-      menuItems: settings?.menuItems?.map(item => ({
+      menuItems: (settings?.menuItems?.map(item => ({
         ...item,
         text: t(item.text, 'Link')
       })) || (isLoading ? [] : [
@@ -65,7 +67,10 @@ export const SiteSettingsProvider = ({ children }) => {
         { href: '/#how-it-works', text: 'How it works' },
         { href: '/pricing', text: 'Pricing' },
         { href: '/blog', text: 'Blog' },
-      ])
+      ])).filter(item => {
+        if (!showBlogNavItem && (item.href === '/blog' || item.href?.startsWith('/blog'))) return false;
+        return true;
+      })
     },
     hero: {
       badge: t(settings?.heroBadge, COPY.hero.badge),
@@ -147,6 +152,12 @@ export const SiteSettingsProvider = ({ children }) => {
         { text: 'Cookies', href: '#' },
         { text: 'Terms & Conditions', href: '#' }
       ])
+    },
+    visibility: {
+      showBlogPage: settings?.showBlogPage ?? true,
+      showBlogNavItem,
+      showJournalSection: settings?.showJournalSection ?? true,
+      showPricingPage: settings?.showPricingPage ?? true,
     },
     getStarted: {
       title: t(settings?.ctaTitle, COPY.getStarted.title),

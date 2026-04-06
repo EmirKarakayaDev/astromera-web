@@ -39,6 +39,13 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'isPublished',
+      title: 'Yayınlandı',
+      type: 'boolean',
+      initialValue: true,
+      description: 'Gizlemek için kapatın. Kapalıyken bu yazı sitede görünmez.',
+    }),
+    defineField({
       name: 'body',
       title: 'İçerik (Paragraflar)',
       type: 'array',

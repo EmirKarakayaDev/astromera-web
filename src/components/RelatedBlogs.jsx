@@ -12,7 +12,7 @@ const RelatedBlogs = ({ currentId }) => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const query = '*[_type == "blog"]';
+        const query = '*[_type == "blog" && isPublished != false]';
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setBlogs(result);

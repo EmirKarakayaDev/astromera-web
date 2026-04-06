@@ -18,7 +18,7 @@ const BlogDetail = () => {
     const fetchArticle = async () => {
       try {
         // First try to find in Sanity by _id or original ID
-        const query = `*[_type == "blog" && (_id == $id || string(id) == $id)][0]`;
+        const query = `*[_type == "blog" && isPublished != false && (_id == $id || string(id) == $id)][0]`;
         const result = await client.fetch(query, { id });
         
         if (result) {
