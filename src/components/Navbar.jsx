@@ -36,7 +36,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
     };
   }, [isMenuOpen, setIsMenuOpen]);
 
-  const { language, setLanguage } = copy;
+  const { language } = copy;
+  const downloadHref = copy.getStarted?.ctaButtons?.[0]?.href || '#';
+  const downloadText = language === 'tr' ? 'İndir' : 'Download';
 
   const handleLogoClick = (e) => {
     const isLangHome = location.pathname === `/${language}` || location.pathname === `/${language}/`;
@@ -92,43 +94,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
             </Link>
           );
         })}
-        {/* Mobile Language Section */}
-        <div className="nav-lang-picker mobile-menu-lang">
-          <button 
-            className={`lang-btn ${language === 'tr' ? 'active' : ''}`}
-            onClick={() => { setLanguage('tr'); setIsMenuOpen(false); }}
-          >
-            TR
-          </button>
-          <span className="lang-sep">|</span>
-          <button 
-            className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-            onClick={() => { setLanguage('en'); setIsMenuOpen(false); }}
-          >
-            EN
-          </button>
-        </div>
       </nav>
 
       <div className="nav-right">
-        {/* Desktop Language Picker */}
-        <div className="nav-lang-picker desktop-nav-lang">
-          <button 
-            className={`lang-btn ${language === 'tr' ? 'active' : ''}`}
-            onClick={() => setLanguage('tr')}
-            aria-label="Switch to Turkish"
-          >
-            TR
-          </button>
-          <span className="lang-sep">|</span>
-          <button 
-            className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-            onClick={() => setLanguage('en')}
-            aria-label="Switch to English"
-          >
-            EN
-          </button>
-        </div>
+        <a href={downloadHref} className="nav-btn-pill nav-download-btn">
+          {downloadText}
+        </a>
 
         <button
           ref={hamburgerRef}

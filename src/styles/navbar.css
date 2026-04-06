@@ -226,28 +226,14 @@
   pointer-events: none;
 }
 
-/* Desktop Picker */
-.desktop-nav-lang {
-  display: flex;
-}
-
-/* Mobile Menu Picker */
-.mobile-menu-lang {
-  display: none;
-  background: transparent;
-  padding: 0;
-  margin-top: 25px;
-  width: fit-content;
-  align-self: center;
+.nav-download-btn {
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 @media (max-width: 1024px) {
-  .desktop-nav-lang {
+  .nav-download-btn {
     display: none;
-  }
-  
-  .mobile-menu-lang {
-    display: flex;
   }
 
   .nav-right {

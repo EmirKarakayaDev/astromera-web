@@ -5,18 +5,19 @@ import { Link } from 'react-router-dom';
 const Footer = ({ delay = 0.5 }) => {
   const copy = useSiteSettings();
   const { siteName } = copy.header;
-  const { 
-    intro, 
-    copyright, 
-    showSupport, 
-    showBlog, 
-    navTitle, 
+  const { language, setLanguage } = copy;
+  const {
+    intro,
+    copyright,
+    showSupport,
+    showBlog,
+    navTitle,
     navItems,
-    supportTitle, 
-    blogTitle, 
-    supportItems, 
+    supportTitle,
+    blogTitle,
+    supportItems,
     blogItems,
-    legalItems 
+    legalItems
   } = copy.footer;
 
   return (
@@ -100,6 +101,23 @@ const Footer = ({ delay = 0.5 }) => {
 
         <Reveal className="footer-bottom" delay={delay + 0.1}>
           <p>{copyright}</p>
+          <div className="footer-lang-picker">
+            <button
+              className={`lang-btn ${language === 'tr' ? 'active' : ''}`}
+              onClick={() => setLanguage('tr')}
+              aria-label="Türkçe"
+            >
+              TR
+            </button>
+            <span className="lang-sep">|</span>
+            <button
+              className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+              onClick={() => setLanguage('en')}
+              aria-label="English"
+            >
+              EN
+            </button>
+          </div>
           <div className="footer-legal">
             {legalItems.map(item => (
                <a key={item.text} href={item.href || '#'}>{item.text}</a>
