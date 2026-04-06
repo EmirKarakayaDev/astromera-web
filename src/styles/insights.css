@@ -17,7 +17,7 @@
   gap: 16px;
 }
 
-.insights-content p {
+.insights-header .p-large {
   margin: 0;
   font-size: var(--fs-body);
   color: var(--grey-text);
