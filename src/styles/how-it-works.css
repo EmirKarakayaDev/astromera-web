@@ -2,7 +2,7 @@
 .how-it-works {
   background: linear-gradient(180deg, #FFE1E1 0%, #FFFFFF 80%);
   border-radius: 40px;
-  padding-bottom: 0px;
+  padding: 60px 0 0;
   margin-bottom: 120px;
 }
 
@@ -27,7 +27,7 @@
   grid-column: 2;
   grid-row: 2;
   align-self: flex-start;
-  margin-top: 82px;
+  margin-top: 60px;
   position: relative;
   height: 420px;
   display: flex;
@@ -150,7 +150,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 82px;
+  margin-top: 60px;
 }
 
 .hiw-item {
