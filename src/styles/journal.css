@@ -72,10 +72,11 @@
   background: rgba(255, 225, 225, 0.4);
   color: var(--text-primary);
   margin-bottom: 0px;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-label);
   padding: 8px 24px;
-  letter-spacing: 0.52px;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
   width: fit-content;
 }
 
@@ -202,7 +203,7 @@
   }
 
   .journal-featured-title {
-    font-size: 2.6rem !important;
+    font-size: var(--fs-h2-mobile) !important;
   }
 }
 
@@ -247,18 +248,18 @@
 
 @media (max-width: 768px) {
   .journal-related-title {
-    font-size: 34px;
+    font-size: var(--fs-h2-mobile);
   }
-  
+
   .related-blogs {
     padding: 60px 0 80px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     margin-top: 50px;
   }
-  
+
   .journal-related-desc {
-    font-size: 16px;
+    font-size: var(--fs-body-mobile);
     padding: 0 20px;
   }
 }

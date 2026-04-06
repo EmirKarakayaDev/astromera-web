@@ -200,8 +200,8 @@
 .lang-btn {
   background: transparent;
   border: none;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-label);
   color: var(--grey-text);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -220,7 +220,7 @@
 .lang-sep {
   color: #FFE0E0;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: var(--fs-label);
   pointer-events: none;
 }
 

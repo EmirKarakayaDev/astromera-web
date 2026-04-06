@@ -39,9 +39,9 @@
 }
 
 .footer-intro-text {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.3;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-h3);
   margin-bottom: 24px;
   color: var(--text-primary);
 }
@@ -92,19 +92,19 @@
 }
 
 .store-btn-tag {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-label);
   opacity: 0.9;
-  line-height: 1.3;
-  letter-spacing: 0.12em;
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
   text-transform: uppercase;
 }
 
 .store-btn-name {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-btn);
+  line-height: var(--lh-btn);
+  letter-spacing: var(--ls-btn);
 }
 
 .social-icon:hover {
@@ -113,13 +113,13 @@
 }
 
 .footer-col-title {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-label);
   text-transform: uppercase;
   color: var(--text-primary);
   margin-bottom: 24px;
-  letter-spacing: 0.12em;
-  line-height: 1.3;
+  letter-spacing: var(--ls-label);
+  line-height: var(--lh-label);
 }
 
 .footer-links {
@@ -129,10 +129,10 @@
 
 .footer-links li {
   margin-bottom: 16px;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-body-sm);
   opacity: 0.8;
-  line-height: 1.5;
+  line-height: var(--lh-body-sm);
   transition: opacity 0.3s;
 }
 
@@ -150,10 +150,10 @@
   display: flex;
   justify-content: space-between;
   padding: 24px 0;
-  font-size: 14px;
-  line-height: 1.2;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-size: var(--fs-btn-sm);
+  line-height: var(--lh-btn);
+  font-weight: var(--fw-btn);
+  letter-spacing: var(--ls-btn);
   opacity: 0.6;
 }
 
