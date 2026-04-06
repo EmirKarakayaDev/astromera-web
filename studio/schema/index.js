@@ -2,6 +2,7 @@ import blog from './blog';
 import faq from './faq';
 import testimonial from './testimonial';
 import feature from './feature';
+import insight from './insight';
 import pricingPlan from './pricing';
 import howItWorks from './howItWorks';
 import siteSettings from './siteSettings';
@@ -15,6 +16,7 @@ export const schemaTypes = [
   faq,
   testimonial,
   feature,
+  insight,
   pricingPlan,
   howItWorks,
   siteSettings,

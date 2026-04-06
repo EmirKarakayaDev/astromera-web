@@ -105,6 +105,13 @@ export const SiteSettingsProvider = ({ children }) => {
       subtitle: t(settings?.featuresSubtitle, COPY.features.subtitle),
       bottomDesc: t(settings?.featuresBottomDesc, ''),
     },
+    insights: {
+      label: t(settings?.insightsLabel, language === 'tr' ? 'RAPORLAR' : 'INSIGHTS'),
+      title: t(settings?.insightsTitle, ''),
+      subtitle: t(settings?.insightsSubtitle, ''),
+      bottomDesc: t(settings?.insightsBottomDesc, ''),
+      image: settings?.insightsImage ? urlFor(settings.insightsImage).url() : null,
+    },
     howItWorks: {
       title: t(settings?.hiwTitle, COPY.howItWorks.title),
       subtitle: t(settings?.hiwSubtitle, COPY.howItWorks.subtitle)
@@ -196,6 +203,7 @@ export const SiteSettingsProvider = ({ children }) => {
       showDownloadButton,
       showContactPage,
       showLegalPages,
+      showInsightsSection: visibility?.showInsightsSection ?? true,
       showPricingPage: visibility?.showPricingPage ?? true,
       showHeroSection: visibility?.showHeroSection ?? true,
       showFeaturesSection: visibility?.showFeaturesSection ?? true,

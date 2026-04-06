@@ -112,6 +112,40 @@ export default defineType({
       group: 'features',
     }),
 
+    // Insights / Reports Section
+    defineField({
+      name: 'insightsLabel',
+      title: 'Raporlar Etiket (Küçük Üst Yazı)',
+      type: 'localeString',
+      group: 'insights',
+      description: 'Örn: "INSIGHTS" veya "RAPORLAR"',
+    }),
+    defineField({
+      name: 'insightsTitle',
+      title: 'Raporlar Başlığı',
+      type: 'localeString',
+      group: 'insights',
+    }),
+    defineField({
+      name: 'insightsSubtitle',
+      title: 'Raporlar Üst Açıklama',
+      type: 'localeText',
+      group: 'insights',
+    }),
+    defineField({
+      name: 'insightsBottomDesc',
+      title: 'Raporlar Alt Açıklama',
+      type: 'localeText',
+      group: 'insights',
+    }),
+    defineField({
+      name: 'insightsImage',
+      title: 'Raporlar Görseli (Sağ Taraf)',
+      type: 'image',
+      group: 'insights',
+      options: { hotspot: true },
+    }),
+
     // How It Works Section
     defineField({
       name: 'hiwTitle',
@@ -477,6 +511,7 @@ export default defineType({
     { name: 'header', title: 'Header / Global' },
     { name: 'hero', title: 'Hero' },
     { name: 'features', title: 'Keşfet (Experience)' },
+    { name: 'insights', title: 'Raporlar (Insights)' },
     { name: 'hiw', title: 'Nasıl Çalışır' },
     { name: 'testimonials', title: 'Yorumlar' },
     { name: 'journal', title: 'Blog' },

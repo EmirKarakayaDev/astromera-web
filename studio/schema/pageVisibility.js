@@ -86,6 +86,13 @@ export default defineType({
 
     // Home Sections
     defineField({
+      name: 'showInsightsSection',
+      title: 'Raporlar (Insights)',
+      type: 'boolean',
+      initialValue: true,
+      group: 'home',
+    }),
+    defineField({
       name: 'showHeroSection',
       title: 'Hero (Ana Banner)',
       type: 'boolean',
