@@ -5,17 +5,19 @@ import feature from './feature';
 import pricingPlan from './pricing';
 import howItWorks from './howItWorks';
 import siteSettings from './siteSettings';
+import pageVisibility from './pageVisibility';
 import localeString from './localeString';
 import localeText from './localeText';
 
 export const schemaTypes = [
-  blog, 
-  faq, 
-  testimonial, 
-  feature, 
-  pricingPlan, 
-  howItWorks, 
+  blog,
+  faq,
+  testimonial,
+  feature,
+  pricingPlan,
+  howItWorks,
   siteSettings,
+  pageVisibility,
   localeString,
   localeText
 ];

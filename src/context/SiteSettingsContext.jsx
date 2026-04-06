@@ -30,14 +30,17 @@ export const SiteSettingsProvider = ({ children }) => {
     navigate(pathSegments.join('/'));
   };
 
+  const [visibility, setVisibility] = useState(null);
+
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const query = '*[_type == "siteSettings"][0]';
-        const result = await client.fetch(query);
-        if (result) {
-          setSettings(result);
-        }
+        const [siteResult, visibilityResult] = await Promise.all([
+          client.fetch('*[_type == "siteSettings"][0]'),
+          client.fetch('*[_type == "pageVisibility"][0]'),
+        ]);
+        if (siteResult) setSettings(siteResult);
+        if (visibilityResult) setVisibility(visibilityResult);
       } catch (error) {
         console.error('Sanity settings fetch error:', error);
       } finally {
@@ -53,7 +56,7 @@ export const SiteSettingsProvider = ({ children }) => {
     return field[language] || field['tr'] || fallback;
   };
 
-  const showBlogNavItem = settings?.showBlogNavItem ?? true;
+  const showBlogNavItem = visibility?.showBlogNavItem ?? true;
 
   const copy = {
     header: {
@@ -154,10 +157,10 @@ export const SiteSettingsProvider = ({ children }) => {
       ])
     },
     visibility: {
-      showBlogPage: settings?.showBlogPage ?? true,
+      showBlogPage: visibility?.showBlogPage ?? true,
       showBlogNavItem,
-      showJournalSection: settings?.showJournalSection ?? true,
-      showPricingPage: settings?.showPricingPage ?? true,
+      showJournalSection: visibility?.showJournalSection ?? true,
+      showPricingPage: visibility?.showPricingPage ?? true,
     },
     getStarted: {
       title: t(settings?.ctaTitle, COPY.getStarted.title),
