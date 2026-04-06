@@ -59,6 +59,9 @@ const AppRoutes = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
       <Suspense fallback={<div className="loader-overlay" />}>
         <Routes>
           <Route path="/" element={<Navigate to="/tr" replace />} />
+          <Route path="/privacy.html" element={<Navigate to="/tr/legal/privacy-policy" replace />} />
+          <Route path="/cookies.html" element={<Navigate to="/tr/legal/cookies" replace />} />
+          <Route path="/terms.html" element={<Navigate to="/tr/legal/terms-and-conditions" replace />} />
           <Route path="/admin/*" element={<StudioPage />} />
           <Route path="/:lang">
             <Route index element={<Home />} />

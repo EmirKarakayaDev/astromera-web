@@ -1,4 +1,21 @@
 {
+  "redirects": [
+    {
+      "source": "/privacy.html",
+      "destination": "/tr/legal/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/cookies.html",
+      "destination": "/tr/legal/cookies",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/tr/legal/terms-and-conditions",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
