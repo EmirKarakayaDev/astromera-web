@@ -62,6 +62,8 @@ export const SiteSettingsProvider = ({ children }) => {
   const showHowItWorksNavItem = visibility?.showHowItWorksNavItem ?? true;
   const showPricingNavItem = visibility?.showPricingNavItem ?? true;
   const showDownloadButton = visibility?.showDownloadButton ?? true;
+  const showContactPage = visibility?.showContactPage ?? true;
+  const showLegalPages = visibility?.showLegalPages ?? true;
 
   const copy = {
     header: {
@@ -184,6 +186,8 @@ export const SiteSettingsProvider = ({ children }) => {
       showHowItWorksNavItem,
       showPricingNavItem,
       showDownloadButton,
+      showContactPage,
+      showLegalPages,
       showPricingPage: visibility?.showPricingPage ?? true,
       showHeroSection: visibility?.showHeroSection ?? true,
       showFeaturesSection: visibility?.showFeaturesSection ?? true,

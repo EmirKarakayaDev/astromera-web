@@ -22,6 +22,22 @@ export default defineType({
       description: 'Kapalıyken /pricing sayfası erişilemez olur.',
       group: 'pages',
     }),
+    defineField({
+      name: 'showContactPage',
+      title: 'İletişim Sayfası (/contact)',
+      type: 'boolean',
+      initialValue: true,
+      description: 'Kapalıyken /contact sayfası erişilemez olur.',
+      group: 'pages',
+    }),
+    defineField({
+      name: 'showLegalPages',
+      title: 'Legal Sayfalar (/legal/*)',
+      type: 'boolean',
+      initialValue: true,
+      description: 'Kapalıyken tüm /legal/* sayfaları erişilemez olur.',
+      group: 'pages',
+    }),
 
     // Header
     defineField({
