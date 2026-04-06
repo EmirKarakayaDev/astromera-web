@@ -145,18 +145,21 @@ const LegalPage = () => {
             const headingText = localize(section.heading);
             const bodyContent = getLocalizedPT(section.body);
             return (
-              <Reveal key={i} className="legal-section" id={slugify(headingText)}>
-                {headingText && (
-                  <h2 className="legal-section-heading">
-                    {i + 1}. {headingText}
-                  </h2>
-                )}
-                {bodyContent && bodyContent.length > 0 && (
-                  <div className="legal-section-body">
-                    <PortableText value={bodyContent} components={portableComponents} />
-                  </div>
-                )}
-              </Reveal>
+              <div key={i}>
+                <span id={slugify(headingText)} className="legal-anchor-target" />
+                <Reveal className="legal-section">
+                  {headingText && (
+                    <h2 className="legal-section-heading">
+                      {i + 1}. {headingText}
+                    </h2>
+                  )}
+                  {bodyContent && bodyContent.length > 0 && (
+                    <div className="legal-section-body">
+                      <PortableText value={bodyContent} components={portableComponents} />
+                    </div>
+                  )}
+                </Reveal>
+              </div>
             );
           })}
         </div>
