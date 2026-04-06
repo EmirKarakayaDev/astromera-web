@@ -96,14 +96,14 @@ export default defineType({
     defineField({
       name: 'featuresTitle',
       title: 'Keşfet Etiket (Küçük Üst Yazı)',
-      type: 'localeText',
+      type: 'localeString',
       group: 'features',
       description: 'Örn: "KEŞFET" veya "EXPERIENCE"',
     }),
     defineField({
       name: 'featuresSubtitle',
       title: 'Keşfet Ana Başlık (h2)',
-      type: 'localeText',
+      type: 'localeString',
       group: 'features',
     }),
     defineField({
