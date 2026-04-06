@@ -93,13 +93,6 @@ export default defineType({
     }),
 
     // Features / Experience Section
-    defineField({
-      name: 'featuresTitle',
-      title: 'Keşfet Etiket (Küçük Üst Yazı)',
-      type: 'localeString',
-      group: 'features',
-      description: 'Örn: "KEŞFET" veya "EXPERIENCE"',
-    }),
       defineField({
         name: 'featuresSubtitle',
         title: 'Başlık',
@@ -120,13 +113,6 @@ export default defineType({
       }),
 
     // Insights / Reports Section
-    defineField({
-      name: 'insightsLabel',
-      title: 'Raporlar Etiket (Küçük Üst Yazı)',
-      type: 'localeString',
-      group: 'insights',
-      description: 'Örn: "INSIGHTS" veya "RAPORLAR"',
-    }),
       defineField({
         name: 'insightsTitle',
         title: 'Başlık',

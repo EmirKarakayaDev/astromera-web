@@ -101,13 +101,11 @@ export const SiteSettingsProvider = ({ children }) => {
       image: settings?.heroImage ? urlFor(settings.heroImage).url() : null
     },
     features: {
-      title: t(settings?.featuresTitle, COPY.features.title),
       subtitle: t(settings?.featuresSubtitle, COPY.features.subtitle),
       topDesc: t(settings?.featuresTopDesc, ''),
       bottomDesc: t(settings?.featuresBottomDesc, ''),
     },
     insights: {
-      label: t(settings?.insightsLabel, language === 'tr' ? 'RAPORLAR' : 'INSIGHTS'),
       title: t(settings?.insightsTitle, ''),
       subtitle: t(settings?.insightsSubtitle, ''),
       bottomDesc: t(settings?.insightsBottomDesc, ''),
