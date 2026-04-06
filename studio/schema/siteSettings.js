@@ -107,8 +107,14 @@ export default defineType({
       group: 'features',
     }),
     defineField({
+      name: 'featuresTopDesc',
+      title: 'Keşfet Üst Açıklama',
+      type: 'localeText',
+      group: 'features',
+    }),
+    defineField({
       name: 'featuresBottomDesc',
-      title: 'Keşfet Açıklama',
+      title: 'Keşfet Alt Açıklama',
       type: 'localeText',
       group: 'features',
     }),
