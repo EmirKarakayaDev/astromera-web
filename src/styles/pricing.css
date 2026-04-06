@@ -74,18 +74,20 @@
 }
 
 .pricing-tag {
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: var(--fw-label);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--ls-label);
   margin-bottom: 4px;
 }
 
 .pricing-price {
   margin: 4px 0 12px;
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h2);
   color: var(--text-primary);
+  line-height: var(--lh-h2);
 }
 
 .pricing-features-list {
@@ -100,7 +102,9 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 1.1rem;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body-sm);
+  font-weight: var(--fw-body-sm);
 }
 
 .pricing-feature-item svg {

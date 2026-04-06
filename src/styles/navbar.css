@@ -139,8 +139,10 @@
 }
 
 .nav-link {
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: var(--fs-menu);
+  line-height: var(--lh-menu);
+  font-weight: var(--fw-menu);
+  letter-spacing: var(--ls-menu);
   color: #000000;
   text-decoration: none;
   height: 38px;
@@ -172,8 +174,10 @@
   color: var(--text-primary);
   padding: 14px 32px;
   border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-size: var(--fs-btn);
+  line-height: var(--lh-btn);
+  font-weight: var(--fw-btn);
+  letter-spacing: var(--ls-btn);
   border: none;
   cursor: pointer;
   transition: var(--transition-smooth);
@@ -246,5 +250,10 @@
 
   .nav-right {
     margin-left: auto;
+  }
+
+  .nav-link {
+    font-size: var(--fs-menu-mobile) !important;
+    line-height: var(--lh-menu-mobile) !important;
   }
 }

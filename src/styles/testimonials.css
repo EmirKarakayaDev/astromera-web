@@ -59,8 +59,9 @@
 }
 
 .testimonial-card p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
   margin: 0;
 }
 
@@ -80,9 +81,9 @@
 }
 
 .testimonial-image-quote {
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  line-height: var(--lh-h3);
 }
 
 .testimonial-image-overlay {
@@ -107,7 +108,8 @@
 .testimonial-card .user-info {
   margin-top: auto;
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body-sm);
 }
 
 @media (max-width: 1024px) {

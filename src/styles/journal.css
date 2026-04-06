@@ -129,17 +129,18 @@
 }
 
 .journal-card-title {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.4;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  line-height: var(--lh-h3);
   color: var(--text-primary);
 }
 
 .journal-featured-title {
-  font-size: 52px;
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2); /* Standardized to H2 for featured */
+  font-weight: var(--fw-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
   margin: 0;
   flex: 1;
   display: flex;
@@ -156,8 +157,10 @@
   background: var(--btn-bg);
   color: white;
   border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: 16px;
+  font-size: var(--fs-btn);
+  line-height: var(--lh-btn);
+  font-weight: var(--fw-btn);
+  letter-spacing: var(--ls-btn);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
   border: 2px solid var(--btn-bg);
@@ -223,22 +226,23 @@
 }
 
 .journal-related-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 54px;
-  font-weight: 400;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h2);
   color: #2D0A0A;
   margin-bottom: 12px;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: var(--ls-h2);
+  line-height: var(--lh-h2);
 }
 
 .journal-related-desc {
-  font-size: 18px;
+  font-size: var(--fs-body);
   color: #320A0A;
   opacity: 0.9;
   max-width: 480px;
   margin: 0 auto;
-  line-height: 1.5;
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
 }
 
 @media (max-width: 768px) {

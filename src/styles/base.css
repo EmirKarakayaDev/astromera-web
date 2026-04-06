@@ -67,10 +67,11 @@ body {
   background: white;
   padding: 6px 14px;
   border-radius: var(--radius-pill);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: var(--fw-label);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--ls-label);
   margin-bottom: 28px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   border: 1px solid var(--border-light);
@@ -78,44 +79,52 @@ body {
 }
 
 .h1-hero {
-  font-size: 80px;
-  line-height: 1;
-  font-weight: 400;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-weight: var(--fw-h1);
   margin-bottom: 18px;
-  letter-spacing: 0;
+  letter-spacing: var(--ls-h1);
 }
 
 .h2-section {
-  font-size: 52px;
-  line-height: 1.1;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-h2);
+  letter-spacing: var(--ls-h2);
 }
 
 @media (max-width: 600px) {
   .h1-hero {
-    font-size: 42px !important;
+    font-size: var(--fs-h1-mobile) !important;
+    line-height: var(--lh-h1-mobile) !important;
   }
   .h2-section {
-    font-size: 34px !important;
+    font-size: var(--fs-h2-mobile) !important;
+    line-height: var(--lh-h2) !important;
+  }
+  body, .p-large, .p-intro {
+    font-size: var(--fs-body-mobile) !important;
+    line-height: var(--lh-body) !important;
   }
 }
 
 .p-large {
-  font-size: 16px;
+  font-size: var(--fs-body);
   color: var(--text-primary);
   max-width: 550px;
   margin: 0 auto;
-  line-height: 1.3;
-  font-weight: 400;
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
 }
 
 /* Section intro paragrafı — p-large'ın sol hizalı versiyonu */
 .p-intro {
-  font-size: 16px;
+  font-size: var(--fs-body);
   color: var(--grey-text);
-  line-height: 1.4;
-  font-weight: 400;
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
   max-width: 480px;
 }
 
@@ -145,8 +154,10 @@ section {
   color: white;
   padding: 12px 20px;
   border-radius: var(--radius-pill);
-  font-size: 16px;
-  font-weight: 600;
+  font-size: var(--fs-btn);
+  line-height: var(--lh-btn);
+  font-weight: var(--fw-btn);
+  letter-spacing: var(--ls-btn);
   margin-top: 32px;
   border: 2px solid var(--btn-bg);
   cursor: pointer;
@@ -165,8 +176,10 @@ section {
   color: var(--btn-bg);
   padding: 12px 20px;
   border-radius: var(--radius-pill);
-  font-size: 16px;
-  font-weight: 600;
+  font-size: var(--fs-btn);
+  line-height: var(--lh-btn);
+  font-weight: var(--fw-btn);
+  letter-spacing: var(--ls-btn);
   border: 2px solid #FFFFFF;
   cursor: pointer;
   transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);

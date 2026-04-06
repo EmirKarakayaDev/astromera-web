@@ -14,8 +14,11 @@
 }
 
 .contact-container .h2-section {
-  font-size: 72px;
-  line-height: 1.1;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-h2);
+  letter-spacing: var(--ls-h2);
 }
 
 .contact-form {
@@ -33,8 +36,11 @@
 
 .form-label {
   color: var(--text-primary);
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: var(--fw-label);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
   margin-bottom: 12px;
   margin-left: 4px;
 }
@@ -45,7 +51,8 @@
   border-radius: 12px;
   border: none;
   background: #FFF;
-  font-size: 16px;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body-sm);
   color: var(--text-primary);
   outline: none;
   font-family: inherit;
@@ -74,8 +81,10 @@
   border: none;
   border-radius: var(--radius-pill);
   color: white;
-  font-weight: 700;
-  font-size: 17px;
+  font-weight: var(--fw-btn);
+  font-size: var(--fs-btn);
+  line-height: var(--lh-btn);
+  letter-spacing: var(--ls-btn);
   cursor: pointer;
   transition: var(--transition-smooth);
   /* Match App Store buttons */
