@@ -25,9 +25,13 @@ const Insights = () => {
       <div className="container">
         <div className="insights-layout">
           <Reveal className="insights-content">
-            {insights.title && <p className="section-label">{insights.title}</p>}
-            {insights.subtitle && <h2 className="h2-section">{insights.subtitle}</h2>}
-            {insights.bottomDesc && <p className="p-large">{insights.bottomDesc}</p>}
+            {(insights.title || insights.subtitle || insights.bottomDesc) && (
+              <div className="insights-header">
+                {insights.title && <p className="section-label">{insights.title}</p>}
+                {insights.subtitle && <h2 className="h2-section">{insights.subtitle}</h2>}
+                {insights.bottomDesc && <p className="p-large">{insights.bottomDesc}</p>}
+              </div>
+            )}
 
             {items.length > 0 && (
               <ul className="insights-list">

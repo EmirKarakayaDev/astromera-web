@@ -26,6 +26,23 @@
   max-width: none;
 }
 
+.insights-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+.insights-header .p-large {
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .insights-header {
+    margin-bottom: 36px;
+  }
+}
+
 
 /* List items */
 .insights-list {
