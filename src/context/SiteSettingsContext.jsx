@@ -118,6 +118,10 @@ export const SiteSettingsProvider = ({ children }) => {
       address: t(settings?.contactAddress, 'AstroMera HQ\n123 Celestial Way\nLondon, UK')
     },
     footer: {
+      socialInstagram: settings?.socialInstagram || null,
+      socialTiktok: settings?.socialTiktok || null,
+      socialFacebook: settings?.socialFacebook || null,
+      socialLinkedin: settings?.socialLinkedin || null,
       intro: t(settings?.footerIntro, 'Find your calm, one breath at a time.'),
       copyright: t(settings?.footerCopyright, '© 2026 Nukai Labs FZ-LLC'),
       showSupport: settings?.showFooterSupport ?? true,
