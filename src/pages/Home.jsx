@@ -32,13 +32,13 @@ const Home = () => {
 
   return (
     <>
-      <Hero heroHandPhone={heroImage} />
-      <Features />
-      <Testimonials />
-      <HowItWorks />
+      {visibility.showHeroSection && <Hero heroHandPhone={heroImage} />}
+      {visibility.showFeaturesSection && <Features />}
+      {visibility.showTestimonialsSection && <Testimonials />}
+      {visibility.showHowItWorksSection && <HowItWorks />}
       {visibility.showJournalSection && <Journal />}
-      <Faq />
-      <GetStarted />
+      {visibility.showFaqSection && <Faq />}
+      {visibility.showGetStartedSection && <GetStarted />}
     </>
   );
 };

@@ -159,8 +159,14 @@ export const SiteSettingsProvider = ({ children }) => {
     visibility: {
       showBlogPage: visibility?.showBlogPage ?? true,
       showBlogNavItem,
-      showJournalSection: visibility?.showJournalSection ?? true,
       showPricingPage: visibility?.showPricingPage ?? true,
+      showHeroSection: visibility?.showHeroSection ?? true,
+      showFeaturesSection: visibility?.showFeaturesSection ?? true,
+      showTestimonialsSection: visibility?.showTestimonialsSection ?? true,
+      showHowItWorksSection: visibility?.showHowItWorksSection ?? true,
+      showJournalSection: visibility?.showJournalSection ?? true,
+      showFaqSection: visibility?.showFaqSection ?? true,
+      showGetStartedSection: visibility?.showGetStartedSection ?? true,
     },
     getStarted: {
       title: t(settings?.ctaTitle, COPY.getStarted.title),
