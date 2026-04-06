@@ -199,6 +199,30 @@ export default defineType({
 
     // Footer / GET STARTED Section
     defineField({
+      name: 'socialInstagram',
+      title: 'Instagram URL',
+      type: 'url',
+      group: 'footer',
+    }),
+    defineField({
+      name: 'socialTiktok',
+      title: 'TikTok URL',
+      type: 'url',
+      group: 'footer',
+    }),
+    defineField({
+      name: 'socialFacebook',
+      title: 'Facebook URL',
+      type: 'url',
+      group: 'footer',
+    }),
+    defineField({
+      name: 'socialLinkedin',
+      title: 'LinkedIn URL',
+      type: 'url',
+      group: 'footer',
+    }),
+    defineField({
       name: 'footerIntro',
       title: 'Footer Tanıtım Yazısı',
       type: 'localeText',
