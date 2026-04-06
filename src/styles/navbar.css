@@ -226,49 +226,24 @@
   pointer-events: none;
 }
 
-.nav-store-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-.nav-store-btn {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 7px 14px;
+.nav-download-btn {
   background: var(--btn-bg);
-  color: var(--btn-text);
-  border-radius: var(--radius-pill);
+  color: #fff;
   text-decoration: none;
+  white-space: nowrap;
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-btn);
+  letter-spacing: var(--ls-btn);
   transition: var(--transition-smooth);
 }
 
-.nav-store-btn:hover {
+.nav-download-btn:hover {
   opacity: 0.85;
   transform: translateY(-1px);
 }
 
-.nav-store-btn-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.nav-store-btn-tag {
-  font-size: 9px;
-  font-weight: 400;
-  opacity: 0.8;
-  letter-spacing: 0.02em;
-}
-
-.nav-store-btn-name {
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
 @media (max-width: 1024px) {
-  .nav-store-buttons {
+  .nav-download-btn {
     display: none;
   }
 
