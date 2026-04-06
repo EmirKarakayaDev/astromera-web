@@ -57,6 +57,11 @@ export const SiteSettingsProvider = ({ children }) => {
   };
 
   const showBlogNavItem = visibility?.showBlogNavItem ?? true;
+  const showFeaturesNavItem = visibility?.showFeaturesNavItem ?? true;
+  const showTestimonialsNavItem = visibility?.showTestimonialsNavItem ?? true;
+  const showHowItWorksNavItem = visibility?.showHowItWorksNavItem ?? true;
+  const showPricingNavItem = visibility?.showPricingNavItem ?? true;
+  const showDownloadButton = visibility?.showDownloadButton ?? true;
 
   const copy = {
     header: {
@@ -72,6 +77,10 @@ export const SiteSettingsProvider = ({ children }) => {
         { href: '/blog', text: 'Blog' },
       ])).filter(item => {
         if (!showBlogNavItem && (item.href === '/blog' || item.href?.startsWith('/blog'))) return false;
+        if (!showPricingNavItem && item.href === '/pricing') return false;
+        if (!showFeaturesNavItem && item.href === '/#features') return false;
+        if (!showTestimonialsNavItem && item.href === '/#testimonials') return false;
+        if (!showHowItWorksNavItem && (item.href === '/#how-it-works' || item.href === '#how-it-works')) return false;
         return true;
       })
     },
@@ -163,6 +172,11 @@ export const SiteSettingsProvider = ({ children }) => {
     visibility: {
       showBlogPage: visibility?.showBlogPage ?? true,
       showBlogNavItem,
+      showFeaturesNavItem,
+      showTestimonialsNavItem,
+      showHowItWorksNavItem,
+      showPricingNavItem,
+      showDownloadButton,
       showPricingPage: visibility?.showPricingPage ?? true,
       showHeroSection: visibility?.showHeroSection ?? true,
       showFeaturesSection: visibility?.showFeaturesSection ?? true,

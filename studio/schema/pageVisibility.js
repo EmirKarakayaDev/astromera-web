@@ -25,11 +25,46 @@ export default defineType({
 
     // Header
     defineField({
+      name: 'showFeaturesNavItem',
+      title: 'Features Linki (Header Menü)',
+      type: 'boolean',
+      initialValue: true,
+      group: 'header',
+    }),
+    defineField({
+      name: 'showTestimonialsNavItem',
+      title: 'Testimonials Linki (Header Menü)',
+      type: 'boolean',
+      initialValue: true,
+      group: 'header',
+    }),
+    defineField({
+      name: 'showHowItWorksNavItem',
+      title: 'How It Works Linki (Header Menü)',
+      type: 'boolean',
+      initialValue: true,
+      group: 'header',
+    }),
+    defineField({
+      name: 'showPricingNavItem',
+      title: 'Pricing Linki (Header Menü)',
+      type: 'boolean',
+      initialValue: true,
+      group: 'header',
+    }),
+    defineField({
       name: 'showBlogNavItem',
       title: 'Blog Linki (Header Menü)',
       type: 'boolean',
       initialValue: true,
       description: 'Kapalıyken navigasyon menüsünden Blog linki kaldırılır.',
+      group: 'header',
+    }),
+    defineField({
+      name: 'showDownloadButton',
+      title: 'Download Butonu (Header Sağ)',
+      type: 'boolean',
+      initialValue: true,
       group: 'header',
     }),
 

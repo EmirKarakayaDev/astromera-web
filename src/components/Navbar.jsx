@@ -37,6 +37,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
   }, [isMenuOpen, setIsMenuOpen]);
 
   const { language } = copy;
+  const { showDownloadButton } = copy.visibility;
   const downloadHref = copy.getStarted?.ctaButtons?.[0]?.href || '#';
   const downloadText = language === 'tr' ? 'İndir' : 'Download';
 
@@ -97,9 +98,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
       </nav>
 
       <div className="nav-right">
-        <a href={downloadHref} className="nav-btn-pill nav-download-btn">
+        {showDownloadButton && <a href={downloadHref} className="nav-btn-pill nav-download-btn">
           {downloadText}
-        </a>
+        </a>}
 
         <button
           ref={hamburgerRef}
