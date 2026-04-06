@@ -69,18 +69,18 @@
 }
 
 .insights-item-title {
-  font-size: var(--fs-body);
-  font-weight: 700;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
   color: var(--text-primary);
   margin: 0 0 4px;
-  line-height: 1.4;
+  line-height: var(--lh-h3);
 }
 
 .insights-item-desc {
-  font-size: var(--fs-body);
+  font-size: var(--fs-body-sm);
   color: var(--grey-text);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-body);
+  line-height: var(--lh-body-sm);
+  font-weight: var(--fw-body-sm);
   margin: 0;
 }
 
