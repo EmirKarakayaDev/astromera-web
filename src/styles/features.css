@@ -14,14 +14,6 @@
   font-weight: var(--fw-body);
 }
 
-.features-label {
-  font-size: var(--fs-body);
-  color: var(--grey-text);
-  font-weight: var(--fw-body);
-  margin: 0;
-  opacity: 0.6;
-}
-
 @media (max-width: 1024px) {
   .features-header {
     margin-bottom: 36px;
