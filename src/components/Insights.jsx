@@ -64,6 +64,7 @@ const Insights = () => {
         {featuredItems.length > 0 && (
           <div className="insights-featured">
             <Reveal className="insights-featured-header">
+              {insights.featuredLabel && <p className="section-label">{insights.featuredLabel}</p>}
               {insights.featuredTitle && <h3 className="h2-section">{insights.featuredTitle}</h3>}
               {insights.featuredSubtitle && <p className="p-large">{insights.featuredSubtitle}</p>}
             </Reveal>

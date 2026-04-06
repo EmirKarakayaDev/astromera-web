@@ -121,6 +121,7 @@ export const SiteSettingsProvider = ({ children }) => {
       title: t(settings?.insightsTitle, ''),
       subtitle: t(settings?.insightsSubtitle, ''),
       bottomDesc: t(settings?.insightsBottomDesc, ''),
+      featuredLabel: t(settings?.insightsFeaturedLabel, ''),
       featuredTitle: t(settings?.insightsFeaturedTitle, ''),
       featuredSubtitle: t(settings?.insightsFeaturedSubtitle, ''),
       image: settings?.insightsImage ? urlFor(settings.insightsImage).url() : null,

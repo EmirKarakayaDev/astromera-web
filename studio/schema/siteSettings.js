@@ -151,6 +151,12 @@ export default defineType({
         type: 'localeText',
         group: 'insights',
       }),
+      defineField({
+        name: 'insightsFeaturedLabel',
+        title: 'Kart Bölümü Etiketi',
+        type: 'localeString',
+        group: 'insights',
+      }),
     defineField({
       name: 'insightsImage',
       title: 'Raporlar Görseli (Sağ Taraf)',
