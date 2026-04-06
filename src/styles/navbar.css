@@ -200,8 +200,10 @@
 .lang-btn {
   background: transparent;
   border: none;
-  font-size: var(--fs-label);
-  font-weight: var(--fw-label);
+  font-size: var(--fs-btn-sm);
+  font-weight: var(--fw-btn);
+  line-height: var(--lh-btn);
+  letter-spacing: var(--ls-btn);
   color: var(--grey-text);
   cursor: pointer;
   transition: all 0.3s ease;

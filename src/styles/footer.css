@@ -39,9 +39,9 @@
 }
 
 .footer-intro-text {
-  font-size: var(--fs-h3);
+  font-size: var(--fs-body);
   font-weight: var(--fw-body);
-  line-height: var(--lh-h3);
+  line-height: var(--lh-body);
   margin-bottom: 24px;
   color: var(--text-primary);
 }
