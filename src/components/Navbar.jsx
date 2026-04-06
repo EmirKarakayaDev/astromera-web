@@ -60,8 +60,15 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
     const langHref = `/${language}/${cleanHref}`.replace(/\/+/g, '/');
 
     if (isSectionLink) {
-      const sectionId = cleanHref.startsWith('#') ? cleanHref.substring(1) : cleanHref.split('#')[1];
-      const element = document.getElementById(sectionId);
+      const rawId = cleanHref.startsWith('#') ? cleanHref.substring(1) : cleanHref.split('#')[1];
+      const sectionAliases = {
+        experience: 'features',
+        insight: 'insights',
+        insights: 'insights',
+        about: 'features'
+      };
+      const targetId = sectionAliases[rawId] || rawId;
+      const element = document.getElementById(targetId);
 
       if (element) {
         e.preventDefault();
