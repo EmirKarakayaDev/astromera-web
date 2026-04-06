@@ -376,4 +376,9 @@ export default defineType({
     { name: 'footer', title: 'Alt Kısım' },
     { name: 'cta', title: 'CTA (Hemen Başlayın)' },
   ],
+  preview: {
+    prepare() {
+      return { title: 'Site Ayarları' };
+    },
+  },
 });

@@ -48,4 +48,9 @@ export default defineType({
     { name: 'header', title: 'Header' },
     { name: 'home', title: 'Ana Sayfa Bölümleri' },
   ],
+  preview: {
+    prepare() {
+      return { title: 'Görünürlük Ayarları' };
+    },
+  },
 });
