@@ -31,25 +31,25 @@ const Contact = () => {
           <Reveal className="contact-form-wrapper">
             <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
               <div className="form-group">
-                <label className="form-label">Name</label>
-                <input className="form-input" type="text" placeholder="Jane Smith" />
+                <label className="form-label">{contactCopy.nameLabel}</label>
+                <input className="form-input" type="text" placeholder={contactCopy.namePlaceholder} />
               </div>
-              
+
               <div className="form-group">
-                <label className="form-label">Email</label>
-                <input className="form-input" type="email" placeholder="template@framer.com" />
+                <label className="form-label">{contactCopy.emailLabel}</label>
+                <input className="form-input" type="email" placeholder={contactCopy.emailPlaceholder} />
               </div>
-              
+
               <div className="form-group">
-                <label className="form-label">Message</label>
-                <textarea 
-                  className="form-input form-textarea" 
-                  placeholder="Tell us how we can help..."
+                <label className="form-label">{contactCopy.messageLabel}</label>
+                <textarea
+                  className="form-input form-textarea"
+                  placeholder={contactCopy.messagePlaceholder}
                   onInput={handleInput}
                 ></textarea>
               </div>
-              
-              <button type="submit" className="form-submit-btn">Submit</button>
+
+              <button type="submit" className="form-submit-btn">{contactCopy.submitLabel}</button>
             </form>
           </Reveal>
         </div>

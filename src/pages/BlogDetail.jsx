@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
-import { journalArticles as staticArticles } from '../data/content';
 import Reveal from '../components/Reveal';
 import RelatedBlogs from '../components/RelatedBlogs';
 import usePageMeta from '../hooks/usePageMeta';
@@ -23,15 +22,9 @@ const BlogDetail = () => {
         
         if (result) {
           setArticle(result);
-        } else {
-          // Fallback to static data
-          const staticMatch = staticArticles.find(a => String(a.id) === id);
-          setArticle(staticMatch);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        const staticMatch = staticArticles.find(a => String(a.id) === id);
-        setArticle(staticMatch);
       } finally {
         setLoading(false);
       }
@@ -92,7 +85,7 @@ const BlogDetail = () => {
             <div className="blog-detail-header">
               <div className="blog-detail-meta">
                 <span className="blog-detail-date">{formatDate(article.date)}</span>
-                  <span className="blog-detail-read-time">{article.readingTime || '5'} {language === 'tr' ? 'dakikalık okuma' : 'min read'}</span>
+                  <span className="blog-detail-read-time">{article.readingTime || '5'} {language === 'tr' ? 'dk okuma' : 'min read'}</span>
               </div>
               <h1 className="blog-detail-title">{localize(article.title)}</h1>
             </div>

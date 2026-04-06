@@ -196,6 +196,48 @@ export default defineType({
       type: 'localeText',
       group: 'contact',
     }),
+    defineField({
+      name: 'contactNameLabel',
+      title: 'Form: İsim Etiketi',
+      type: 'localeString',
+      group: 'contact',
+    }),
+    defineField({
+      name: 'contactNamePlaceholder',
+      title: 'Form: İsim Placeholder',
+      type: 'localeString',
+      group: 'contact',
+    }),
+    defineField({
+      name: 'contactEmailLabel',
+      title: 'Form: E-posta Etiketi',
+      type: 'localeString',
+      group: 'contact',
+    }),
+    defineField({
+      name: 'contactEmailPlaceholder',
+      title: 'Form: E-posta Placeholder',
+      type: 'localeString',
+      group: 'contact',
+    }),
+    defineField({
+      name: 'contactMessageLabel',
+      title: 'Form: Mesaj Etiketi',
+      type: 'localeString',
+      group: 'contact',
+    }),
+    defineField({
+      name: 'contactMessagePlaceholder',
+      title: 'Form: Mesaj Placeholder',
+      type: 'localeString',
+      group: 'contact',
+    }),
+    defineField({
+      name: 'contactSubmitLabel',
+      title: 'Form: Gönder Butonu',
+      type: 'localeString',
+      group: 'contact',
+    }),
 
     // Footer / GET STARTED Section
     defineField({

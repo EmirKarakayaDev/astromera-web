@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Reveal from './Reveal';
 import { client, urlFor } from '../lib/sanity';
-import { testimonials as staticTestimonials } from '../data/content';
 
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
@@ -20,12 +19,9 @@ const Testimonials = () => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setData(result);
-        } else {
-          setData(staticTestimonials);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        setData(staticTestimonials);
       }
     };
 

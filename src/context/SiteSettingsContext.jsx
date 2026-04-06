@@ -124,7 +124,14 @@ export const SiteSettingsProvider = ({ children }) => {
       title: t(settings?.contactTitle, 'Get in touch'),
       subtitle: t(settings?.contactSubtitle, 'Let us know how we can help you find your balance.'),
       email: settings?.contactEmail || (isLoading ? '' : 'hi@astromera.com'),
-      address: t(settings?.contactAddress, 'AstroMera HQ\n123 Celestial Way\nLondon, UK')
+      address: t(settings?.contactAddress, 'AstroMera HQ\n123 Celestial Way\nLondon, UK'),
+      nameLabel: t(settings?.contactNameLabel, language === 'tr' ? 'İsim' : 'Name'),
+      namePlaceholder: t(settings?.contactNamePlaceholder, language === 'tr' ? 'Adınız Soyadınız' : 'Jane Smith'),
+      emailLabel: t(settings?.contactEmailLabel, language === 'tr' ? 'E-posta' : 'Email'),
+      emailPlaceholder: t(settings?.contactEmailPlaceholder, language === 'tr' ? 'ornek@email.com' : 'hello@example.com'),
+      messageLabel: t(settings?.contactMessageLabel, language === 'tr' ? 'Mesaj' : 'Message'),
+      messagePlaceholder: t(settings?.contactMessagePlaceholder, language === 'tr' ? 'Size nasıl yardımcı olabiliriz...' : 'Tell us how we can help...'),
+      submitLabel: t(settings?.contactSubmitLabel, language === 'tr' ? 'Gönder' : 'Submit'),
     },
     footer: {
       socialInstagram: settings?.socialInstagram || null,
@@ -164,9 +171,9 @@ export const SiteSettingsProvider = ({ children }) => {
         ...item,
         text: t(item.text, 'Link')
       })) || (isLoading ? [] : [
-        { text: 'Privacy Policy', href: '#' },
-        { text: 'Cookies', href: '#' },
-        { text: 'Terms & Conditions', href: '#' }
+        { text: 'Privacy Policy', href: '/legal/privacy-policy' },
+        { text: 'Cookies', href: '/legal/cookies' },
+        { text: 'Terms & Conditions', href: '/legal/terms-and-conditions' }
       ])
     },
     visibility: {

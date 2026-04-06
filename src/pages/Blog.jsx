@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../components/common/SectionHeader';
 import { client, urlFor } from '../lib/sanity';
-import { journalArticles as staticArticles } from '../data/content';
 import Reveal from '../components/Reveal';
 import GetStarted from '../components/GetStarted';
 import usePageMeta from '../hooks/usePageMeta';
@@ -22,12 +21,9 @@ const Blog = () => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setArticles(result);
-        } else {
-          setArticles(staticArticles);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        setArticles(staticArticles);
       }
     };
 

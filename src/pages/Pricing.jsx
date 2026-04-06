@@ -7,7 +7,6 @@ import usePageMeta from '../hooks/usePageMeta';
 import { client } from '../lib/sanity';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
-import { pricingPlans as staticPlans } from '../data/content';
 
 const Pricing = () => {
   const copy = useSiteSettings();
@@ -24,12 +23,9 @@ const Pricing = () => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setPlans(result);
-        } else {
-          setPlans(staticPlans);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        setPlans(staticPlans);
       } finally {
         setLoading(false);
       }

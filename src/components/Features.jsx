@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Reveal from './Reveal';
 import SectionHeader from './common/SectionHeader';
 import { client, urlFor } from '../lib/sanity';
-import { features as staticFeatures } from '../data/content';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Features = () => {
@@ -17,12 +16,9 @@ const Features = () => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setData(result);
-        } else {
-          setData(staticFeatures);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        setData(staticFeatures);
       }
     };
 

@@ -4,7 +4,6 @@ import Reveal from './Reveal';
 import SectionHeader from './common/SectionHeader';
 import Button from './common/Button';
 import { client, urlFor } from '../lib/sanity';
-import { journalArticles as staticArticles } from '../data/content';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Journal = () => {
@@ -19,20 +18,17 @@ const Journal = () => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setArticles(result);
-        } else {
-          setArticles(staticArticles);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        setArticles(staticArticles);
       }
     };
 
     fetchArticles();
   }, []);
 
-  const featuredArticle = articles[0] || staticArticles[0];
-  const sideArticles = articles.length > 1 ? articles.slice(1, 4) : staticArticles.slice(1, 4);
+  const featuredArticle = articles[0] || null;
+  const sideArticles = articles.slice(1, 4);
 
   return (
     <section id="blog">

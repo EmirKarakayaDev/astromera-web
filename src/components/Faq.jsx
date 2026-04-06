@@ -3,7 +3,6 @@ import Reveal from './Reveal';
 import SectionHeader from './common/SectionHeader';
 import Button from './common/Button';
 import { client } from '../lib/sanity';
-import { faqs as staticFaqs } from '../data/content';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Faq = () => {
@@ -20,12 +19,9 @@ const Faq = () => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setFaqs(result);
-        } else {
-          setFaqs(staticFaqs);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        setFaqs(staticFaqs);
       }
     };
 

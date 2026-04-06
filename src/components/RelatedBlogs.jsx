@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import { client, urlFor } from '../lib/sanity';
-import { journalArticles as staticArticles } from '../data/content';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const RelatedBlogs = ({ currentId }) => {
@@ -16,12 +15,9 @@ const RelatedBlogs = ({ currentId }) => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setBlogs(result);
-        } else {
-          setBlogs(staticArticles);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        setBlogs(staticArticles);
       }
     };
 

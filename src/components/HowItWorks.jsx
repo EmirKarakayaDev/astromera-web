@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Reveal from './Reveal';
 import { client, urlFor } from '../lib/sanity';
-import { hiwSteps as staticSteps } from '../data/content';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const HowItWorks = () => {
@@ -17,12 +16,9 @@ const HowItWorks = () => {
         const result = await client.fetch(query);
         if (result && result.length > 0) {
           setData(result);
-        } else {
-          setData(staticSteps);
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
-        setData(staticSteps);
       }
     };
 
