@@ -119,9 +119,16 @@ const Footer = ({ delay = 0.5 }) => {
             </button>
           </div>
           <div className="footer-legal">
-            {legalItems.map(item => (
-               <a key={item.text} href={item.href || '#'}>{item.text}</a>
-            ))}
+            {legalItems.map(item => {
+              const isExternal = item.href?.startsWith('http');
+              const isHash = !item.href || item.href === '#';
+              if (isExternal || isHash) {
+                return <a key={item.text} href={item.href || '#'}>{item.text}</a>;
+              }
+              const cleanPath = item.href.replace(/^\//, '');
+              const href = `/${copy.language}/${cleanPath}`.replace(/\/+/g, '/');
+              return <Link key={item.text} to={href}>{item.text}</Link>;
+            })}
           </div>
         </Reveal>
       </div>

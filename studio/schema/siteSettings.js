@@ -308,9 +308,9 @@ export default defineType({
         },
       ],
       initialValue: [
-        { text: 'Privacy Policy', href: '#' },
-        { text: 'Cookies', href: '#' },
-        { text: 'Terms & Conditions', href: '#' },
+        { text: 'Privacy Policy', href: '/legal/privacy-policy' },
+        { text: 'Cookies', href: '/legal/cookies' },
+        { text: 'Terms & Conditions', href: '/legal/terms-and-conditions' },
       ],
     }),
     defineField({

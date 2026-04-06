@@ -6,6 +6,7 @@ import pricingPlan from './pricing';
 import howItWorks from './howItWorks';
 import siteSettings from './siteSettings';
 import pageVisibility from './pageVisibility';
+import legalPage from './legalPage';
 import localeString from './localeString';
 import localeText from './localeText';
 
@@ -18,6 +19,7 @@ export const schemaTypes = [
   howItWorks,
   siteSettings,
   pageVisibility,
+  legalPage,
   localeString,
   localeText
 ];
