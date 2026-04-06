@@ -56,18 +56,16 @@
 }
 
 .legal-anchor-link {
-  font-size: var(--fs-body-sm);
-  font-weight: var(--fw-label);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
   color: var(--text-primary);
   text-decoration: none;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
   white-space: nowrap;
+  transition: opacity 0.2s ease;
 }
 
 .legal-anchor-link:hover {
-  opacity: 1;
-  text-decoration: underline;
+  opacity: 0.6;
 }
 
 /* Intro text */
