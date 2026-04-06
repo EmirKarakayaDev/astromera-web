@@ -17,6 +17,15 @@
   gap: 16px;
 }
 
+.insights-content p {
+  margin: 0;
+  font-size: var(--fs-body);
+  color: var(--grey-text);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  max-width: none;
+}
+
 
 /* List items */
 .insights-list {
@@ -45,7 +54,7 @@
 .insights-item-title {
   font-size: var(--fs-body);
   font-weight: 700;
-  color: var(--color-text, #1a1a1a);
+  color: var(--text-primary);
   margin: 0 0 4px;
   line-height: 1.4;
 }
