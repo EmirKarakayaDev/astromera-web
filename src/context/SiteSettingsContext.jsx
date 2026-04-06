@@ -66,6 +66,13 @@ export const SiteSettingsProvider = ({ children }) => {
   const showLegalPages = visibility?.showLegalPages ?? true;
 
   const copy = {
+    seo: {
+      siteTitle: t(settings?.siteTitle, 'AstroMera — Kişisel Gökyüzü Rehberiniz'),
+      siteSlogan: t(settings?.siteSlogan, 'AstroMera'),
+      defaultMetaDescription: t(settings?.defaultMetaDescription, ''),
+      favicon: settings?.favicon ? urlFor(settings.favicon).url() : null,
+      faviconDark: settings?.faviconDark ? urlFor(settings.faviconDark).url() : null,
+    },
     header: {
       siteName: t(settings?.siteName, 'AstroMera'),
       menuItems: (settings?.menuItems?.map(item => ({

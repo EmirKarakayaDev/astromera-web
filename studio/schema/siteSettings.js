@@ -5,6 +5,43 @@ export default defineType({
   title: 'Site Ayarları (Başlıklar ve Metinler)',
   type: 'document',
   fields: [
+    // SEO & Global
+    defineField({
+      name: 'siteTitle',
+      title: 'Site Başlığı (Tarayıcı Sekmesi)',
+      type: 'localeString',
+      group: 'seo',
+      description: 'Örn: "AstroMera — Kişisel Gökyüzü Rehberiniz"',
+    }),
+    defineField({
+      name: 'siteSlogan',
+      title: 'Site Sloganı (Başlık sonrası)',
+      type: 'localeString',
+      group: 'seo',
+      description: 'Sayfa başlıklarına eklenir: "Blog — AstroMera". Boşsa site başlığı kullanılır.',
+    }),
+    defineField({
+      name: 'defaultMetaDescription',
+      title: 'Varsayılan Meta Açıklaması',
+      type: 'localeText',
+      group: 'seo',
+      description: 'Ana sayfada ve sayfa açıklaması olmayan sayfalarda kullanılır.',
+    }),
+    defineField({
+      name: 'favicon',
+      title: 'Favicon (Light Mode)',
+      type: 'image',
+      group: 'seo',
+      description: 'Light mode tarayıcılarda görünen ikon. PNG veya SVG önerilir.',
+    }),
+    defineField({
+      name: 'faviconDark',
+      title: 'Favicon (Dark Mode)',
+      type: 'image',
+      group: 'seo',
+      description: 'Dark mode tarayıcılarda görünen ikon (açık renkli versiyon). Yüklenmezse normal favicon kullanılır.',
+    }),
+
     // Header & Global
     defineField({
       name: 'siteName',
@@ -55,16 +92,16 @@ export default defineType({
       description: 'Boş bırakılırsa varsayılan görsel kullanılır.'
     }),
 
-    // Features Section
+    // Features / Experience Section
     defineField({
       name: 'featuresTitle',
-      title: 'Özellikler Başlığı',
+      title: 'Keşfet Başlığı',
       type: 'localeText',
       group: 'features',
     }),
     defineField({
       name: 'featuresSubtitle',
-      title: 'Özellikler Alt Metni',
+      title: 'Keşfet Alt Metni',
       type: 'localeText',
       group: 'features',
     }),
@@ -430,9 +467,10 @@ export default defineType({
     }),
   ],
   groups: [
+    { name: 'seo', title: 'SEO & Favicon' },
     { name: 'header', title: 'Header / Global' },
     { name: 'hero', title: 'Hero' },
-    { name: 'features', title: 'Özellikler' },
+    { name: 'features', title: 'Keşfet (Experience)' },
     { name: 'hiw', title: 'Nasıl Çalışır' },
     { name: 'testimonials', title: 'Yorumlar' },
     { name: 'journal', title: 'Blog' },

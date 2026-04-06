@@ -1,27 +1,25 @@
 import { useEffect } from 'react';
+import { useSiteSettings } from '../context/SiteSettingsContext';
 
-/**
- * Her sayfaya özgün <title> ve <meta description> atar.
- * Harici kütüphane gerektirmez.
- *
- * @param {string} title    - Tarayıcı sekmesinde & arama sonuçlarında görünen başlık
- * @param {string} [description] - Meta description (arama motoru snippet'i)
- */
 const usePageMeta = (title, description) => {
+  const { seo } = useSiteSettings();
+
   useEffect(() => {
-    const BASE = 'AstroMera';
-    const SLOGAN = 'Kişisel Gökyüzü Rehberiniz';
-    document.title = title ? `${title} — ${BASE}` : `${BASE} — ${SLOGAN}`;
+    const siteName = seo?.siteSlogan || 'AstroMera';
+    const fullTitle = seo?.siteTitle || 'AstroMera — Kişisel Gökyüzü Rehberiniz';
+    const desc = description || seo?.defaultMetaDescription || '';
+
+    document.title = title ? `${title} — ${siteName}` : fullTitle;
 
     // Meta description
-    if (description) {
+    if (desc) {
       let metaDesc = document.querySelector('meta[name="description"]');
       if (!metaDesc) {
         metaDesc = document.createElement('meta');
         metaDesc.setAttribute('name', 'description');
         document.head.appendChild(metaDesc);
       }
-      metaDesc.setAttribute('content', description);
+      metaDesc.setAttribute('content', desc);
     }
 
     // OG title
@@ -31,24 +29,23 @@ const usePageMeta = (title, description) => {
       ogTitle.setAttribute('property', 'og:title');
       document.head.appendChild(ogTitle);
     }
-    ogTitle.setAttribute('content', title ? `${title} — ${BASE}` : `${BASE} — ${SLOGAN}`);
+    ogTitle.setAttribute('content', title ? `${title} — ${siteName}` : fullTitle);
 
     // OG description
-    if (description) {
+    if (desc) {
       let ogDesc = document.querySelector('meta[property="og:description"]');
       if (!ogDesc) {
         ogDesc = document.createElement('meta');
         ogDesc.setAttribute('property', 'og:description');
         document.head.appendChild(ogDesc);
       }
-      ogDesc.setAttribute('content', description);
+      ogDesc.setAttribute('content', desc);
     }
 
-    // Cleanup: sayfadan ayrılınca varsayılana dön
     return () => {
-      document.title = `${BASE} — ${SLOGAN}`;
+      document.title = fullTitle;
     };
-  }, [title, description]);
+  }, [title, description, seo]);
 };
 
 export default usePageMeta;

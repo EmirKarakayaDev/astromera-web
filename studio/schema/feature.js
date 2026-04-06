@@ -2,7 +2,7 @@ import { defineType, defineField } from 'sanity';
 
 export default defineType({
   name: 'feature',
-  title: 'Özellikler (Features)',
+  title: 'Keşfet (Experience)',
   type: 'document',
   orderings: [
     {

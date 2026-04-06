@@ -52,10 +52,45 @@ const MainLayout = ({ children, isMenuOpen, setIsMenuOpen, isNavVisible }) => {
   );
 };
 
+const SiteMeta = () => {
+  const { seo } = useSiteSettings();
+
+  useEffect(() => {
+    if (!seo?.favicon) return;
+
+    // Remove existing favicon links
+    document.querySelectorAll("link[rel='icon']").forEach(el => el.remove());
+
+    if (seo.faviconDark) {
+      // Light mode favicon
+      const lightLink = document.createElement('link');
+      lightLink.setAttribute('rel', 'icon');
+      lightLink.setAttribute('href', seo.favicon);
+      lightLink.setAttribute('media', '(prefers-color-scheme: light)');
+      document.head.appendChild(lightLink);
+
+      // Dark mode favicon
+      const darkLink = document.createElement('link');
+      darkLink.setAttribute('rel', 'icon');
+      darkLink.setAttribute('href', seo.faviconDark);
+      darkLink.setAttribute('media', '(prefers-color-scheme: dark)');
+      document.head.appendChild(darkLink);
+    } else {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'icon');
+      link.setAttribute('href', seo.favicon);
+      document.head.appendChild(link);
+    }
+  }, [seo?.favicon, seo?.faviconDark]);
+
+  return null;
+};
+
 const AppRoutes = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
   const { visibility } = useSiteSettings();
   return (
     <MainLayout isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} isNavVisible={isNavVisible}>
+      <SiteMeta />
       <Suspense fallback={<div className="loader-overlay" />}>
         <Routes>
           <Route path="/" element={<Navigate to="/tr" replace />} />

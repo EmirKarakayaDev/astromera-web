@@ -42,7 +42,7 @@ export default defineType({
     // Header
     defineField({
       name: 'showFeaturesNavItem',
-      title: 'Features Linki (Header Menü)',
+      title: 'Keşfet Linki (Header Menü)',
       type: 'boolean',
       initialValue: true,
       group: 'header',
@@ -94,7 +94,7 @@ export default defineType({
     }),
     defineField({
       name: 'showFeaturesSection',
-      title: 'Özellikler',
+      title: 'Keşfet (Experience)',
       type: 'boolean',
       initialValue: true,
       group: 'home',
