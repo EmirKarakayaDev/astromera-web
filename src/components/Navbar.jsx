@@ -6,7 +6,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const copy = useSiteSettings();
-  const { siteName, menuItems } = copy.header;
+  const { siteName, menuItems, icon } = copy.header;
 
   const navRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -73,7 +73,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
 
   return (
     <div className={`nav-wrapper ${!isNavVisible ? 'nav-hidden' : ''}`}>
-      <Link to={`/${language}/`} className="nav-logo-pill" onClick={handleLogoClick}>{siteName}</Link>
+      <Link to={`/${language}/`} className="nav-logo-pill" onClick={handleLogoClick}>
+        {icon && <img src={icon} alt="" className="nav-logo-icon" aria-hidden="true" />}
+        <span className="nav-logo-text">{siteName}</span>
+      </Link>
 
       <nav ref={navRef} className={`nav-links-pill ${isMenuOpen ? 'mobile-open' : ''}`}>
         {menuItems.map((link) => {

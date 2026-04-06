@@ -41,9 +41,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   position: relative;
   z-index: 2;
   text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.nav-logo-text {
+  display: inline-block;
+  line-height: 1;
 }
 
 .nav-links-pill {

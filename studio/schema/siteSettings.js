@@ -50,6 +50,14 @@ export default defineType({
       group: 'header',
     }),
     defineField({
+      name: 'headerIcon',
+      title: 'Logo İkonu (Görsel)',
+      type: 'image',
+      group: 'header',
+      options: { hotspot: true },
+      description: 'Header logosunun solunda görünecek küçük ikon.',
+    }),
+    defineField({
       name: 'menuItems',
       title: 'Navigasyon Menüsü',
       type: 'array',

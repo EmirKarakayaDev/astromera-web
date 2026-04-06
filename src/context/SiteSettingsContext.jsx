@@ -75,6 +75,7 @@ export const SiteSettingsProvider = ({ children }) => {
     },
     header: {
       siteName: t(settings?.siteName, 'AstroMera'),
+      icon: settings?.headerIcon ? urlFor(settings.headerIcon).width(48).height(48).url() : null,
       menuItems: (settings?.menuItems?.map(item => ({
         ...item,
         text: t(item.text, 'Link')
