@@ -19,10 +19,9 @@
 
 .insights-label {
   font-size: var(--fs-body);
-  font-weight: 600;
-  color: var(--color-primary, #7c3aed);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-weight: var(--fw-body);
+  color: var(--grey-text);
+  opacity: 0.6;
   margin: 0;
 }
 
