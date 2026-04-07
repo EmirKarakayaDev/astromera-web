@@ -245,6 +245,10 @@ export const SiteSettingsProvider = ({ children }) => {
     }
   };
 
+  if (isLoading) {
+    return <div className="loader-overlay" />;
+  }
+
   return (
     <SiteSettingsContext.Provider value={{ ...copy, isLoading, language, setLanguage, localize: t }}>
       {children}
