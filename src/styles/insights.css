@@ -1,4 +1,27 @@
 /* Insights / Raporlar Section */
+#insights {
+  position: relative;
+  overflow: hidden;
+}
+
+#insights::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 120% 50% at 50% 50%,
+    rgba(255, 220, 220, 0.35) 0%,
+    rgba(255, 220, 220, 0.12) 55%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+#insights .container {
+  position: relative;
+  z-index: 1;
+}
+
 .insights-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
