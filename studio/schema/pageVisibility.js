@@ -149,6 +149,13 @@ export default defineType({
       group: 'home',
     }),
     defineField({
+      name: 'showContactSection',
+      title: 'İletişim Formu (Ana Sayfa)',
+      type: 'boolean',
+      initialValue: true,
+      group: 'home',
+    }),
+    defineField({
       name: 'showGetStartedSection',
       title: 'CTA (Hemen Başlayın)',
       type: 'boolean',

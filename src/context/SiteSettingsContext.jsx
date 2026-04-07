@@ -124,6 +124,11 @@ export const SiteSettingsProvider = ({ children }) => {
       featuredLabel: t(settings?.insightsFeaturedLabel, ''),
       featuredTitle: t(settings?.insightsFeaturedTitle, ''),
       featuredSubtitle: t(settings?.insightsFeaturedSubtitle, ''),
+      viewAll: t(settings?.insightsViewAll, language === 'tr' ? 'Tümünü Gör' : 'View All'),
+      reportsPageTitle: t(settings?.reportsPageTitle, language === 'tr' ? 'Raporlar' : 'Reports'),
+      reportsPageSubtitle: t(settings?.reportsPageSubtitle, ''),
+      relatedReportsTitle: t(settings?.relatedReportsTitle, language === 'tr' ? 'Diğer Raporlar' : 'More Reports'),
+      relatedReportsSubtitle: t(settings?.relatedReportsSubtitle, language === 'tr' ? 'En güncel raporlarımızı keşfedin.' : 'Discover more from our latest reports.'),
       image: settings?.insightsImage ? urlFor(settings.insightsImage).url() : null,
     },
     howItWorks: {
@@ -228,6 +233,7 @@ export const SiteSettingsProvider = ({ children }) => {
       showHowItWorksSection: visibility?.showHowItWorksSection ?? true,
       showJournalSection: visibility?.showJournalSection ?? true,
       showFaqSection: visibility?.showFaqSection ?? true,
+      showContactSection: visibility?.showContactSection ?? true,
       showGetStartedSection: visibility?.showGetStartedSection ?? true,
     },
     getStarted: {

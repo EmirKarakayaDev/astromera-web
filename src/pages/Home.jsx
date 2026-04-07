@@ -7,6 +7,7 @@ import Testimonials from '../components/Testimonials';
 import HowItWorks from '../components/HowItWorks';
 import Journal from '../components/Journal';
 import Faq from '../components/Faq';
+import ContactSection from '../components/ContactSection';
 import GetStarted from '../components/GetStarted';
 import fallbackHeroImage from '../assets/Asset-1.svg';
 import usePageMeta from '../hooks/usePageMeta';
@@ -40,6 +41,7 @@ const Home = () => {
       {visibility.showHowItWorksSection && <HowItWorks />}
       {visibility.showJournalSection && <Journal />}
       {visibility.showFaqSection && <Faq />}
+      {visibility.showContactSection && <ContactSection />}
       {visibility.showGetStartedSection && <GetStarted />}
     </>
   );

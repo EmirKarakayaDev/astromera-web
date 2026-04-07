@@ -118,7 +118,7 @@ const Insights = () => {
           </div>
           <div className="text-center" style={{ marginTop: '40px' }}>
             <Button to="reports">
-              {language === 'tr' ? 'Tümünü Gör' : 'View All'}
+              {insights.viewAll}
             </Button>
           </div>
           </>

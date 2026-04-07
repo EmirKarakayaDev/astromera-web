@@ -26,8 +26,8 @@ const RelatedReports = ({ currentId }) => {
 
   if (otherReports.length === 0) return null;
 
-  const title = language === 'tr' ? 'Diğer Raporlar' : 'More Reports';
-  const subtitle = language === 'tr' ? 'En güncel raporlarımızı keşfedin.' : 'Discover more from our latest reports.';
+  const title = insights.relatedReportsTitle;
+  const subtitle = insights.relatedReportsSubtitle;
 
   return (
     <section className="related-blogs">

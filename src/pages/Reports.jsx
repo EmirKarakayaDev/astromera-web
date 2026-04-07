@@ -13,8 +13,8 @@ const Reports = () => {
   const copy = useSiteSettings();
   const { insights, localize, language } = copy;
 
-  const title = insights.featuredTitle || (language === 'tr' ? 'Raporlar' : 'Reports');
-  const subtitle = insights.featuredSubtitle || '';
+  const title = insights.reportsPageTitle;
+  const subtitle = insights.reportsPageSubtitle;
 
   usePageMeta(title, subtitle);
 
