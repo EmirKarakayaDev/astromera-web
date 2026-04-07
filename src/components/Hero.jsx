@@ -36,17 +36,15 @@ const Hero = ({ heroHandPhone }) => {
               const isGoogle = btn.type === 'google';
               const icon = isApple ? AppleIcon : isGoogle ? PlayStoreIcon : null;
               const isExternal = btn.href?.startsWith('http');
+              const fallbackHref = isApple ? 'https://www.apple.com/app-store/' : isGoogle ? 'https://play.google.com' : '#';
+              const href = btn.href || fallbackHref;
               return (
                 <a
                   key={i}
-                  href={isExternal ? btn.href : '#download'}
+                  href={href}
                   className="store-btn"
-                  target={isExternal ? '_blank' : undefined}
-                  rel={isExternal ? 'noopener noreferrer' : undefined}
-                  onClick={!isExternal ? (e) => {
-                    e.preventDefault();
-                    document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
-                  } : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {icon && <img src={icon} alt={btn.type} width="24" height="24" style={{ filter: 'invert(1)' }} />}
                   <span className="store-btn-content">
