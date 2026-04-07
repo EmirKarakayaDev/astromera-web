@@ -110,7 +110,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
       <div className="nav-right">
         {showDownloadButton && (
           <a href={downloadHref} className="nav-btn-pill nav-download-btn">
-            {downloadText}
+            <span className="nav-link-wrapper">
+              <span className="nav-link-text">{downloadText}</span>
+              <span className="nav-link-text">{downloadText}</span>
+            </span>
           </a>
         )}
 

@@ -39,7 +39,7 @@ const BlogDetail = () => {
   );
 
   if (loading) {
-    return <div className="blog-detail-page"><div className="container"><h2>Loading...</h2></div></div>;
+    return <div className="blog-detail-page" style={{ minHeight: '60vh' }}></div>;
   }
 
   if (!article) {

@@ -9,6 +9,7 @@ import { useSiteSettings } from '../context/SiteSettingsContext';
 
 const Blog = () => {
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
   const copy = useSiteSettings();
   const journalCopy = copy.journal;
 
@@ -24,6 +25,8 @@ const Blog = () => {
         }
       } catch (error) {
         console.error('Sanity fetch error:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -42,8 +45,8 @@ const Blog = () => {
           subtitle={journalCopy.subtitle}
         />
         
-        <div className="blog-grid">
-          {articles.map((article, i) => {
+        <div className="blog-grid" style={{ minHeight: '400px' }}>
+          {!loading && articles.map((article, i) => {
             const articleId = article._id || article.id;
             const imageUrl = article.mainImage ? urlFor(article.mainImage).url() : article.img;
             

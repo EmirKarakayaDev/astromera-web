@@ -188,15 +188,32 @@
 .nav-btn-pill {
   background: #FEE7E7;
   color: var(--text-primary);
-  padding: 14px 32px;
+  height: 52px;
+  padding: 0 32px;
   border-radius: var(--radius-pill);
   font-size: var(--fs-btn);
-  line-height: var(--lh-btn);
   font-weight: var(--fw-btn);
   letter-spacing: var(--ls-btn);
   border: none;
   cursor: pointer;
   transition: var(--transition-smooth);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+.nav-btn-pill .nav-link-wrapper {
+  pointer-events: none;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.nav-btn-pill:hover .nav-link-wrapper {
+  transform: translateY(-50%);
+}
+
+.nav-btn-pill .nav-link-text {
+  height: 52px;
+  line-height: 52px;
 }
 
 .nav-right {
@@ -254,8 +271,11 @@
 }
 
 .nav-download-btn:hover {
-  opacity: 0.85;
-  transform: translateY(-1px);
+  transform: scale(0.98);
+}
+
+.nav-download-btn:hover .nav-link-wrapper {
+  transform: translateY(-50%) scale(1.0204);
 }
 
 @media (max-width: 1024px) {
