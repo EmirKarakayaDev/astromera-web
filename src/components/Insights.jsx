@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
+import Button from './common/Button';
 import { client, urlFor } from '../lib/sanity';
 import { useSiteSettings } from '../context/SiteSettingsContext';
 
@@ -66,6 +68,7 @@ const Insights = () => {
           )}
         </div>
         {cards.length > 0 && (
+          <>
           <div className="insights-featured">
             <div className="insights-featured-intro">
               <Reveal className="insights-featured-header">
@@ -104,15 +107,21 @@ const Insights = () => {
                           </div>
                         )}
                       </div>
-                      <a className="insights-featured-cta" href={ctaHref}>
+                      <Link className="insights-featured-cta" to={`/${language}/reports/${item._id}`}>
                         {ctaLabel}
-                      </a>
+                      </Link>
                     </div>
                   </Reveal>
                 );
               })}
             </div>
           </div>
+          <div className="text-center" style={{ marginTop: '40px' }}>
+            <Button to="reports">
+              {language === 'tr' ? 'Tümünü Gör' : 'View All'}
+            </Button>
+          </div>
+          </>
         )}
       </div>
     </section>

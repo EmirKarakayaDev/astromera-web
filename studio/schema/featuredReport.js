@@ -47,6 +47,24 @@ export default defineType({
       of: [{ type: 'string' }],
     }),
     defineField({
+      name: 'date',
+      title: 'Yayınlanma Tarihi',
+      type: 'date',
+      options: { dateFormat: 'YYYY-MM-DD' },
+    }),
+    defineField({
+      name: 'readingTime',
+      title: 'Okuma Süresi (Dakika)',
+      type: 'number',
+      initialValue: 5,
+    }),
+    defineField({
+      name: 'body',
+      title: 'İçerik (Paragraflar)',
+      type: 'array',
+      of: [{ type: 'localeText' }],
+    }),
+    defineField({
       name: 'ctaLabel',
       title: 'CTA Metni',
       type: 'localeString',
