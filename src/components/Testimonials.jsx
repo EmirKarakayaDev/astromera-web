@@ -82,7 +82,11 @@ const Testimonials = () => {
                 className="testimonials-swiper"
               >
                 {data.map((item, i) => {
-                  const imageUrl = item.mainImage ? urlFor(item.mainImage).url() : `https://i.pravatar.cc/150?u=${item.name}`;
+                  const imageUrl = item.mainImage
+                    ? item.isImage
+                      ? urlFor(item.mainImage).width(700).height(900).fit('crop').url()
+                      : urlFor(item.mainImage).width(96).height(96).fit('crop').url()
+                    : `https://i.pravatar.cc/150?u=${item.name}`;
                   
                   return (
                     <SwiperSlide key={item._id || i}>
