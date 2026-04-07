@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Hero from '../components/Hero';
+import Tagline from '../components/Tagline';
 import Features from '../components/Features';
 import Insights from '../components/Insights';
 import Testimonials from '../components/Testimonials';
@@ -35,6 +36,7 @@ const Home = () => {
   return (
     <>
       {visibility.showHeroSection && <Hero heroHandPhone={heroImage} />}
+      {visibility.showTaglineSection && <Tagline />}
       {visibility.showFeaturesSection && <Features />}
       {visibility.showInsightsSection && <Insights />}
       {visibility.showTestimonialsSection && <Testimonials />}

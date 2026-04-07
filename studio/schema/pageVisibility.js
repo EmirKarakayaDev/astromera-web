@@ -114,8 +114,8 @@ export default defineType({
       group: 'home',
     }),
     defineField({
-      name: 'showHeroMarquee',
-      title: 'Hero Kayan Yazı Şeridi',
+      name: 'showTaglineSection',
+      title: 'Tagline Bölümü (Hero Altı)',
       type: 'boolean',
       initialValue: true,
       group: 'home',

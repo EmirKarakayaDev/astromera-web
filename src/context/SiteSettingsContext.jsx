@@ -111,7 +111,7 @@ export const SiteSettingsProvider = ({ children }) => {
       subtitle: t(settings?.heroSubtitle, COPY.hero.subtitle),
       cta: t(settings?.heroCta, COPY.hero.cta),
       image: settings?.heroImage ? urlFor(settings.heroImage).url() : null,
-      marqueeItems: settings?.heroMarqueeItems?.map(item => t(item.text, '')) || [],
+      tagline: t(settings?.taglineText, ''),
     },
     features: {
       title: t(settings?.featuresSubtitle, COPY.features.title),
@@ -229,7 +229,7 @@ export const SiteSettingsProvider = ({ children }) => {
       showInsightsSection: visibility?.showInsightsSection ?? true,
       showPricingPage: visibility?.showPricingPage ?? true,
       showHeroSection: visibility?.showHeroSection ?? true,
-      showHeroMarquee: visibility?.showHeroMarquee ?? true,
+      showTaglineSection: visibility?.showTaglineSection ?? true,
       showFeaturesSection: visibility?.showFeaturesSection ?? true,
       showTestimonialsSection: visibility?.showTestimonialsSection ?? true,
       showHowItWorksSection: visibility?.showHowItWorksSection ?? true,
