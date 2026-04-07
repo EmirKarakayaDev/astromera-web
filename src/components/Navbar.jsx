@@ -38,7 +38,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
 
   const { language } = copy;
   const { showDownloadButton } = copy.visibility;
-  const downloadHref = copy.getStarted?.ctaButtons?.[0]?.href || '#';
+  const downloadHref = copy.getStarted?.ctaButtons?.[0]?.href || 'https://www.apple.com/app-store/';
   const downloadText = language === 'tr' ? 'İndir' : 'Download';
 
   const handleLogoClick = (e) => {

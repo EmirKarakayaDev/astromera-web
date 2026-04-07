@@ -21,8 +21,10 @@ const GetStarted = ({ delay = 0 }) => {
       const isGoogle = btn.type === 'google';
       const icon = isApple ? AppleIcon : isGoogle ? PlayStoreIcon : null;
 
+      const fallbackHref = isApple ? 'https://www.apple.com/app-store/' : isGoogle ? 'https://play.google.com' : '#';
+
       return (
-        <a key={i} href={btn.href || '#'} className="store-btn">
+        <a key={i} href={btn.href || fallbackHref} className="store-btn">
           {icon && (
             <img 
               src={icon} 

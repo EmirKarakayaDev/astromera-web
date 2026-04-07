@@ -84,11 +84,7 @@ const LegalPage = () => {
   };
 
   if (loading) {
-    return (
-      <div className="legal-page">
-        <div className="container"><p>Loading...</p></div>
-      </div>
-    );
+    return <div className="legal-page" style={{ minHeight: '60vh' }} />;
   }
 
   if (!page) {
