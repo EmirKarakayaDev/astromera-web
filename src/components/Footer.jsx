@@ -102,7 +102,7 @@ const Footer = ({ delay = 0.5 }) => {
           </div>
         </Reveal>
 
-        <Reveal className="footer-bottom" delay={delay + 0.1}>
+        <div className="footer-bottom">
           <p>{copyright}</p>
           <div className="footer-lang-picker">
             <button
@@ -133,7 +133,7 @@ const Footer = ({ delay = 0.5 }) => {
               return <Link key={item.text} to={href}>{item.text}</Link>;
             })}
           </div>
-        </Reveal>
+        </div>
       </div>
     </footer>
   );
