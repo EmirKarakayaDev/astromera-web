@@ -235,7 +235,7 @@ export const SiteSettingsProvider = ({ children }) => {
       showHowItWorksSection: visibility?.showHowItWorksSection ?? true,
       showJournalSection: visibility?.showJournalSection ?? true,
       showFaqSection: visibility?.showFaqSection ?? true,
-      showContactSection: visibility?.showContactSection ?? true,
+      showContactSection: visibility?.showContactSection ?? false,
       showGetStartedSection: visibility?.showGetStartedSection ?? true,
     },
     getStarted: {

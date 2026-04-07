@@ -159,7 +159,7 @@ export default defineType({
       name: 'showContactSection',
       title: 'İletişim Formu (Ana Sayfa)',
       type: 'boolean',
-      initialValue: true,
+      initialValue: false,
       group: 'home',
     }),
     defineField({
