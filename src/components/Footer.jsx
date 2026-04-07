@@ -27,7 +27,8 @@ const Footer = ({ delay = 0.5 }) => {
           <span className="scrolling-logo">{siteName}</span>
         </Reveal>
 
-        <Reveal className="footer-main" delay={delay + 0.05}>
+        <Reveal className="footer-body" delay={delay + 0.05}>
+          <div className="footer-main">
           <div className="footer-left">
             <p className="footer-intro-text">
               {intro.split(',').map((line, i) => (
@@ -100,9 +101,9 @@ const Footer = ({ delay = 0.5 }) => {
               </div>
             )}
           </div>
-        </Reveal>
+          </div>
 
-        <Reveal className="footer-bottom" delay={delay + 0.05}>
+          <div className="footer-bottom">
           <p>{copyright}</p>
           <div className="footer-lang-picker">
             <button
@@ -132,6 +133,7 @@ const Footer = ({ delay = 0.5 }) => {
               const href = `/${copy.language}/${cleanPath}`.replace(/\/+/g, '/');
               return <Link key={item.text} to={href}>{item.text}</Link>;
             })}
+          </div>
           </div>
         </Reveal>
       </div>
