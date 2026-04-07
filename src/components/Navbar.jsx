@@ -38,7 +38,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
 
   const { language } = copy;
   const { showDownloadButton } = copy.visibility;
-  const downloadHref = copy.getStarted?.ctaButtons?.[0]?.href || 'https://www.apple.com/app-store/';
+  const rawDownloadHref = copy.getStarted?.ctaButtons?.[0]?.href;
+  const isExternalDownload = rawDownloadHref?.startsWith('http');
+  const downloadHref = isExternalDownload ? rawDownloadHref : `/${language}/#download`;
   const downloadText = language === 'tr' ? 'İndir' : 'Download';
 
   const handleLogoClick = (e) => {
@@ -109,7 +111,19 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
 
       <div className="nav-right">
         {showDownloadButton && (
-          <a href={downloadHref} className="nav-btn-pill nav-download-btn">
+          <a
+            href={downloadHref}
+            className="nav-btn-pill nav-download-btn"
+            target={isExternalDownload ? '_blank' : undefined}
+            rel={isExternalDownload ? 'noopener noreferrer' : undefined}
+            onClick={!isExternalDownload ? (e) => {
+              e.preventDefault();
+              setIsMenuOpen(false);
+              const el = document.getElementById('download');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+              else { navigate(`/${language}/`); setTimeout(() => document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' }), 300); }
+            } : undefined}
+          >
             <span className="nav-link-wrapper">
               <span className="nav-link-text">{downloadText}</span>
               <span className="nav-link-text">{downloadText}</span>

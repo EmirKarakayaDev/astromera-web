@@ -35,8 +35,19 @@ const Hero = ({ heroHandPhone }) => {
               const isApple = btn.type === 'apple';
               const isGoogle = btn.type === 'google';
               const icon = isApple ? AppleIcon : isGoogle ? PlayStoreIcon : null;
+              const isExternal = btn.href?.startsWith('http');
               return (
-                <a key={i} href={btn.href || '#'} className="store-btn">
+                <a
+                  key={i}
+                  href={isExternal ? btn.href : '#download'}
+                  className="store-btn"
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                  onClick={!isExternal ? (e) => {
+                    e.preventDefault();
+                    document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+                  } : undefined}
+                >
                   {icon && <img src={icon} alt={btn.type} width="24" height="24" style={{ filter: 'invert(1)' }} />}
                   <span className="store-btn-content">
                     {btn.tag && <span className="store-btn-tag">{btn.tag}</span>}
