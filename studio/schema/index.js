@@ -11,6 +11,7 @@ import legalPage from './legalPage';
 import localeString from './localeString';
 import localeText from './localeText';
 import featuredReport from './featuredReport';
+import aboutPage from './aboutPage';
 
 export const schemaTypes = [
   blog,
@@ -25,5 +26,6 @@ export const schemaTypes = [
   legalPage,
   localeString,
   localeText,
-  featuredReport
+  featuredReport,
+  aboutPage
 ];

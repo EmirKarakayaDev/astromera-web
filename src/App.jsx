@@ -17,6 +17,7 @@ const StudioPage = lazy(() => import('./pages/StudioPage'));
 const LegalPage = lazy(() => import('./pages/LegalPage'));
 const Reports = lazy(() => import('./pages/Reports'));
 const ReportDetail = lazy(() => import('./pages/ReportDetail'));
+const About = lazy(() => import('./pages/About'));
 
 // Swiper styles
 import 'swiper/css';
@@ -119,6 +120,7 @@ const AppRoutes = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
             {visibility.showBlogPage && <Route path="blog/:id" element={<BlogDetail />} />}
             <Route path="reports" element={<Reports />} />
             <Route path="reports/:id" element={<ReportDetail />} />
+            <Route path="about" element={<About />} />
             {visibility.showPricingPage && <Route path="pricing" element={<Pricing />} />}
             {visibility.showContactPage && <Route path="contact" element={<Contact />} />}
             {visibility.showLegalPages && <Route path="legal/:slug" element={<LegalPage />} />}
