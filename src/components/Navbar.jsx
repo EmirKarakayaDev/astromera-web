@@ -67,7 +67,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
         experience: 'features',
         insight: 'insights',
         insights: 'insights',
-        about: 'features'
       };
       const targetId = sectionAliases[rawId] || rawId;
       const element = document.getElementById(targetId);
