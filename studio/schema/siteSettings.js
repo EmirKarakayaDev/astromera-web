@@ -100,6 +100,24 @@ export default defineType({
       description: 'Boş bırakılırsa varsayılan görsel kullanılır.'
     }),
 
+    // Hero Marquee
+    defineField({
+      name: 'heroMarqueeItems',
+      title: 'Hero Kayan Yazı Öğeleri',
+      type: 'array',
+      group: 'hero',
+      description: 'Hero görselin altında soldan sağa kayan kısa metinler. Boşsa bu bölüm gizlenir.',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'text', title: 'Metin', type: 'localeString' },
+          ],
+          preview: { select: { title: 'text.tr' } },
+        },
+      ],
+    }),
+
     // Features / Experience Section
       defineField({
         name: 'featuresSubtitle',

@@ -159,6 +159,64 @@
   width: 100%;
   height: auto;
   display: block;
-  aspect-ratio: 400 / 800; /* Rezervasyon doğrudan görselde olsun */
+  aspect-ratio: 400 / 800;
   object-fit: contain;
+}
+
+/* Hero Marquee */
+.hero-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 28px 0;
+  border-top: 1px solid rgba(61, 0, 0, 0.07);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.hero-marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.hero-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.hero-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 40px;
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+.hero-marquee-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--maroon-primary);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 600px) {
+  .hero-marquee {
+    padding: 20px 0;
+  }
+
+  .hero-marquee-item {
+    padding: 0 28px;
+    font-size: var(--fs-label);
+  }
 }

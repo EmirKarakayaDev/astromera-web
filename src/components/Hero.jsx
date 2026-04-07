@@ -7,6 +7,8 @@ const Hero = ({ heroHandPhone }) => {
   const copy = useSiteSettings();
   const heroContent = copy.hero;
   const ctaButtons = copy.getStarted?.ctaButtons || [];
+  const marqueeItems = heroContent.marqueeItems || [];
+  const showMarquee = copy.visibility?.showHeroMarquee && marqueeItems.length > 0;
 
   return (
     <section className="hero">
@@ -59,10 +61,10 @@ const Hero = ({ heroHandPhone }) => {
 
         <Reveal className="hero-phone-container" delay={0.4}>
           <div className="hero-phone-image-wrapper">
-            <img 
-              src={heroHandPhone} 
-              alt="Hand holding phone" 
-              className="hero-phone-image" 
+            <img
+              src={heroHandPhone}
+              alt="Hand holding phone"
+              className="hero-phone-image"
               fetchpriority="high"
               width="400"
               height="800"
@@ -70,6 +72,19 @@ const Hero = ({ heroHandPhone }) => {
           </div>
         </Reveal>
       </div>
+
+      {showMarquee && (
+        <div className="hero-marquee">
+          <div className="hero-marquee-track">
+            {[...marqueeItems, ...marqueeItems].map((text, i) => (
+              <span key={i} className="hero-marquee-item">
+                <span className="hero-marquee-dot" aria-hidden="true" />
+                {text}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

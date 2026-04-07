@@ -114,6 +114,13 @@ export default defineType({
       group: 'home',
     }),
     defineField({
+      name: 'showHeroMarquee',
+      title: 'Hero Kayan Yazı Şeridi',
+      type: 'boolean',
+      initialValue: true,
+      group: 'home',
+    }),
+    defineField({
       name: 'showFeaturesSection',
       title: 'Keşfet (Experience)',
       type: 'boolean',
