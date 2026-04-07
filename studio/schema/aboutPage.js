@@ -38,7 +38,7 @@ export default defineType({
       of: [{
         type: 'object',
         fields: [
-          { name: 'icon', title: 'İkon (emoji)', type: 'string' },
+          { name: 'icon', title: 'İkon Görseli', type: 'image', options: { hotspot: true } },
           { name: 'title', title: 'Başlık', type: 'localeString' },
           { name: 'desc', title: 'Açıklama', type: 'localeString' },
         ],

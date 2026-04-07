@@ -7,9 +7,9 @@ import { useSiteSettings } from '../context/SiteSettingsContext';
 import '../styles/about.css';
 
 const FALLBACK_VALUES = [
-  { icon: '🌙', title: { tr: 'Misyonumuz', en: 'Our Mission' }, desc: { tr: 'İçerik yakında eklenecek.', en: 'Content coming soon.' } },
-  { icon: '✨', title: { tr: 'Vizyonumuz', en: 'Our Vision' }, desc: { tr: 'İçerik yakında eklenecek.', en: 'Content coming soon.' } },
-  { icon: '💫', title: { tr: 'Değerlerimiz', en: 'Our Values' }, desc: { tr: 'İçerik yakında eklenecek.', en: 'Content coming soon.' } },
+  { title: { tr: 'Misyonumuz', en: 'Our Mission' }, desc: { tr: 'İçerik yakında eklenecek.', en: 'Content coming soon.' } },
+  { title: { tr: 'Vizyonumuz', en: 'Our Vision' }, desc: { tr: 'İçerik yakında eklenecek.', en: 'Content coming soon.' } },
+  { title: { tr: 'Değerlerimiz', en: 'Our Values' }, desc: { tr: 'İçerik yakında eklenecek.', en: 'Content coming soon.' } },
 ];
 
 const FALLBACK_TEAM = [
@@ -58,13 +58,17 @@ const About = () => {
           </Reveal>
 
           {/* Değerler */}
-          <Reveal style={{ marginBottom: '48px' }}>
-            <h2 className="h2-section text-center">{valuesTitle}</h2>
+          <Reveal>
+            <h2 className="h2-section text-center" style={{ marginBottom: '48px' }}>{valuesTitle}</h2>
           </Reveal>
           <div className="about-values">
             {values.map((v, i) => (
               <Reveal key={i} delay={i * 0.1} className="about-value-card">
-                {v.icon && <div className="about-value-icon">{v.icon}</div>}
+                {v.icon?.asset && (
+                  <div className="about-value-icon">
+                    <img src={urlFor(v.icon).width(48).height(48).url()} alt="" />
+                  </div>
+                )}
                 <h4 className="about-value-title">{localize(v.title)}</h4>
                 <p className="about-value-desc">{localize(v.desc)}</p>
               </Reveal>
@@ -79,7 +83,7 @@ const About = () => {
             <div className="about-team-grid">
               {team.map((member, i) => (
                 <Reveal key={i} delay={i * 0.1} className="about-team-card">
-                  {member.avatar
+                  {member.avatar?.asset
                     ? <img className="about-team-avatar" src={urlFor(member.avatar).width(200).height(200).url()} alt={member.name} />
                     : <div className="about-team-avatar" />
                   }
