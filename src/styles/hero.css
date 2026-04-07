@@ -172,10 +172,10 @@
 
 .tagline-text {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  font-weight: var(--fw-h1);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
   color: var(--text-primary);
   max-width: 900px;
   margin: 0 auto;
