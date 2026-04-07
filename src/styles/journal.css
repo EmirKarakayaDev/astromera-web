@@ -162,7 +162,7 @@
   line-height: var(--lh-btn);
   font-weight: var(--fw-btn);
   letter-spacing: var(--ls-btn);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   text-align: center;
   border: 2px solid var(--btn-bg);
   cursor: pointer;
