@@ -61,9 +61,7 @@ const About = () => {
 
         <div className="container" style={{ maxWidth: '800px' }}>
           <Reveal className="about-header">
-            <p className="section-label">{language === 'tr' ? 'Hakkımızda' : 'About'}</p>
             <h1 className="h2-section">{title}</h1>
-            {subtitle && <p className="p-large">{subtitle}</p>}
           </Reveal>
 
           {body && (
