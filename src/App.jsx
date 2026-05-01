@@ -192,7 +192,8 @@ function App() {
       cancelAnimationFrame(rafId);
       lenis.destroy();
       window.lenis = null;
-    }, [location.pathname]);
+    };
+  }, [location.pathname]);
 
   return (
     <SiteSettingsProvider>
