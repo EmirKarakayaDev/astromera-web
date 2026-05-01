@@ -137,7 +137,24 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true);
 
+  const location = useLocation();
+
   useEffect(() => {
+    // Check if we are in the admin panel
+    const isAdmin = location.pathname.startsWith('/admin');
+    
+    // If we are in admin, don't initialize Lenis
+    if (isAdmin) {
+      if (window.lenis) {
+        window.lenis.destroy();
+        window.lenis = null;
+      }
+      return;
+    }
+
+    // Don't re-initialize if it already exists
+    if (window.lenis) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -164,20 +181,21 @@ function App() {
 
     let rafId;
     function raf(time) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
+      if (lenis) {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
     }
 
     rafId = requestAnimationFrame(raf);
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
-    };
-  }, []);
+      window.lenis = null;
+    }, [location.pathname]);
 
   return (
-    <BrowserRouter>
-      <SiteSettingsProvider>
+    <SiteSettingsProvider>
         <ScrollToTop />
         <AppRoutes
           isMenuOpen={isMenuOpen}
@@ -185,7 +203,6 @@ function App() {
           isNavVisible={isNavVisible}
         />
       </SiteSettingsProvider>
-    </BrowserRouter>
   );
 }
 
