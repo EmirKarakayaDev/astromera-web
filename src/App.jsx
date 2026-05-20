@@ -57,10 +57,10 @@ const MainLayout = ({ children, isMenuOpen, setIsMenuOpen, isNavVisible }) => {
 
   return (
     <div className="app">
-      <Navbar
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-        isNavVisible={isNavVisible}
+      <Navbar 
+        isMenuOpen={isMenuOpen} 
+        setIsMenuOpen={setIsMenuOpen} 
+        isNavVisible={isNavVisible} 
       />
       <main>{children}</main>
       <Footer key={pathname} />
@@ -142,7 +142,7 @@ function App() {
   useEffect(() => {
     // Check if we are in the admin panel
     const isAdmin = location.pathname.startsWith('/admin');
-
+    
     // If we are in admin, don't initialize Lenis
     if (isAdmin) {
       if (window.lenis) {
@@ -197,13 +197,13 @@ function App() {
 
   return (
     <SiteSettingsProvider>
-      <ScrollToTop />
-      <AppRoutes
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-        isNavVisible={isNavVisible}
-      />
-    </SiteSettingsProvider>
+        <ScrollToTop />
+        <AppRoutes
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          isNavVisible={isNavVisible}
+        />
+      </SiteSettingsProvider>
   );
 }
 
