@@ -45,7 +45,7 @@ export default defineType({
       group: 'meta',
       options: { source: 'title.en', maxLength: 96 },
       validation: Rule => Rule.required(),
-      description: 'Sayfa URL yolu. Örn: "privacy-policy" → /legal/privacy-policy',
+      description: 'Sadece kısa kelime gir. Örn: "kvkk", "privacy-policy", "terms-and-conditions"',
     }),
     defineField({
       name: 'subtitle',
