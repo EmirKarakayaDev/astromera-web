@@ -13,11 +13,17 @@ const Blog = lazy(() => import('./pages/Blog'));
 const Pricing = lazy(() => import('./pages/Pricing'));
 const Contact = lazy(() => import('./pages/Contact'));
 const BlogDetail = lazy(() => import('./pages/BlogDetail'));
-const StudioPage = lazy(() => import('./pages/StudioPage'));
 const LegalPage = lazy(() => import('./pages/LegalPage'));
 const Reports = lazy(() => import('./pages/Reports'));
 const ReportDetail = lazy(() => import('./pages/ReportDetail'));
 const About = lazy(() => import('./pages/About'));
+
+const AdminRedirect = () => {
+  useEffect(() => {
+    window.location.href = 'https://astromera.sanity.studio/';
+  }, []);
+  return null;
+};
 
 // Swiper styles
 import 'swiper/css';
@@ -113,7 +119,7 @@ const AppRoutes = ({ isMenuOpen, setIsMenuOpen, isNavVisible }) => {
           <Route path="/privacy.html" element={<Navigate to="/tr/legal/privacy-policy" replace />} />
           <Route path="/cookies.html" element={<Navigate to="/tr/legal/cookies" replace />} />
           <Route path="/terms.html" element={<Navigate to="/tr/legal/terms-and-conditions" replace />} />
-          <Route path="/admin/*" element={<StudioPage />} />
+          <Route path="/admin/*" element={<AdminRedirect />} />
           <Route path="/:lang">
             <Route index element={<Home />} />
             {visibility.showBlogPage && <Route path="blog" element={<Blog />} />}
